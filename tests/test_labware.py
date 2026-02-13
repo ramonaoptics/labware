@@ -154,14 +154,14 @@ def test_valid_alignment_reference():
     """Test creating valid alignment reference."""
     alignment = AlignmentReference(
         origin_reference="A1 well center",
-        x_offset_from_left_edge=0.01438,  # 14.38mm from left edge
-        y_offset_from_top_edge=0.01124,   # 11.24mm from top edge
+        offset_from_left_edge=0.01438,  # 14.38mm from left edge
+        offset_from_top_edge=0.01124,   # 11.24mm from top edge
         z_reference="top surface of plate"
     )
 
     assert alignment.origin_reference == "A1 well center"
-    assert alignment.x_offset_from_left_edge == 0.01438
-    assert alignment.y_offset_from_top_edge == 0.01124
+    assert alignment.offset_from_left_edge == 0.01438
+    assert alignment.offset_from_top_edge == 0.01124
     assert alignment.z_reference == "top surface of plate"
     assert alignment.owl_settings_type == "labware_alignment_reference"
 
@@ -194,8 +194,8 @@ def test_labware_creation():
         ),
         alignment_reference=AlignmentReference(
             origin_reference="A1 well center",
-            x_offset_from_left_edge=0.01438,
-            y_offset_from_top_edge=0.01124,
+            offset_from_left_edge=0.01438,
+            offset_from_top_edge=0.01124,
             z_reference="top surface of plate"
         )
     )
@@ -206,7 +206,7 @@ def test_labware_creation():
     assert labware.well_dimensions.rows == 8
     assert labware.well_dimensions.columns == 12
     assert labware.well_dimensions.bottom_shape == "u"
-    assert labware.owl_settings_type == "plate_definition"
+    assert labware.owl_settings_type == "labware"
 
 
 def test_valid_384_well_plate():
@@ -230,8 +230,8 @@ def test_valid_384_well_plate():
 
     alignment = AlignmentReference(
         origin_reference="A1 well center",
-        x_offset_from_left_edge=0.01438,
-        y_offset_from_top_edge=0.01124,
+        offset_from_left_edge=0.01438,
+        offset_from_top_edge=0.01124,
         z_reference="top surface of plate"
     )
 
@@ -276,8 +276,8 @@ def test_labware_without_notes():
     )
     alignment = AlignmentReference(
         origin_reference="A1 well center",
-        x_offset_from_left_edge=0.01438,
-        y_offset_from_top_edge=0.01124,
+        offset_from_left_edge=0.01438,
+        offset_from_top_edge=0.01124,
         z_reference="top surface"
     )
 
@@ -310,8 +310,8 @@ def test_labware_well_count_consistency():
     )
     alignment = AlignmentReference(
         origin_reference="A1 well center",
-        x_offset_from_left_edge=0.01438,
-        y_offset_from_top_edge=0.01124,
+        offset_from_left_edge=0.01438,
+        offset_from_top_edge=0.01124,
         z_reference="top surface"
     )
 
@@ -343,8 +343,8 @@ def test_labware_serialization():
     )
     alignment = AlignmentReference(
         origin_reference="A1 well center",
-        x_offset_from_left_edge=0.01438,
-        y_offset_from_top_edge=0.01124,
+        offset_from_left_edge=0.01438,
+        offset_from_top_edge=0.01124,
         z_reference="top surface of plate"
     )
 
@@ -386,8 +386,8 @@ def test_labware_json_serialization():
     )
     alignment = AlignmentReference(
         origin_reference="A1 well center",
-        x_offset_from_left_edge=0.01438,
-        y_offset_from_top_edge=0.01124,
+        offset_from_left_edge=0.01438,
+        offset_from_top_edge=0.01124,
         z_reference="top surface"
     )
 
@@ -459,8 +459,8 @@ def test_labware_validation_invalid_well_shape():
             ),
             alignment_reference=AlignmentReference(
                 origin_reference="A1 well center",
-                x_offset_from_left_edge=0.01438,
-                y_offset_from_top_edge=0.01124,
+                offset_from_left_edge=0.01438,
+                offset_from_top_edge=0.01124,
                 z_reference="top surface of plate"
             )
         )
@@ -493,8 +493,8 @@ def test_common_plate_formats():
         )
         alignment = AlignmentReference(
             origin_reference="A1 well center",
-            x_offset_from_left_edge=plate_format["pitch"],
-            y_offset_from_top_edge=plate_format["pitch"],
+            offset_from_left_edge=plate_format["pitch"],
+            offset_from_top_edge=plate_format["pitch"],
             z_reference="top surface"
         )
 
@@ -556,11 +556,11 @@ def test_physical_constraints_assumptions():
 
 
 @parametrize('plate_file,expected_name,expected_wells,expected_rows,expected_columns', [
-    ('SBS_96_wellplate.json', 'SBS 96 well', 96, 8, 12),
-    ('SBS_384_wellplate.json', 'SBS 384 well', 384, 16, 24),
-    ('SBS_1536_wellplate.json', 'SBS 1536 well', 1536, 32, 48),
+    ('SBS_96_well_plate.json', 'SBS 96 well', 96, 8, 12),
+    ('SBS_384_well_plate.json', 'SBS 384 well', 384, 16, 24),
+    ('SBS_1536_well_plate.json', 'SBS 1536 well', 1536, 32, 48),
     ('Akura_384_spheroid_microplate.json', 'Akura 384 Spheroid Microplate', 384, 16, 24),
-    ('CellVis_24_wellplate.json', 'CellVis 24 well', 24, 4, 6),
+    ('CellVis_24_well_plate.json', 'CellVis 24 well', 24, 4, 6),
 ])
 def test_plate_definition_files_can_be_loaded(
     plate_file, expected_name, expected_wells, expected_rows, expected_columns
@@ -599,6 +599,6 @@ def test_plate_definition_files_can_be_loaded(
     assert labware.well_dimensions.bottom_shape in ["flat", "u", "v"]
 
     assert labware.alignment_reference.origin_reference == "A1 well center"
-    assert labware.alignment_reference.x_offset_from_left_edge >= 0
-    assert labware.alignment_reference.y_offset_from_top_edge >= 0
+    assert labware.alignment_reference.offset_from_left_edge >= 0
+    assert labware.alignment_reference.offset_from_top_edge >= 0
     assert labware.alignment_reference.z_reference

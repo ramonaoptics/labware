@@ -1,12 +1,12 @@
 {
-    "name": "SBS 96 well",
-    "number_of_wells": 96,
+    "name": "SBS 384 well",
+    "number_of_wells": 384,
     "manufacturer": "ANSI, SLAS",
     "author": "ANSI, SLAS",
     "last_updated": "2011-10-13T00:00:00Z",
     "part_number": "0000",
     "web_reference": "https://www.slas.org/SLAS/assets/File/public/standards/ANSI_SLAS_4-2004_WellPositions.pdf",
-    "__owl_settings_type__": "plate_definition",
+    "__owl_settings_type__": "labware",
     "__owl_version__": "0.19.287",
 
     "outer_plate_dimensions": {
@@ -18,28 +18,26 @@
     },
 
     "well_dimensions": {
-        "pitch": 0.009,
-        "rows": 8,
-        "columns": 12,
+        "pitch": 0.0045,
+        "rows": 16,
+        "columns": 24,
         "shape": "circle",
-        "diameter": 0.0064,
-        "depth": 0.0107,
+        "diameter": 0.0036,
+        "depth": 0.011,
 
-        "bottom_shape": "u",
+        "bottom_shape": "flat",
         "__owl_settings_type__": "labware_well_dimensions",
         "__owl_version__": "0.19.287"
     },
 
     "alignment_reference": {
         "origin_reference": "A1 well center",
-        "x_offset_from_left_edge": 0.01438,
-        "y_offset_from_top_edge": 0.01124,
+        "offset_from_left_edge": 0.01213,
+        "offset_from_top_edge": 0.00899,
         "z_reference": "top surface of plate",
         "__owl_settings_type__": "labware_alignment_reference",
         "__owl_version__": "0.19.287"
     },
 
-
-
-    "notes": "Dimensions are in meters per ANSI/SLAS 1-2004 standard. Use 'well_pitch' and origin reference to compute all well centers."
+    "notes": "Dimensions are in meters. Use 'pitch' and origin reference to compute all well centers."
 }

@@ -92,11 +92,11 @@ class AlignmentReference(RamonaBaseModel):
         description="Reference point for the origin (standardized to A1 well center)"
     )
 
-    x_offset_from_left_edge: float = Field(
+    offset_from_left_edge: float = Field(
         description="X offset from the left edge of the plate in meters"
     )
 
-    y_offset_from_top_edge: float = Field(
+    offset_from_top_edge: float = Field(
         description="Y offset from the top edge of the plate in meters"
     )
 
@@ -113,8 +113,8 @@ class Labware(RamonaBaseModel):
         title="Labware Definition",
     )
 
-    owl_settings_type: Literal["plate_definition"] = Field(
-        "plate_definition",
+    owl_settings_type: Literal["labware"] = Field(
+        "labware",
         alias='__owl_settings_type__',
     )
 
