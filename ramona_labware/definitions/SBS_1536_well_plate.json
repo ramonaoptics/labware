@@ -6,7 +6,7 @@
     "last_updated": "2011-10-13T00:00:00Z",
     "part_number": "0000",
     "web_reference": "https://www.slas.org/SLAS/assets/File/public/standards/ANSI_SLAS_4-2004_WellPositions.pdf",
-    "__owl_settings_type__": "plate_definition",
+    "__owl_settings_type__": "labware",
     "__owl_version__": "0.19.287",
 
     "outer_plate_dimensions": {
@@ -32,8 +32,8 @@
 
     "alignment_reference": {
         "origin_reference": "A1 well center",
-        "x_offset_from_left_edge": 0.011005,
-        "y_offset_from_top_edge": 0.007865,
+        "offset_from_left_edge": 0.011005,
+        "offset_from_top_edge": 0.007865,
         "z_reference": "top surface of plate",
         "__owl_settings_type__": "labware_alignment_reference",
         "__owl_version__": "0.19.287"
