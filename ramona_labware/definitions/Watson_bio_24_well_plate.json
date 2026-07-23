@@ -22,7 +22,7 @@
         "rows": 4,
         "columns": 6,
         "shape": "circle",
-        "diameter": 0.0155,
+        "diameter": 0.016,
         "depth": 0.0175,
 
         "bottom_shape": "flat",
@@ -32,8 +32,8 @@
 
     "alignment_reference": {
         "origin_reference": "A1 well center",
-        "offset_from_left_edge": 0.0185,
-        "offset_from_top_edge": 0.0154,
+        "offset_from_left_edge": 0.019,
+        "offset_from_top_edge": 0.0158,
         "z_reference": "top surface of plate",
         "__owl_settings_type__": "labware_alignment_reference",
         "__owl_version__": "0.19.287"
