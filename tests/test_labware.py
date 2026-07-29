@@ -561,6 +561,17 @@ def test_physical_constraints_assumptions():
     ('SBS_1536_well_plate.json', 'SBS 1536 well', 1536, 32, 48),
     ('Akura_384_spheroid_microplate.json', 'Akura 384 Spheroid Microplate', 384, 16, 24),
     ('CellVis_24_well_plate.json', 'CellVis 24 well', 24, 4, 6),
+    ('Corning_costar_6_well_plate.json', 'Corning Costar 6 well', 6, 2, 3),
+    ('Corning_costar_12_well_plate.json', 'Corning Costar 12 well', 12, 3, 4),
+    ('Corning_costar_24_well_plate.json', 'Corning Costar 24 well', 24, 4, 6),
+    ('Watson_bio_24_well_plate.json', 'Watson Bio 24 well', 24, 4, 6),
+    ('Corning_3599_96_well_plate.json', 'Corning 3599 96 well', 96, 8, 12),
+    ('Corning_3610_96_well_plate.json', 'Corning 3610 96 well', 96, 8, 12),
+    ('Thermo_nunc_167008_96_well_plate.json', 'Thermo Nunc 167008 96 well', 96, 8, 12),
+    ('Greiner_655090_96_well_plate.json', 'Greiner CELLSTAR 655090 96 well', 96, 8, 12),
+    ('Greiner_655161_96_well_plate.json', 'Greiner 655161 96 well', 96, 8, 12),
+    ('Revvity_phenoplate_96_well_plate.json', 'Revvity PhenoPlate 96 well', 96, 8, 12),
+    ('Revvity_phenoplate_384_well_plate.json', 'Revvity PhenoPlate 384 well', 384, 16, 24),
 ])
 def test_plate_definition_files_can_be_loaded(
     plate_file, expected_name, expected_wells, expected_rows, expected_columns
