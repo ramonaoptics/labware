@@ -572,6 +572,8 @@ def test_physical_constraints_assumptions():
     ('Greiner_655161_96_well_plate.json', 'Greiner 655161 96 well', 96, 8, 12),
     ('Revvity_phenoplate_96_well_plate.json', 'Revvity PhenoPlate 96 well', 96, 8, 12),
     ('Revvity_phenoplate_384_well_plate.json', 'Revvity PhenoPlate 384 well', 384, 16, 24),
+    ('Greiner_783092_1536_well_plate.json', 'Greiner CELLSTAR 783092 1536 well', 1536, 32, 48),
+    ('Genesee_25-105_6_well_plate.json', 'Genesee GenClone 25-105 6 well', 6, 2, 3),
 ])
 def test_plate_definition_files_can_be_loaded(
     plate_file, expected_name, expected_wells, expected_rows, expected_columns
