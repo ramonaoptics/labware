@@ -579,6 +579,7 @@ def test_physical_constraints_assumptions():
      'InSphero Gri3D Imaging GRI3D-96IBI-S 96 well', 96, 8, 12),
     ('InSphero_GRI3D-96P_96_well_plate.json',
      'InSphero Gri3D Plastic GRI3D-96P-S 96 well', 96, 8, 12),
+    ('TPP_92424_24_well_plate.json', 'TPP 92424 24 well', 24, 4, 6),
 ])
 def test_plate_definition_files_can_be_loaded(
     plate_file, expected_name, expected_wells, expected_rows, expected_columns
