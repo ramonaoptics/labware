@@ -569,6 +569,8 @@ def test_physical_constraints_assumptions():
     ('Corning_3599_96_well_plate.json', 'Corning 3599 96 well', 96, 8, 12),
     ('Corning_3610_96_well_plate.json', 'Corning 3610 96 well', 96, 8, 12),
     ('Thermo_nunc_167008_96_well_plate.json', 'Thermo Nunc 167008 96 well', 96, 8, 12),
+    ('Thermo_nunc_142475_24_well_plate.json', 'Thermo Nunc 142475 24 well', 24, 4, 6),
+    ('Thermo_nunc_142485_24_well_plate.json', 'Thermo Nunc 142485 24 well', 24, 4, 6),
     ('Greiner_655090_96_well_plate.json', 'Greiner CELLSTAR 655090 96 well', 96, 8, 12),
     ('Greiner_655161_96_well_plate.json', 'Greiner 655161 96 well', 96, 8, 12),
     ('Revvity_phenoplate_96_well_plate.json', 'Revvity PhenoPlate 96 well', 96, 8, 12),
