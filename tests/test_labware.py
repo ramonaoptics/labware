@@ -597,6 +597,7 @@ def test_physical_constraints_assumptions():
      'Mimetas OrganoPlate Graft 6401-400-B 384 well', 384, 16, 24),
     ('Axion_M768-SPH-48B_48_well_plate.json',
      'Axion SpheroGuide MEA M768-SPH-48B 48 well', 48, 6, 8),
+    ('Corning_3764_384_well_plate.json', 'Corning 3764 384 well', 384, 16, 24),
 ])
 def test_plate_definition_files_can_be_loaded(
     plate_file, expected_name, expected_wells, expected_rows, expected_columns
