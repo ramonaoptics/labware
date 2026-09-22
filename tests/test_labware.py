@@ -570,6 +570,7 @@ def test_physical_constraints_assumptions():
     ('Corning_3610_96_well_plate.json', 'Corning 3610 96 well', 96, 8, 12),
     ('Corning_3601_96_well_plate.json', 'Corning 3601 96 well', 96, 8, 12),
     ('Thermo_nunc_167008_96_well_plate.json', 'Thermo Nunc 167008 96 well', 96, 8, 12),
+    ('Thermo_nunc_165305_96_well_plate.json', 'Thermo Nunc 165305 96 well', 96, 8, 12),
     ('Thermo_nunc_142475_24_well_plate.json', 'Thermo Nunc 142475 24 well', 24, 4, 6),
     ('Thermo_nunc_142485_24_well_plate.json', 'Thermo Nunc 142485 24 well', 24, 4, 6),
     ('Greiner_655090_96_well_plate.json', 'Greiner CELLSTAR 655090 96 well', 96, 8, 12),

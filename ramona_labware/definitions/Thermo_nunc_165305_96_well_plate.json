@@ -1,0 +1,42 @@
+{
+    "name": "Thermo Nunc 165305 96 well",
+    "number_of_wells": 96,
+    "manufacturer": "Thermo Fisher Scientific",
+    "author": "Ramona Optics",
+    "last_updated": "2026-09-21T00:00:00Z",
+    "part_number": "165305",
+    "web_reference": "https://assets.fishersci.com/TFS-Assets/LSG/manuals/D03013.pdf",
+    "__owl_settings_type__": "labware",
+    "__owl_version__": "0.19.613",
+
+    "outer_plate_dimensions": {
+        "length": 0.12776,
+        "width": 0.08547,
+        "height": 0.01486,
+        "__owl_settings_type__": "labware_outer_dimensions",
+        "__owl_version__": "0.19.613"
+    },
+
+    "well_dimensions": {
+        "pitch": 0.009,
+        "rows": 8,
+        "columns": 12,
+        "shape": "circle",
+        "diameter": 0.00645,
+        "depth": 0.01214,
+        "bottom_shape": "flat",
+        "__owl_settings_type__": "labware_well_dimensions",
+        "__owl_version__": "0.19.613"
+    },
+
+    "alignment_reference": {
+        "origin_reference": "A1 well center",
+        "offset_from_left_edge": 0.01432,
+        "offset_from_top_edge": 0.01125,
+        "z_reference": "top surface of plate",
+        "__owl_settings_type__": "labware_alignment_reference",
+        "__owl_version__": "0.19.613"
+    },
+
+    "notes": "Thermo Scientific Nunc 96-Well Optical-Bottom Microplate with polymer base, black frame with clear optical bottom, cell-culture (TC) treated, sterile, supplied with a lid, 10 per pack / 30 per case. Every dimension below is transcribed from Thermo Fisher product specification sheet PSS 1653XX rev 0211, 'Nunc 96-Well, PS, Optical Bottom Plate' (document D03013), which tabulates 165305 explicitly in its catalogue-number table. Units in meters; the sheet gives inch, mm and micron columns, and the micron column is the one used here because it is the least rounded. Base length 127.76 mm (A), base width 85.47 mm (B), overall plate height without lid 14.86 mm (F). Top-of-skirt dimensions, not stored here, are 123.7 x 81.7 mm (C, D) with a 6.2 mm flange height (E). Well-to-well spacing 9.0 mm (M); the sheet dimensions the spacing once, so the 9 mm y pitch is not separately vendor-confirmed, but it is implied by H/J and K/L. A1 well center is 14.32 mm from the left edge (H, x axis) and 11.25 mm from the top edge (J, y axis). Well top diameter 6.45 mm (G1), bottom diameter 6.3 mm (G2), inside well depth 12.14 mm (N), flat bottom. Maximum well volume 400 uL, working volume 50-200 uL, material polystyrene. The optical bottom is a 0.25 mm (0.010 in) polystyrene polymer film, called out in the sectional view of the well; the sheet's P minus Q (inside well bottom to resting plane 2.2 mm, outside well bottom to resting plane 1.98 mm) independently implies 0.22 mm, so 0.25 mm is the film's nominal thickness and 1.98 mm is the standoff from the resting plane to the outside of the optical bottom. The sheet's own numbers round inconsistently in one place: J + 7 x M = 74.25 mm but the H12 y location L is printed as 74.27 mm, a 0.02 mm disagreement that is below anything the stage resolves; H + 11 x M = 113.32 mm agrees with K exactly. The sheet cites ANSI/SBS 1-2004, 2-2004, 3-2004 (medium height) and 4-2004 against the footprint, height and well-location rows. Sibling catalogue numbers on the same mould and the same sheet, differing only in surface and color: 165306 (cell culture, white), 152036 / 152040 (collagen I, black / white), 152028 / 152037 (poly-D-lysine, white / black), 265301 / 265302 (non-treated, black / white). The glass-bottom counterpart is a different mould on drawing D03021 and does not apply here. Note that D03012 ('96-Well, PS, Flat Bottom Plate, Pinch Bar') and D03031 (used for 167008) are different moulds. Use 'pitch' and the origin reference to compute all well centers."
+}
