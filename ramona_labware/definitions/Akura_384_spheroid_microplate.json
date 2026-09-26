@@ -25,7 +25,7 @@
         "diameter": 0.001,
         "depth": 0.01171,
 
-        "bottom_shape": "u",
+        "bottom_shape": "flat",
         "__owl_settings_type__": "labware_well_dimensions",
         "__owl_version__": "0.19.287"
     },
