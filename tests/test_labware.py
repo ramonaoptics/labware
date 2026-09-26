@@ -601,6 +601,8 @@ def test_physical_constraints_assumptions():
     ('Corning_3764_384_well_plate.json', 'Corning 3764 384 well', 384, 16, 24),
     ('Ibidi_82426_24_well_plate.json', 'Ibidi mu-Plate 82426 24 well', 24, 4, 6),
     ('Ibidi_80636_6_well_plate.json', 'Ibidi mu-Plate 80636 6 well', 6, 2, 3),
+    ('Corning_3830_384_well_plate.json',
+     'Corning 3830 384 well spheroid', 384, 16, 24),
 ])
 def test_plate_definition_files_can_be_loaded(
     plate_file, expected_name, expected_wells, expected_rows, expected_columns
