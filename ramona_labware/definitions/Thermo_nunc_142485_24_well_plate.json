@@ -3,9 +3,10 @@
     "number_of_wells": 24,
     "manufacturer": "Thermo Fisher Scientific",
     "author": "Ramona Optics",
-    "last_updated": "2026-08-27T00:00:00Z",
+    "last_updated": "2026-09-28T01:23:37Z",
     "part_number": "142485",
-    "web_reference": "https://documents.thermofisher.com/TFS-Assets/LCD/Schematics-&-Diagrams/142485-144530_0508.PDF",
+    "web_reference": "https://www.thermofisher.com/order/catalog/product/142485",
+    "drawing_reference": "https://documents.thermofisher.com/TFS-Assets/LCD/Schematics-&-Diagrams/142485-144530_0508.PDF",
     "__owl_settings_type__": "labware",
     "__owl_version__": "0.19.595",
     "outer_plate_dimensions": {

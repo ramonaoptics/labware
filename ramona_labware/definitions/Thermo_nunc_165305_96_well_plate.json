@@ -3,9 +3,10 @@
     "number_of_wells": 96,
     "manufacturer": "Thermo Fisher Scientific",
     "author": "Ramona Optics",
-    "last_updated": "2026-09-21T00:00:00Z",
+    "last_updated": "2026-09-28T01:23:37Z",
     "part_number": "165305",
-    "web_reference": "https://assets.fishersci.com/TFS-Assets/LSG/manuals/D03013.pdf",
+    "web_reference": "https://www.thermofisher.com/order/catalog/product/165305",
+    "drawing_reference": "https://documents.thermofisher.com/TFS-Assets/LCD/Schematics-&-Diagrams/1653xx_0713.pdf",
     "__owl_settings_type__": "labware",
     "__owl_version__": "0.19.613",
 
