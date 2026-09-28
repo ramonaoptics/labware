@@ -606,6 +606,20 @@ def test_physical_constraints_assumptions():
     ('Corning_3830_384_well_plate.json',
      'Corning 3830 384 well spheroid', 384, 16, 24),
     ('Thermo_nunc_150628_12_well_plate.json', 'Thermo Nunc 150628 12 well multidish', 12, 3, 4),
+    ('Ramona_petri_dish_insert_30_mm.json', 'Ramona Petri Dish Insert 30 mm', 1, 1, 1),
+    ('Ramona_petri_dish_insert_35_mm.json', 'Ramona Petri Dish Insert 35 mm', 1, 1, 1),
+    ('Ramona_petri_dish_insert_40_mm.json', 'Ramona Petri Dish Insert 40 mm', 1, 1, 1),
+    ('Ramona_petri_dish_insert_45_mm.json', 'Ramona Petri Dish Insert 45 mm', 1, 1, 1),
+    ('Ramona_petri_dish_insert_50_mm.json', 'Ramona Petri Dish Insert 50 mm', 1, 1, 1),
+    ('Ramona_petri_dish_insert_55_mm.json', 'Ramona Petri Dish Insert 55 mm', 1, 1, 1),
+    ('Ramona_petri_dish_insert_60_mm.json', 'Ramona Petri Dish Insert 60 mm', 1, 1, 1),
+    ('Ramona_petri_dish_insert_65_mm.json', 'Ramona Petri Dish Insert 65 mm', 1, 1, 1),
+    ('Ramona_petri_dish_insert_70_mm.json', 'Ramona Petri Dish Insert 70 mm', 1, 1, 1),
+    ('Ramona_petri_dish_insert_75_mm.json', 'Ramona Petri Dish Insert 75 mm', 1, 1, 1),
+    ('Ramona_petri_dish_insert_80_mm.json', 'Ramona Petri Dish Insert 80 mm', 1, 1, 1),
+    ('Ramona_petri_dish_insert_85_mm.json', 'Ramona Petri Dish Insert 85 mm', 1, 1, 1),
+    ('Ramona_petri_dish_insert_90_mm.json', 'Ramona Petri Dish Insert 90 mm', 1, 1, 1),
+    ('Ramona_petri_dish_insert_95_mm.json', 'Ramona Petri Dish Insert 95 mm', 1, 1, 1),
 ])
 def test_plate_definition_files_can_be_loaded(
     plate_file, expected_name, expected_wells, expected_rows, expected_columns
