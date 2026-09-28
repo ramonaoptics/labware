@@ -1,0 +1,69 @@
+{
+    "name": "Akura 96 Spheroid Microplate",
+    "number_of_wells": 96,
+    "manufacturer": "InSphero AG",
+    "author": "Ramona Optics",
+    "last_updated": "2026-09-27T00:18:31Z",
+    "part_number": "CS-PB13/15",
+    "web_reference": "https://insphero.com/3d-cell-culture-tools/akura-96-spheroid-microplate/",
+    "drawing_reference": "https://insphero.com/wp-content/uploads/2023/09/Akura%E2%84%A2-96-Spheroid-Microplate-Technical-Specifications.pdf",
+    "applications": [
+        "3D culture",
+        "spheroids",
+        "organoids",
+        "tumor",
+        "liver",
+        "imaging"
+    ],
+    "__owl_settings_type__": "labware",
+    "__owl_version__": "0.19.619",
+
+    "outer_plate_dimensions": {
+        "length": 0.12776,
+        "width": 0.08548,
+        "height": 0.01435,
+        "height_with_lid": 0.01535,
+        "skirt_height": 0.0025,
+        "__owl_settings_type__": "labware_outer_dimensions",
+        "__owl_version__": "0.19.619"
+    },
+
+    "well_dimensions": {
+        "pitch": 0.009,
+        "rows": 8,
+        "columns": 12,
+        "shape": "circle",
+        "top_shape": "circle",
+        "diameter": 0.001,
+        "diameter_top": 0.0067,
+        "depth": 0.01295,
+        "working_volume_min": 7e-05,
+        "working_volume_max": 8e-05,
+        "bottom_shape": "flat",
+        "bottom_color": "clear",
+        "bottom_material": "cyclo_olefin",
+        "bottom_thickness": 0.0008,
+        "bottom_elevation": 0.0004,
+        "floor_height": 0.0012,
+        "wall_material": "cyclo_olefin",
+        "wall_color": "clear",
+        "surface_treatments": [
+            "ultra-low attachment"
+        ],
+        "__owl_settings_type__": "labware_well_dimensions",
+        "__owl_version__": "0.19.619"
+    },
+
+    "alignment_reference": {
+        "origin_reference": "A1 well center",
+        "offset_from_left_edge": 0.01438,
+        "offset_from_top_edge": 0.01124,
+        "top_offset_from_left_edge": 0.01438,
+        "top_offset_from_top_edge": 0.01124,
+        "z_reference": "top surface of plate",
+        "__owl_settings_type__": "labware_alignment_reference",
+        "__owl_version__": "0.19.619"
+    },
+
+    "notes": "InSphero Akura 96 Spheroid Microplate, article CS-PB13 (5 plates) / CS-PB15 (20 plates): COP (cyclo-olefin polymer) plate with a polystyrene lid, ULA coated, sterile. Every dimension is from InSphero's Technical Specifications SPEC001, July 2023 (drawing_reference); the June 2023 edition of SPEC001 is the same plate but its table prints the well height as 12.75 mm, against 12.95 mm on its own drawing (Figure 4) and in the July table, so 12.95 is used. WELL SHAPE: a round 6.70 mm opening at the top ('Diameter well opening'; diameter_top, top_shape circle) narrowing in steps to a round 1.00 mm cavity with a flat, optically clear base ('Diameter well bottom', Figure 1B: 'the well diameter is exactly 1 mm'; diameter, shape circle, bottom_shape flat), for spheroids up to 750 um. The drawing shows the cavity centred under the opening, so the opening's centre (top_offset_from_left_edge, top_offset_from_top_edge) is the same as A1's, recorded explicitly. Height of well 12.95 mm (depth), plate height 14.35 mm (15.35 mm with the lid), skirt 0.4 mm, well bottom 0.8 mm thick; 0.4 + 0.8 + 12.95 = 14.15, 0.2 mm short of the plate height, and each value is recorded as printed. A1 centre 14.38 mm from the left edge and 11.24 mm from the top edge, pitch 9.00 mm (Figure 2). WALLS AND BOTTOM: the plate, walls and bottom alike, is clear COP (walls, bottom; the lid is polystyrene); bottom 0.8 mm thick, its underside 0.4 mm above the plane the plate rests on (the skirt height, bottom_elevation). No refractive index or wall thickness is published. SureXchange tip position: 1.71 mm horizontal offset, 9.86 mm below the plate top. Working volume 70-80 uL. Skirt height 2.50 mm from the side view in InSphero's specification (Figure 2); InSphero's own 'skirt height' of 0.4 mm is the well bottom's height above the resting plane, not the flange. Dimensions are in meters."
+}

@@ -560,6 +560,7 @@ def test_physical_constraints_assumptions():
     ('SBS_384_well_plate.json', 'SBS 384 well', 384, 16, 24),
     ('SBS_1536_well_plate.json', 'SBS 1536 well', 1536, 32, 48),
     ('Akura_384_spheroid_microplate.json', 'Akura 384 Spheroid Microplate', 384, 16, 24),
+    ('Akura_96_spheroid_microplate.json', 'Akura 96 Spheroid Microplate', 96, 8, 12),
     ('CellVis_24_well_plate.json', 'CellVis 24 well', 24, 4, 6),
     ('Corning_costar_6_well_plate.json', 'Corning Costar 6 well', 6, 2, 3),
     ('Corning_costar_12_well_plate.json', 'Corning Costar 12 well', 12, 3, 4),
@@ -604,6 +605,7 @@ def test_physical_constraints_assumptions():
     ('Ibidi_80636_6_well_plate.json', 'Ibidi mu-Plate 80636 6 well', 6, 2, 3),
     ('Corning_3830_384_well_plate.json',
      'Corning 3830 384 well spheroid', 384, 16, 24),
+    ('Thermo_nunc_150628_12_well_plate.json', 'Thermo Nunc 150628 12 well multidish', 12, 3, 4),
 ])
 def test_plate_definition_files_can_be_loaded(
     plate_file, expected_name, expected_wells, expected_rows, expected_columns
