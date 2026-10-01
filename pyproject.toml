@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ramona-labware"
+dynamic = ["version"]
+description = "Microplate and dish definitions: footprint, well geometry, skirt, material and vendor drawing"
+readme = "README.md"
+license = "BSD-3-Clause"
+license-files = ["LICENSE.txt"]
+authors = [{ name = "Ramona Optics", email = "jed@ramonaoptics.com" }]
+requires-python = ">=3.11"
+dependencies = ["pydantic>=2"]
+
+[project.urls]
+Homepage = "https://github.com/Ramona-OSS/labware"
+Viewer = "https://docs.ramonaoptics.com/tools/labware_viewer.html"
+
+[tool.setuptools]
+packages = ["ramona_labware"]
+
+[tool.setuptools.package-data]
+ramona_labware = ["definitions/*.json"]
+
+[tool.setuptools.dynamic]
+version = { attr = "ramona_labware.__version__" }

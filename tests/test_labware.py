@@ -4,7 +4,8 @@ from pathlib import Path
 import pytest
 from pydantic import ValidationError
 
-from owl.schemas.labware import AlignmentReference, Labware, OuterDimensions, WellDimensions
+import ramona_labware
+from ramona_labware import AlignmentReference, Labware, OuterDimensions, WellDimensions
 
 parametrize = pytest.mark.parametrize
 
@@ -625,9 +626,7 @@ def test_physical_constraints_assumptions():
 def test_plate_definition_files_can_be_loaded(
     plate_file, expected_name, expected_wells, expected_rows, expected_columns
 ):
-    import owl.instruments
-    instruments_path = Path(owl.instruments.__file__).parent
-    plate_definitions_path = instruments_path / "labware"
+    plate_definitions_path = Path(ramona_labware.__file__).parent / "definitions"
     plate_file_path = (plate_definitions_path / plate_file).resolve()
 
     assert plate_file_path.is_file(), f"Plate definition file {plate_file} not found"

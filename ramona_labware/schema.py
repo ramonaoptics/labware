@@ -1,12 +1,17 @@
+import json
 from datetime import datetime
 from typing import Literal, Optional
 
-from pydantic import ConfigDict, Field, model_validator
-
-from ._model import RamonaBaseModel
+from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 
-class OuterDimensions(RamonaBaseModel):
+class _LabwareModel(BaseModel):
+    # Fields carry python-owl's ``__owl_settings_type__`` aliases, so accept
+    # either spelling. Unknown keys such as ``__owl_version__`` are ignored.
+    model_config = ConfigDict(populate_by_name=True)
+
+
+class OuterDimensions(_LabwareModel):
     """
     Model describing the outer dimensions of a labware plate.
 
@@ -145,7 +150,7 @@ class OuterDimensions(RamonaBaseModel):
         return self
 
 
-class WellDimensions(RamonaBaseModel):
+class WellDimensions(_LabwareModel):
     """
     Model describing the dimensions and properties of wells in a labware plate.
     """
@@ -360,7 +365,7 @@ class WellDimensions(RamonaBaseModel):
         return self
 
 
-class AlignmentReference(RamonaBaseModel):
+class AlignmentReference(_LabwareModel):
     """
     Model describing the alignment reference points for a labware plate.
     """
@@ -415,7 +420,7 @@ class AlignmentReference(RamonaBaseModel):
     )
 
 
-class Labware(RamonaBaseModel):
+class Labware(_LabwareModel):
     """
     Model describing a complete labware definition including dimensions, wells, and alignment.
     """
@@ -507,6 +512,11 @@ class Labware(RamonaBaseModel):
         None,
         description="Additional notes about the labware definition"
     )
+
+    @classmethod
+    def model_validate_json_file(cls, file, *, encoding='utf-8'):
+        with open(file, encoding=encoding) as f:
+            return cls.model_validate(json.load(f))
 
     @model_validator(mode='after')
     def validate_well_count(self) -> 'Labware':
