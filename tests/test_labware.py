@@ -6,9 +6,11 @@ from typing import cast
 import pytest
 from pydantic import ValidationError
 
-import ramona_labware
-from ramona_labware import AlignmentReference, Labware, OuterDimensions, WellDimensions
-from ramona_labware.schema import SCHEMA_URL, json_schema
+import labware
+from labware import AlignmentReference, Labware, OuterDimensions, WellDimensions
+from labware.schema import SCHEMA_URL, json_schema
+
+PACKAGE_DIR = Path(labware.__file__).parent
 
 parametrize = pytest.mark.parametrize
 
@@ -836,7 +838,7 @@ def test_plate_definition_files_can_be_loaded(
     expected_rows: int,
     expected_columns: int,
 ) -> None:
-    plate_definitions_path = Path(ramona_labware.__file__).parent / "definitions"
+    plate_definitions_path = PACKAGE_DIR / "definitions"
     plate_file_path = (plate_definitions_path / plate_file).resolve()
 
     assert plate_file_path.is_file(), f"Plate definition file {plate_file} not found"
@@ -875,7 +877,7 @@ def test_plate_definition_files_can_be_loaded(
 
 @pytest.mark.parametrize(
     "plate_file",
-    sorted((Path(ramona_labware.__file__).parent / "definitions").glob("*.json")),
+    sorted((PACKAGE_DIR / "definitions").glob("*.json")),
     ids=lambda path: path.name,
 )
 def test_every_definition_file_validates(plate_file: Path) -> None:
@@ -883,7 +885,7 @@ def test_every_definition_file_validates(plate_file: Path) -> None:
 
 
 def test_definition_files_name_the_schema_version() -> None:
-    definitions = Path(ramona_labware.__file__).parent / "definitions"
+    definitions = PACKAGE_DIR / "definitions"
     for plate_file in definitions.glob("*.json"):
         assert json.loads(plate_file.read_text())["$schema"] == SCHEMA_URL, (
             plate_file.name
@@ -892,6 +894,6 @@ def test_definition_files_name_the_schema_version() -> None:
 
 def test_published_schema_matches_the_model() -> None:
     # Regenerate with:
-    # python -c "import json; from ramona_labware.schema import json_schema; print(json.dumps(json_schema(), indent=2))" > ramona_labware/labware.v1.schema.json  # noqa: E501
-    published = Path(ramona_labware.__file__).parent / "labware.v1.schema.json"
+    # python -c "import json; from labware.schema import json_schema; print(json.dumps(json_schema(), indent=2))" > labware/labware.v1.schema.json  # noqa: E501
+    published = PACKAGE_DIR / "labware.v1.schema.json"
     assert json.loads(published.read_text()) == json_schema()

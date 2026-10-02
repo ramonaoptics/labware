@@ -1,0 +1,35 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ramonaoptics/labware/main/labware/labware.v1.schema.json",
+    "name": "Corning 3764 384 well",
+    "number_of_wells": 384,
+    "manufacturer": "Corning Life Sciences",
+    "author": "Ramona Optics",
+    "last_updated": "2026-09-18T00:00:00Z",
+    "part_number": "3764",
+    "web_reference": "https://www.corning.com/catalog/cls/documents/drawings/MicroplateDimensions96-384-1536.pdf",
+
+    "outer_plate_dimensions": {
+        "length": 0.12776,
+        "width": 0.08548,
+        "height": 0.01435
+    },
+
+    "well_dimensions": {
+        "pitch": 0.0045,
+        "rows": 16,
+        "columns": 24,
+        "shape": "square",
+        "diameter": 0.00363,
+        "depth": 0.01156,
+        "bottom_shape": "flat"
+    },
+
+    "alignment_reference": {
+        "origin_reference": "A1 well center",
+        "offset_from_left_edge": 0.01213,
+        "offset_from_top_edge": 0.00899,
+        "z_reference": "top surface of plate"
+    },
+
+    "notes": "Corning 384 well flat clear bottom black polystyrene TC-treated microplate, low flange, 20 per bag, with lid, sterile (gamma irradiated, nonpyrogenic). Units in meters. Dimensions transcribed from the Corning 'Microplate Dimensions 96/384/1536' sheet, row '384 well flat bottom' under the heading 'Black/white with clear bottom, polystyrene plates'; that row names 3764 explicitly. Corning publishes no per-catalogue DWG drawing for its assay plates, so this family sheet is the controlling document. Cross-checked against the per-catalogue Corning Product Description for 3764 (Revision 3, Mar 15 2026, certs-ecatalog.corning.com/life-sciences/product-descriptions/3764.pdf), which is imperial with a coarse +/- 0.010 in tolerance and agrees on every dimension it carries: plate 5.030 x 3.365 in (127.76 x 85.47 mm), well depth 0.455 in (11.557 mm), square well width 0.143 in (3.632 mm) at top and 0.111 in (2.819 mm) at bottom. WELLS ARE SQUARE, not round: the dimension sheet annotates this row '3.63 / 2.82 (width)' and the Product Description says 'Width of Square Well'. Per the registry convention 'diameter' carries the TOP width, 3.63 mm; the bottom width is 2.82 mm. Well depth 11.56 mm, flat bottom, pitch 4.5 mm, 16 rows x 24 columns. A1 well center 12.13 mm from the left edge (Corning's 'A1 Column Offset') and 8.99 mm from the top edge (Corning's 'A1 Row Offset'); those are the ANSI/SLAS 4-2004 384-well positions and they close symmetrically against the footprint to 12.13 mm and 8.99 mm far margins. Plate height 14.35 mm is the sheet's value for this clear-bottom row and is lid-OFF; the Product Description's 0.660 in (16.76 mm) is height WITH LID and is not what z_reference means here. Footprint 127.76 x 85.48 mm is the precise figure from the Corning and Falcon Microplates Selection Guide CLS-C-DL-MP-014REV9 (Corning states ANSI/SBS footprint conformance); the dimension sheet rounds it to 127.8 x 85.5. WELL BOTTOM: clear polystyrene, 0.635 mm thick, with the well bottom elevation 2.79 mm above the plate datum and the outside of the well floor 2.159 mm above it - that bottom thickness is the working-distance number and it differs from the solid-bottom 384-well plates on the row above (1.27 mm) and from the low-flange solid 3570-series (1.4 mm), so do not swap those definitions for this plate. Flange/skirt height 2.4 mm (low flange), stack height 13.08 mm, well bottom area 0.07 cm2. Total well volume 110.5 uL per the dimension sheet; the catalogue page and Product Description say 112 uL total, and they disagree on working volume (Product Description 20-75 uL, catalogue page 25-50 uL) - none of these feed the registry. Sibling catalogue numbers sharing this mould and row, differing in body colour, packaging and barcoding, are 3544, 3643, 3653, 3655, 3663, 3664, 3762, 3763, 3765, 3766, 3767, 3768, 3769, 3770, 4588, 4589, 4690 and 4696; 3764BC is the same plate bulk/barcode packaged. Registered as 3764 because that is the number the request named. Use 'pitch' and origin reference to compute all well centers."
+}

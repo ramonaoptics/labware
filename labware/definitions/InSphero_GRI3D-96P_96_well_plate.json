@@ -1,0 +1,35 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ramonaoptics/labware/main/labware/labware.v1.schema.json",
+    "name": "InSphero Gri3D Plastic GRI3D-96P-S 96 well",
+    "number_of_wells": 96,
+    "manufacturer": "InSphero AG",
+    "author": "Ramona Optics",
+    "last_updated": "2026-08-27T00:00:00Z",
+    "part_number": "GRI3D-96P-S-96",
+    "web_reference": "https://insphero.com/wp-content/uploads/2025/10/Technical-Specifications_Gri3D-Hydrogel-Microplates-Plastic.pdf",
+
+    "outer_plate_dimensions": {
+        "length": 0.12789,
+        "width": 0.0856,
+        "height": 0.01445
+    },
+
+    "well_dimensions": {
+        "pitch": 0.009,
+        "rows": 8,
+        "columns": 12,
+        "shape": "circle",
+        "diameter": 0.00686,
+        "depth": 0.0111,
+        "bottom_shape": "flat"
+    },
+
+    "alignment_reference": {
+        "origin_reference": "A1 well center",
+        "offset_from_left_edge": 0.01444,
+        "offset_from_top_edge": 0.0113,
+        "z_reference": "top surface of plate"
+    },
+
+    "notes": "Gri3D hydrogel microcavity plate, plastic variant (polystyrene bottom). All dimensions from InSphero technical specification SPEC015b, October 2025, 'Gri3D Hydrogel Microcavity Plate - Plastic'. Dimensions are in meters. Footprint L=127.89 mm with skirt (123.19 mm without), B=85.60 mm with skirt (80.99 mm without), S=14.45 mm without lid, skirt R=3.35 mm. A1 offsets are the seeding-chamber (main well) centre: X1=14.44 mm from the left edge, Y1=11.30 mm from the top edge; these are confirmed by the sheet's own far-well positions Xn=113.44=14.44+11x9.00 and Yn=74.30=11.30+7x9.00. Pitch 9.00 mm in both axes (P and Q). diameter is the top diameter of the seeding chamber, OD=6.86 mm; the ground (bottom) diameter Od is 5.40 mm, so the imageable microcavity array is contained within 5.40 mm. depth T=11.10 mm to the well bottom; the internal seeding ring sits at E=8.10 mm depth, seeding ring wall Z2=0.55 mm, wall from seeding ring to pipetting port Z1=1.10 mm. Each well also carries a separate pipetting port offset from the well centre, OD_pp=3.60 mm, cross section C_pp=2.60 mm, A1 pipetting port at X1_pp=18.14 mm from the left edge and Y1_pp=7.60 mm from the top edge, on the same 9.00 mm pitch; the schema has no field for a secondary port, so it is recorded here only. bottom_shape is flat: the well bottom is the flat 1 mm polystyrene bottom, and the U-shaped features are the PEG hydrogel microcavities patterned on top of it, not the moulded well bottom. Bottom thickness G=1 mm, material polystyrene, transparent; plate and lid material polystyrene; sterile, with lid. Distance from the bottom side of the well to the plate support C=2.35 mm, bottom from plate ground B=3.35 mm. Working volumes: 50 uL seeding chamber plus 150 uL pipetting port. The article number is written by InSphero as GRI3D-96P-S-96-400/500/600/800, where the trailing 400/500/600/800 selects the hydrogel microcavity diameter in um (121, 73, 55 and 31 microcavities per well respectively). That suffix changes only the hydrogel pattern, not the moulded plate, so one definition covers all four. The imaging-bottom sibling mould GRI3D-96IBI-S-96 (180 um COP bottom) is registered separately as InSphero_GRI3D-96IBI_96_well_plate.json and is identical apart from bottom material, bottom thickness and C. Note a vendor contradiction: the Gri3D product manual PM015 (October 2025) states the polystyrene bottom is 1.5 mm thick while this technical specification sheet gives 1 mm; the dimensioned specification sheet is followed here. Gri3D is described by InSphero as SLAS/ANSI standard, but its footprint (127.89 x 85.60 mm) and A1 offsets (14.44 / 11.30 mm) differ slightly from ANSI/SLAS 1-2004 and 4-2004 (127.76 x 85.48 mm, 14.38 / 11.24 mm); the vendor values are used."
+}

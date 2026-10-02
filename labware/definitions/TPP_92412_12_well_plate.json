@@ -1,0 +1,35 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ramonaoptics/labware/main/labware/labware.v1.schema.json",
+    "name": "TPP 92412 12 well",
+    "number_of_wells": 12,
+    "manufacturer": "Techno Plastic Products AG (TPP)",
+    "author": "Ramona Optics",
+    "last_updated": "2026-08-28T00:00:00Z",
+    "part_number": "92412",
+    "web_reference": "https://www.tpp.ch/page/downloads/IFU_TechDoc_Statement/TechDoc-Test-Plate-Measurements-EN.pdf",
+
+    "outer_plate_dimensions": {
+        "length": 0.1278,
+        "width": 0.0855,
+        "height": 0.0202
+    },
+
+    "well_dimensions": {
+        "pitch": 0.0249,
+        "rows": 3,
+        "columns": 4,
+        "shape": "circle",
+        "diameter": 0.0222,
+        "depth": 0.01695,
+        "bottom_shape": "flat"
+    },
+
+    "alignment_reference": {
+        "origin_reference": "A1 well center",
+        "offset_from_left_edge": 0.02655,
+        "offset_from_top_edge": 0.01785,
+        "z_reference": "top surface of plate"
+    },
+
+    "notes": "TPP tissue culture test plate, 12 round flat-bottom wells, clear polystyrene, TC-treated growth surface ('opto-mechanically treated' per TPP, with a flat growth surface intended for imaging), sterile (SAL 10-3, ISO 11137), non-pyrogenic (endotoxins < 0.06 EU/mL), supplied with a lid. Every dimension in this file is read from TPP's controlling datasheet 'TPP Tissue Culture Test Plate - Dimensions and Measurements', document 'TechDoc Test Plates Measurements 04/2026', published at web_reference; pages 3 and 4 of that document define the dimension symbols (X1/Y1 are the A1 well center measured from the left and top edges, P/Q are the horizontal and vertical well-to-well distances, T is the well depth from the top surface to the inner well floor, D is the well top diameter, d the ground diameter, G the bottom thickness and H the plate height without its lid) and pages 5-6 carry the per-format tables. PART NUMBER: the requester's plate is catalogue 92412, which TPP's ordering table lists as the multi-pack presentation (4 plates per bag, 72 per case) of the same 12-well mould as 92012 (1/bag, 126/case) and 92112 (small packaging unit, 1/bag, 42/case); all three rows carry identical growth area 3.464 cm^2, internal diameter 21.00 mm and 128 x 86 x 22 mm dimensions on https://www.tpp.ch/page/produkte/09_zellkultur_testplatte.php. The measurements datasheet tabulates the 12-well column under 92012 only, so the geometry here is that column, applied to 92412 on TPP's own statement that the three differ in packaging alone; any of the three can use this definition. Distributors write this number 'TP-92412' or 'TP 92412'. Units in meters. Measured values, in millimeters on the datasheet: footprint L = 127.8, B = 85.5; plate height without lid H = 20.2 (22.4 with the lid on, which is the rounded '22' the catalogue rows quote and is not modelled here; tolerance +/-0.1; stack height 19.2 without lid, 21.4 with); skirt R = 8.8. Well pitch P = Q = 24.9 in both directions; grid is 3 rows (A-C) x 4 columns (1-4) with A1 top-left. Well top diameter D = 22.2, recorded in 'diameter' per the top-diameter convention; well ground diameter d = 21.0 (this is the 'internal diameter' TPP quotes in its catalogue, and it is the number that reproduces the stated 3.464 cm^2 growth area: pi x (21.0/2)^2 = 346.4 mm^2); well depth T = 16.95; flat bottom. The depth and ground diameter cross-check exactly against the stated maximum well volume: pi x (21.0/2)^2 x 16.95 = 5871 mm^3 = 5.87 mL, which is the datasheet's 'max well volume 5.87 mL' to three significant figures. WORKING DISTANCE: bottom thickness G = 1.5 mm in polystyrene - note this is the one format in the table with a 1.5 mm bottom, where the 6-, 24- and 48-well plates are all 1.35 mm, so it is worth entering deliberately; the well floor sits B = 3.25 mm above the plate ground and C = 1.75 mm above the plate support surface. Recommended media volume 0.7-1.7 mL per well, maximum well volume 5.87 mL. A1 OFFSETS, and the one value here that is not copied literally from the table: the datasheet gives X1 = 26.55 and Y1 = 17.9, with last-well centers Xn = 101.25 and Yn = 67.65. X1 = 26.55 is exactly the centered value ((127.8 - 3 x 24.9) / 2 = 26.55) and is consistent with the tabulated Xn (26.55 + 3 x 24.9 = 101.25), so it is used as printed. Y1 as printed is NOT self-consistent: 17.9 + 2 x 24.9 = 67.7, not the tabulated Yn = 67.65, whereas the centered value (85.5 - 2 x 24.9) / 2 = 17.85 reproduces Yn = 67.65 exactly. 17.85 is therefore used. Two further reasons: every other format in the same table (6-, 24-, 48- and 96-well) is exactly centered vertically and self-consistent between Y1, Q and Yn, and 17.9 is exactly round(17.85, 1) - the 12-well column is the only one where TPP printed a vertical offset to one decimal place where two are needed. The discrepancy is 0.05 mm. This has not been checked against a plate in hand. Unlike TPP's 6- and 24-well columns, which put A1 2.0 mm left of center, the 12-well grid is centered in both axes. Use 'pitch' and origin reference to compute all well centers."
+}
