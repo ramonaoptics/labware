@@ -661,15 +661,6 @@ def test_plate_definition_files_can_be_loaded(
     assert labware.alignment_reference.z_reference
 
 
-@pytest.mark.parametrize(
-    "plate_file",
-    sorted((Path(ramona_labware.__file__).parent / "definitions").glob("*.json")),
-    ids=lambda path: path.name,
-)
-def test_every_definition_file_validates(plate_file):
-    Labware.model_validate_json_file(plate_file)
-
-
 def test_definition_files_name_the_schema_version():
     definitions = Path(ramona_labware.__file__).parent / "definitions"
     for plate_file in definitions.glob("*.json"):
