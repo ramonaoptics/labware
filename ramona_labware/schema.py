@@ -1,9 +1,12 @@
 import json
 from datetime import datetime
-from typing import Literal, Optional
+from importlib.resources.abc import Traversable
+from os import PathLike
+from pathlib import Path
+from typing import Literal, Self
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
-
+from pydantic.json_schema import JsonSchemaValue
 
 # A definition names the schema version it was written against in its
 # ``$schema`` key. A change that old files would not satisfy gets a new
@@ -19,8 +22,7 @@ class _LabwareModel(BaseModel):
 
 
 class OuterDimensions(_LabwareModel):
-    """
-    Model describing the outer dimensions of a labware plate.
+    """Model describing the outer dimensions of a labware plate.
 
     The skirt is the bottom outside flange the plate rests on and a plate nest
     holds it by. Anything not recorded about it is the ANSI/SLAS standard: the
@@ -31,24 +33,18 @@ class OuterDimensions(_LabwareModel):
     no step, such as a solid glass or quartz block; there is no flange top, and
     no thickness is recorded.
     """
+
     model_config = ConfigDict(
         title="Outer Dimensions",
     )
 
+    length: float = Field(description="Length of the plate in meters")
 
-    length: float = Field(
-        description="Length of the plate in meters"
-    )
+    width: float = Field(description="Width of the plate in meters")
 
-    width: float = Field(
-        description="Width of the plate in meters"
-    )
+    height: float = Field(description="Height of the plate in meters")
 
-    height: float = Field(
-        description="Height of the plate in meters"
-    )
-
-    height_with_lid: Optional[float] = Field(
+    height_with_lid: float | None = Field(
         None,
         description=(
             "Height of the plate with its lid on, in meters; None when it has no "
@@ -56,7 +52,7 @@ class OuterDimensions(_LabwareModel):
         ),
     )
 
-    skirt_outline: Optional[list[tuple[float, float]]] = Field(
+    skirt_outline: list[tuple[float, float]] | None = Field(
         None,
         description=(
             "Outer edge of the skirt where it meets the plane the plate rests "
@@ -69,7 +65,7 @@ class OuterDimensions(_LabwareModel):
         ),
     )
 
-    skirt_height: Optional[float | list[float]] = Field(
+    skirt_height: float | list[float] | None = Field(
         None,
         description=(
             "Height of the skirt above the plane the plate rests on, in "
@@ -83,7 +79,7 @@ class OuterDimensions(_LabwareModel):
         ),
     )
 
-    skirt_thickness: Optional[float] = Field(
+    skirt_thickness: float | None = Field(
         None,
         description=(
             "Thickness of the skirt measured at its top, in meters: the "
@@ -92,7 +88,7 @@ class OuterDimensions(_LabwareModel):
         ),
     )
 
-    upper_outline: Optional[list[tuple[float, float]]] = Field(
+    upper_outline: list[tuple[float, float]] | None = Field(
         None,
         description=(
             "Outer edge of the plate's body above its skirt, seen from above, "
@@ -109,15 +105,15 @@ class OuterDimensions(_LabwareModel):
         if outline is None:
             return self
         if len(outline) < 3:
-            raise ValueError("a skirt outline needs at least three points")
+            message = "a skirt outline needs at least three points"
+            raise ValueError(message)
         # Half a millimeter is the ANSI/SLAS 1-2004 footprint tolerance.
         if not all(
             -5e-4 <= x <= self.length + 5e-4 and -5e-4 <= y <= self.width + 5e-4
             for x, y in outline
         ):
-            raise ValueError(
-                "the skirt outline must lie within the plate's length and width"
-            )
+            message = "the skirt outline must lie within the plate's length and width"
+            raise ValueError(message)
         return self
 
     @model_validator(mode='after')
@@ -126,14 +122,14 @@ class OuterDimensions(_LabwareModel):
         if outline is None:
             return self
         if len(outline) < 3:
-            raise ValueError("an upper outline needs at least three points")
+            message = "an upper outline needs at least three points"
+            raise ValueError(message)
         if not all(
             -5e-4 <= x <= self.length + 5e-4 and -5e-4 <= y <= self.width + 5e-4
             for x, y in outline
         ):
-            raise ValueError(
-                "the upper outline must lie within the plate's length and width"
-            )
+            message = "the upper outline must lie within the plate's length and width"
+            raise ValueError(message)
         return self
 
     @model_validator(mode='after')
@@ -143,49 +139,45 @@ class OuterDimensions(_LabwareModel):
             return self
         if isinstance(heights, list):
             if self.skirt_outline is None or len(heights) != len(self.skirt_outline):
-                raise ValueError(
-                    "a list of skirt heights needs a skirt outline with one point per height"
+                message = (
+                    "a list of skirt heights needs a skirt outline with one "
+                    "point per height"
                 )
+                raise ValueError(message)
         else:
             heights = [heights]
         if any(h <= 0 or h > self.height + 5e-4 for h in heights):
-            raise ValueError("the skirt cannot be taller than the plate")
+            message = "the skirt cannot be taller than the plate"
+            raise ValueError(message)
         return self
 
 
 class WellDimensions(_LabwareModel):
-    """
-    Model describing the dimensions and properties of wells in a labware plate.
-    """
+    """Model describing the dimensions and properties of wells in a labware plate."""
+
     model_config = ConfigDict(
         title="Well Dimensions",
     )
 
+    pitch: float = Field(description="Pitch between wells in meters")
 
-    pitch: float = Field(
-        description="Pitch between wells in meters"
-    )
+    rows: int = Field(description="Number of well rows")
 
-    rows: int = Field(
-        description="Number of well rows"
-    )
-
-    columns: int = Field(
-        description="Number of well columns"
-    )
+    columns: int = Field(description="Number of well columns")
 
     shape: Literal["circle", "square", "other"] = Field(
         description=(
             "Cross-section of the wells at the bottom, where the sample sits; "
             "see bottom_shape for the profile of the floor"
-        )
+        ),
     )
 
-    top_shape: Optional[str] = Field(
+    top_shape: str | None = Field(
         None,
         description=(
             "Cross-section of the well opening at the top, in short plain words; None "
-            "when it is not recorded. Suggested values, to reuse where they fit: circle, "
+            "when it is not recorded. Suggested values, to reuse where they fit: "
+            "circle, "
             "square, other. This key was added in version 0.19.621."
         ),
     )
@@ -194,10 +186,10 @@ class WellDimensions(_LabwareModel):
         description=(
             "Diameter of circular wells, or side of square wells, at the well "
             "bottom, where the sample sits, in meters"
-        )
+        ),
     )
 
-    diameter_top: Optional[float] = Field(
+    diameter_top: float | None = Field(
         None,
         description=(
             "Diameter of circular wells, or side of square wells, at the well "
@@ -206,15 +198,13 @@ class WellDimensions(_LabwareModel):
         ),
     )
 
-    depth: float = Field(
-        description="Depth of wells in meters"
-    )
+    depth: float = Field(description="Depth of wells in meters")
 
     bottom_shape: Literal["flat", "u", "v"] = Field(
-        description="Shape of the well bottom: flat, u-shaped, or v-shaped"
+        description="Shape of the well bottom: flat, u-shaped, or v-shaped",
     )
 
-    bottom_radius: Optional[float] = Field(
+    bottom_radius: float | None = Field(
         None,
         description=(
             "Radius of curvature of a u-shaped well bottom in meters; None when "
@@ -223,7 +213,7 @@ class WellDimensions(_LabwareModel):
         ),
     )
 
-    bottom_angle: Optional[float] = Field(
+    bottom_angle: float | None = Field(
         None,
         description=(
             "Included angle of a v-shaped well bottom in degrees; None when not "
@@ -232,7 +222,7 @@ class WellDimensions(_LabwareModel):
         ),
     )
 
-    working_volume_min: Optional[float] = Field(
+    working_volume_min: float | None = Field(
         None,
         description=(
             "Smallest volume the manufacturer recommends for a well, in liters; "
@@ -241,7 +231,7 @@ class WellDimensions(_LabwareModel):
         ),
     )
 
-    working_volume_max: Optional[float] = Field(
+    working_volume_max: float | None = Field(
         None,
         description=(
             "Largest volume the manufacturer recommends for a well, in liters; "
@@ -249,10 +239,11 @@ class WellDimensions(_LabwareModel):
         ),
     )
 
-    bottom_color: Optional[str] = Field(
+    bottom_color: str | None = Field(
         None,
         description=(
-            "Color of the well bottom, in short plain words: clear to image through it, "
+            "Color of the well bottom, in short plain words: clear to image through "
+            "it, "
             "black or white when it is opaque, which no light passes through, so the "
             "plate cannot be imaged through its bottom or used on a transmitted-light "
             "instrument such as Vireo; None when not known. The color of the plate, as "
@@ -261,17 +252,18 @@ class WellDimensions(_LabwareModel):
         ),
     )
 
-    bottom_material: Optional[str] = Field(
+    bottom_material: str | None = Field(
         None,
         description=(
             "Material of the well bottom, in short plain words; None when not known. "
             "Suggested values, to reuse where they fit: polystyrene, polypropylene, "
-            "cyclo_olefin, glass, polymer_coverslip, film, other. This key was added in "
+            "cyclo_olefin, glass, polymer_coverslip, film, other. This key was added "
+            "in "
             "version 0.19.621."
         ),
     )
 
-    bottom_thickness: Optional[float] = Field(
+    bottom_thickness: float | None = Field(
         None,
         description=(
             "Thickness of the well bottom in meters; None when not known. This key was "
@@ -279,7 +271,7 @@ class WellDimensions(_LabwareModel):
         ),
     )
 
-    bottom_refractive_index: Optional[float] = Field(
+    bottom_refractive_index: float | None = Field(
         None,
         description=(
             "Refractive index of the well bottom, dimensionless; None when not known. "
@@ -287,43 +279,49 @@ class WellDimensions(_LabwareModel):
         ),
     )
 
-    bottom_elevation: Optional[float] = Field(
+    bottom_elevation: float | None = Field(
         None,
         description=(
-            "Height of the underside of the well bottom above the plane the plate rests "
-            "on, in meters; None when not known. This key was added in version 0.19.621."
+            "Height of the underside of the well bottom above the plane the plate "
+            "rests "
+            "on, in meters; None when not known. This key was added in version "
+            "0.19.621."
         ),
     )
 
-    floor_height: Optional[float] = Field(
+    floor_height: float | None = Field(
         None,
         description=(
-            "Height of the surface the sample sits on above the plane the plate rests on, "
-            "in meters: bottom_elevation plus bottom_thickness; None when not known. This "
+            "Height of the surface the sample sits on above the plane the plate rests "
+            "on, "
+            "in meters: bottom_elevation plus bottom_thickness; None when not known. "
+            "This "
             "key was added in version 0.19.621."
         ),
     )
 
-    wall_material: Optional[str] = Field(
+    wall_material: str | None = Field(
         None,
         description=(
             "Material of the well walls, in short plain words; None when not known. "
             "Suggested values, to reuse where they fit: polystyrene, polypropylene, "
-            "cyclo_olefin, glass, polymer_coverslip, film, other. This key was added in "
+            "cyclo_olefin, glass, polymer_coverslip, film, other. This key was added "
+            "in "
             "version 0.19.621."
         ),
     )
 
-    wall_color: Optional[str] = Field(
+    wall_color: str | None = Field(
         None,
         description=(
             "Color of the well walls, in short plain words; None when not known. "
-            "Suggested values, to reuse where they fit: clear, black, white, other. This "
+            "Suggested values, to reuse where they fit: clear, black, white, other. "
+            "This "
             "key was added in version 0.19.621."
         ),
     )
 
-    wall_thickness: Optional[float] = Field(
+    wall_thickness: float | None = Field(
         None,
         description=(
             "Thinnest wall between neighboring wells, in meters; None when not known. "
@@ -331,13 +329,16 @@ class WellDimensions(_LabwareModel):
         ),
     )
 
-    surface_treatments: Optional[list[str]] = Field(
+    surface_treatments: list[str] | None = Field(
         None,
         description=(
-            "The treatments this well geometry is sold with, across the catalog numbers "
+            "The treatments this well geometry is sold with, across the catalog "
+            "numbers "
             "a definition covers, as short plain words; it does not say which catalog "
-            "number has which. None when not recorded. Suggested values, to reuse where "
-            "they fit: tissue culture, untreated, ultra-low attachment, cell-repellent, "
+            "number has which. None when not recorded. Suggested values, to reuse "
+            "where "
+            "they fit: tissue culture, untreated, ultra-low attachment, "
+            "cell-repellent, "
             "poly-D-lysine, collagen, fibronectin, high binding, non-binding. This key "
             "was added in version 0.19.621."
         ),
@@ -347,52 +348,59 @@ class WellDimensions(_LabwareModel):
     def validate_working_volume(self) -> 'WellDimensions':
         low, high = self.working_volume_min, self.working_volume_max
         if low is not None and high is not None and low > high:
-            raise ValueError(
-                f"working_volume_min ({low}) must not exceed working_volume_max ({high})"
+            message = (
+                f"working_volume_min ({low}) must not exceed "
+                f"working_volume_max ({high})"
             )
+            raise ValueError(message)
         return self
 
     @model_validator(mode='after')
     def validate_floor_height(self) -> 'WellDimensions':
         # Vendors' own stacks miss by tenths of a millimeter; more is a typo.
         parts = (self.bottom_elevation, self.bottom_thickness, self.floor_height)
-        if None not in parts and abs(parts[0] + parts[1] - parts[2]) > 1e-4:
-            raise ValueError(
-                f"floor_height ({parts[2]}) must equal bottom_elevation + bottom_thickness "
+        if (
+            parts[0] is not None
+            and parts[1] is not None
+            and parts[2] is not None
+            and abs(parts[0] + parts[1] - parts[2]) > 1e-4
+        ):
+            message = (
+                f"floor_height ({parts[2]}) must equal "
+                "bottom_elevation + bottom_thickness "
                 f"({parts[0]} + {parts[1]}) to within 0.1 mm"
             )
+            raise ValueError(message)
         return self
 
 
 class AlignmentReference(_LabwareModel):
-    """
-    Model describing the alignment reference points for a labware plate.
-    """
+    """Model describing the alignment reference points for a labware plate."""
+
     model_config = ConfigDict(
         title="Alignment Reference",
     )
 
-
     origin_reference: Literal['A1 well center'] = Field(
         'A1 well center',
-        description="Reference point for the origin (standardized to A1 well center)"
+        description="Reference point for the origin (standardized to A1 well center)",
     )
 
     offset_from_left_edge: float = Field(
         description=(
             "X offset of the A1 well center at the well bottom, where the "
             "sample sits, from the left edge of the plate in meters"
-        )
+        ),
     )
 
     offset_from_top_edge: float = Field(
         description=(
             "Y offset of the A1 well center at the well bottom, where the "
             "sample sits, from the top edge of the plate in meters"
-        )
+        ),
     )
 
-    top_offset_from_left_edge: Optional[float] = Field(
+    top_offset_from_left_edge: float | None = Field(
         None,
         description=(
             "X offset of the center of the A1 well opening at the top from the "
@@ -401,7 +409,7 @@ class AlignmentReference(_LabwareModel):
         ),
     )
 
-    top_offset_from_top_edge: Optional[float] = Field(
+    top_offset_from_top_edge: float | None = Field(
         None,
         description=(
             "Y offset of the center of the A1 well opening at the top from the "
@@ -411,39 +419,34 @@ class AlignmentReference(_LabwareModel):
     )
 
     z_reference: str = Field(
-        description="Z reference point (e.g., 'top surface of plate')"
+        description="Z reference point (e.g., 'top surface of plate')",
     )
 
 
 class Labware(_LabwareModel):
-    """
-    Model describing a complete labware definition including dimensions, wells, and alignment.
-    """
+    """Model describing a complete labware definition including dimensions, wells, and alignment."""  # noqa: E501
+
     model_config = ConfigDict(
         title="Labware Definition",
     )
 
-    schema_url: Literal[SCHEMA_URL] = Field(
+    schema_url: Literal[
+        "https://raw.githubusercontent.com/ramonaoptics/labware/main/"
+        "ramona_labware/labware.v1.schema.json"
+    ] = Field(
         SCHEMA_URL,
         alias='$schema',
         description="URL of the JSON schema version this definition follows",
     )
 
+    name: str = Field(description="Name of the labware (e.g., 'SBS 384 well')")
 
-    name: str = Field(
-        description="Name of the labware (e.g., 'SBS 384 well')"
-    )
+    number_of_wells: int = Field(description="Total number of wells in the plate")
 
-    number_of_wells: int = Field(
-        description="Total number of wells in the plate"
-    )
-
-    manufacturer: str = Field(
-        description="Organization that designed the labware"
-    )
+    manufacturer: str = Field(description="Organization that designed the labware")
 
     author: str = Field(
-        description="Author or organization that wrote the labware specification"
+        description="Author or organization that wrote the labware specification",
     )
 
     last_updated: datetime = Field(
@@ -451,18 +454,16 @@ class Labware(_LabwareModel):
             "Date and time, in UTC to the second (ISO 8601), when a value in the "
             "labware definition last changed; set it to the current time on "
             "every change to the definition"
-        )
+        ),
     )
 
-    part_number: str = Field(
-        description="Part number or identifier for the labware"
-    )
+    part_number: str = Field(description="Part number or identifier for the labware")
 
     web_reference: str = Field(
-        description="URL of the vendor's product web page for the labware"
+        description="URL of the vendor's product web page for the labware",
     )
 
-    drawing_reference: Optional[str] = Field(
+    drawing_reference: str | None = Field(
         None,
         description=(
             "URL of the vendor document with the labware's schematic drawing "
@@ -470,7 +471,7 @@ class Labware(_LabwareModel):
         ),
     )
 
-    applications: Optional[list[str]] = Field(
+    applications: list[str] | None = Field(
         None,
         description=(
             "What the plate is used for, as short plain words, so the catalog "
@@ -494,40 +495,46 @@ class Labware(_LabwareModel):
     )
 
     outer_plate_dimensions: OuterDimensions = Field(
-        description="Outer dimensions of the plate"
+        description="Outer dimensions of the plate",
     )
 
     well_dimensions: WellDimensions = Field(
-        description="Dimensions and properties of the wells"
+        description="Dimensions and properties of the wells",
     )
 
     alignment_reference: AlignmentReference = Field(
-        description="Alignment reference points for the plate"
+        description="Alignment reference points for the plate",
     )
 
-    notes: Optional[str] = Field(
+    notes: str | None = Field(
         None,
-        description="Additional notes about the labware definition"
+        description="Additional notes about the labware definition",
     )
 
     @classmethod
-    def model_validate_json_file(cls, file, *, encoding='utf-8'):
-        with open(file, encoding=encoding) as f:
+    def model_validate_json_file(
+        cls, file: str | PathLike[str] | Traversable, *, encoding: str = 'utf-8'
+    ) -> Self:
+        if isinstance(file, (str, PathLike)):
+            file = Path(file)
+        with file.open(encoding=encoding) as f:
             return cls.model_validate(json.load(f))
 
     @model_validator(mode='after')
     def validate_well_count(self) -> 'Labware':
         expected_wells = self.well_dimensions.rows * self.well_dimensions.columns
         if self.number_of_wells != expected_wells:
-            raise ValueError(
+            message = (
                 f"number_of_wells ({self.number_of_wells}) must equal "
                 "rows * columns "
-                f"({self.well_dimensions.rows} * {self.well_dimensions.columns} = {expected_wells})"
+                f"({self.well_dimensions.rows} * {self.well_dimensions.columns} "
+                f"= {expected_wells})"
             )
+            raise ValueError(message)
         return self
 
 
-def json_schema():
+def json_schema() -> JsonSchemaValue:
     """Return the JSON schema of a labware definition file."""
     return {
         '$schema': 'https://json-schema.org/draft/2020-12/schema',
