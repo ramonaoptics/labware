@@ -13,10 +13,12 @@ __all__ = [
 ]
 
 
-def load_labware():
+def load_labware() -> dict[str, Labware]:
     """Return every labware definition, keyed by its file name without ``.json``."""
     definitions = {}
     for entry in (importlib.resources.files(__name__) / 'definitions').iterdir():
         if entry.name.endswith('.json'):
-            definitions[entry.name.removesuffix('.json')] = Labware.model_validate_json_file(entry)
+            definitions[entry.name.removesuffix('.json')] = (
+                Labware.model_validate_json_file(entry)
+            )
     return definitions
