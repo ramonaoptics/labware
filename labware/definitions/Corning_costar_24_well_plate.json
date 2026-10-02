@@ -1,0 +1,35 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ramonaoptics/labware/main/labware/labware.v1.schema.json",
+    "name": "Corning Costar 24 well",
+    "number_of_wells": 24,
+    "manufacturer": "Corning Life Sciences",
+    "author": "Ramona Optics",
+    "last_updated": "2026-09-13T00:00:00Z",
+    "part_number": "3524",
+    "web_reference": "https://www.corning.com/catalog/cls/documents/drawings/DWG01261.PDF",
+
+    "outer_plate_dimensions": {
+        "length": 0.12776,
+        "width": 0.08547,
+        "height": 0.02027
+    },
+
+    "well_dimensions": {
+        "pitch": 0.019304,
+        "rows": 4,
+        "columns": 6,
+        "shape": "circle",
+        "diameter": 0.01626,
+        "depth": 0.01740,
+        "bottom_shape": "flat"
+    },
+
+    "alignment_reference": {
+        "origin_reference": "A1 well center",
+        "offset_from_left_edge": 0.01748,
+        "offset_from_top_edge": 0.01377,
+        "z_reference": "top surface of plate"
+    },
+
+    "notes": "Corning Costar 24-well cell culture cluster, clear polystyrene, flat bottom, with lid; catalogue 3524. Every dimension here is read from the Corning Life Sciences customer drawing DWG01261 Rev B, titled '24 WELL PLATE AND COVER', prod code 144 (Rev A released 1999-12-03 per CO# 7657, drawn 1999-09-13 by DNB; Rev B revised 2018-06-22 per CC-08532). That drawing carries no catalogue number: it is the mould drawing for the whole Costar 24-well cell culture family, which is why the same drawing backs Corning_3527_24_well_plate.json. HEIGHT CORRECTED 2026-09-13: this file previously carried height 22.63 mm, which is the drawing's .891 dimension across the side elevation labelled COVER + BASE, i.e. the plate WITH its lid on. Because z_reference here is the top surface of the plate, the correct figure is the drawing's .798 (20.27 mm), the base alone; Corning's per-catalogue Product Description for 3524 (Rev 11, 2026-02-02, https://certs-ecatalog.corning.com/life-sciences/product-descriptions/3524.pdf) independently labels 0.891 in. as 'Height with Lid', confirming the reading. The lid-on height is 22.63 mm and the lid alone stands 8.89 mm (.350) proud of the bench in the side elevation; neither is used here. Footprint 127.76 x 85.47 mm (5.030 x 3.365 in.) from the drawing and the Product Description. Pitch 19.304 mm (.760 TYP) in both axes; the drawing dimensions the grid spans directly as 96.52 mm (5 pitches, long axis) and 57.91 mm (3 pitches, short axis), both of which close against the pitch. A1 centre 17.48 mm (.688) from the left edge and 13.77 mm (.542) from the top edge, both dimensioned on the drawing's plan view. NOTE THE ASYMMETRY: the grid is centred in the short axis (13.77 against a centred 13.78) but sits 1.86 mm right of centre in the long axis (17.48 against a centred 15.62, leaving a 13.76 mm far margin). That is what the drawing shows and it is unlike Corning's 6-, 12- and 48-well plates, which are centred in both axes; it is also why the generic SBS 24-well entry is not a substitute for this one. Well diameter 16.26 mm is the TOP diameter (drawing .640 DIA); the bottom diameter is 15.62 mm (.615 in., Product Description). Well depth 17.40 mm (.685). Well floor sits 2.54 mm (.100) above the plate underside. BOTTOM THICKNESS 1.27 mm (.050) of clear polystyrene - this is the working-distance number. Working volume 2 mL per well (Product Description). Virgin polystyrene meeting USP Class VI; surface hydrophilic and negatively charged, 9-17% oxygen atoms (Product Description). Sibling catalogue numbers on this same mould, per Corning's cell culture dimension sheet 'Microplate Dimensions for Corning Cell Culture Microplates', which lists 3337, 3524, 3526, 3527 and 3473 on one row with a single dimension set: 3526 (Product Description Rev 10, 2026-02-02, identical dimensions and identical surface characterization to 3524), 3527 (registered separately as Corning_3527_24_well_plate.json), 3337 and 3473. Dimensions in metres."
+}

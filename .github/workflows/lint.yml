@@ -1,0 +1,21 @@
+name: lint
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: prefix-dev/setup-pixi@v0.10.2
+        with:
+          pixi-version: v0.80.0
+          run-install: false
+      - name: Check lint, formatting, and types
+        run: >-
+          pixi exec --spec python=3.11 --spec "pydantic>=2"
+          --spec pytest --spec ruff=0.15.22 --spec ty=0.0.74 -- bash -ec
+          "ruff check . && ruff format --check . && ty check"

@@ -1,0 +1,580 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/ramonaoptics/labware/main/labware/labware.v1.schema.json",
+  "$defs": {
+    "AlignmentReference": {
+      "additionalProperties": false,
+      "description": "Model describing the alignment reference points for a labware plate.",
+      "properties": {
+        "origin_reference": {
+          "const": "A1 well center",
+          "default": "A1 well center",
+          "description": "Reference point for the origin (standardized to A1 well center)",
+          "title": "Origin Reference",
+          "type": "string"
+        },
+        "offset_from_left_edge": {
+          "description": "X offset of the A1 well center at the well bottom, where the sample sits, from the left edge of the plate in meters",
+          "title": "Offset From Left Edge",
+          "type": "number"
+        },
+        "offset_from_top_edge": {
+          "description": "Y offset of the A1 well center at the well bottom, where the sample sits, from the top edge of the plate in meters",
+          "title": "Offset From Top Edge",
+          "type": "number"
+        },
+        "top_offset_from_left_edge": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "X offset of the center of the A1 well opening at the top from the left edge of the plate in meters; None when the opening is centered over the well bottom.",
+          "title": "Top Offset From Left Edge"
+        },
+        "top_offset_from_top_edge": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Y offset of the center of the A1 well opening at the top from the top edge of the plate in meters; None when the opening is centered over the well bottom.",
+          "title": "Top Offset From Top Edge"
+        },
+        "z_reference": {
+          "description": "Z reference point (e.g., 'top surface of plate')",
+          "title": "Z Reference",
+          "type": "string"
+        }
+      },
+      "required": [
+        "offset_from_left_edge",
+        "offset_from_top_edge",
+        "z_reference"
+      ],
+      "title": "Alignment Reference",
+      "type": "object"
+    },
+    "OuterDimensions": {
+      "additionalProperties": false,
+      "description": "Model describing the outer dimensions of a labware plate.\n\nThe skirt is the bottom outside flange the plate rests on and a plate nest\nholds it by. Anything not recorded about it is the ANSI/SLAS standard: the\nplate's length and width with 3.18 mm outside corner radii (ANSI/SLAS\n1-2004), a 6.10 mm tall flange (the medium height of ANSI/SLAS 3-2004) and a\n1.27 mm flange width (its minimum). A skirt as tall as the plate is a plate\nwhose outside walls run straight from the plane it rests on to its top with\nno step, such as a solid glass or quartz block; there is no flange top, and\nno thickness is recorded.",
+      "properties": {
+        "length": {
+          "description": "Length of the plate in meters",
+          "title": "Length",
+          "type": "number"
+        },
+        "width": {
+          "description": "Width of the plate in meters",
+          "title": "Width",
+          "type": "number"
+        },
+        "height": {
+          "description": "Height of the plate in meters",
+          "title": "Height",
+          "type": "number"
+        },
+        "height_with_lid": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Height of the plate with its lid on, in meters; None when it has no lid or the height is not known.",
+          "title": "Height With Lid"
+        },
+        "skirt_outline": {
+          "anyOf": [
+            {
+              "items": {
+                "maxItems": 2,
+                "minItems": 2,
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "type": "array"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Outer edge of the skirt where it meets the plane the plate rests on, as a closed polyline of (x, y) points in meters: x from the left edge and y from the top edge of the plate, the edges the A1 offsets are measured from, seen from above with A1 at the top left. Curves such as rounded corners are sampled into points. None when the skirt is the plate's length and width with rounded corners.",
+          "title": "Skirt Outline"
+        },
+        "skirt_height": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "items": {
+                "type": "number"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Height of the skirt above the plane the plate rests on, in meters: the ANSI/SLAS 3-2004 flange height, or the plate's height for a plate whose outside walls are straight with no step. One height all round, or, for a skirt whose height changes around the plate, a list of one height per segment of skirt_outline, in meters: the i-th from the i-th point to the next, the last back to the first. None when not known.",
+          "title": "Skirt Height"
+        },
+        "skirt_thickness": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Thickness of the skirt measured at its top, in meters: the ANSI/SLAS 3-2004 flange width; None when not known.",
+          "title": "Skirt Thickness"
+        },
+        "upper_outline": {
+          "anyOf": [
+            {
+              "items": {
+                "maxItems": 2,
+                "minItems": 2,
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "type": "array"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Outer edge of the plate's body above its skirt, seen from above, as a closed polyline of (x, y) points in meters in the same frame as the skirt outline. None when not recorded, and the body is taken to follow the skirt's outline up to the top of the plate.",
+          "title": "Upper Outline"
+        }
+      },
+      "required": [
+        "length",
+        "width",
+        "height"
+      ],
+      "title": "Outer Dimensions",
+      "type": "object"
+    },
+    "WellDimensions": {
+      "additionalProperties": false,
+      "description": "Model describing the dimensions and properties of wells in a labware plate.",
+      "properties": {
+        "pitch": {
+          "description": "Pitch between wells in meters",
+          "title": "Pitch",
+          "type": "number"
+        },
+        "rows": {
+          "description": "Number of well rows",
+          "title": "Rows",
+          "type": "integer"
+        },
+        "columns": {
+          "description": "Number of well columns",
+          "title": "Columns",
+          "type": "integer"
+        },
+        "shape": {
+          "description": "Cross-section of the wells at the bottom, where the sample sits; see bottom_shape for the profile of the floor",
+          "enum": [
+            "circle",
+            "square",
+            "other"
+          ],
+          "title": "Shape",
+          "type": "string"
+        },
+        "top_shape": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Cross-section of the well opening at the top, in short plain words; None when it is not recorded. Suggested values, to reuse where they fit: circle, square, other.",
+          "title": "Top Shape"
+        },
+        "diameter": {
+          "description": "Diameter of circular wells, or side of square wells, at the well bottom, where the sample sits, in meters",
+          "title": "Diameter",
+          "type": "number"
+        },
+        "diameter_top": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Diameter of circular wells, or side of square wells, at the well opening at the top in meters; None when it is not recorded.",
+          "title": "Diameter Top"
+        },
+        "depth": {
+          "description": "Depth of wells in meters",
+          "title": "Depth",
+          "type": "number"
+        },
+        "bottom_shape": {
+          "description": "Shape of the well bottom: flat, u-shaped, or v-shaped",
+          "enum": [
+            "flat",
+            "u",
+            "v"
+          ],
+          "title": "Bottom Shape",
+          "type": "string"
+        },
+        "bottom_radius": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Radius of curvature of a u-shaped well bottom in meters; None when not known, and the bottom is taken as a hemisphere.",
+          "title": "Bottom Radius"
+        },
+        "bottom_angle": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Included angle of a v-shaped well bottom in degrees; None when not known, and the bottom is taken as a 90 degree cone.",
+          "title": "Bottom Angle"
+        },
+        "working_volume_min": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Smallest volume the manufacturer recommends for a well, in liters; the same as working_volume_max when a single volume is given; None when not known.",
+          "title": "Working Volume Min"
+        },
+        "working_volume_max": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Largest volume the manufacturer recommends for a well, in liters; None when not known.",
+          "title": "Working Volume Max"
+        },
+        "bottom_color": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Color of the well bottom, in short plain words: clear to image through it, black or white when it is opaque, which no light passes through, so the plate cannot be imaged through its bottom or used on a transmitted-light instrument such as Vireo; None when not known. The color of the plate, as vendors name it, is its wall_color. Suggested values, to reuse where they fit: clear, black, white.",
+          "title": "Bottom Color"
+        },
+        "bottom_material": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Material of the well bottom, in short plain words; None when not known. Suggested values, to reuse where they fit: polystyrene, polypropylene, cyclo_olefin, glass, polymer_coverslip, film, other.",
+          "title": "Bottom Material"
+        },
+        "bottom_thickness": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Thickness of the well bottom in meters; None when not known.",
+          "title": "Bottom Thickness"
+        },
+        "bottom_refractive_index": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Refractive index of the well bottom, dimensionless; None when not known.",
+          "title": "Bottom Refractive Index"
+        },
+        "bottom_elevation": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Height of the underside of the well bottom above the plane the plate rests on, in meters; None when not known.",
+          "title": "Bottom Elevation"
+        },
+        "floor_height": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Height of the surface the sample sits on above the plane the plate rests on, in meters: bottom_elevation plus bottom_thickness; None when not known.",
+          "title": "Floor Height"
+        },
+        "wall_material": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Material of the well walls, in short plain words; None when not known. Suggested values, to reuse where they fit: polystyrene, polypropylene, cyclo_olefin, glass, polymer_coverslip, film, other.",
+          "title": "Wall Material"
+        },
+        "wall_color": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Color of the well walls, in short plain words; None when not known. Suggested values, to reuse where they fit: clear, black, white, other.",
+          "title": "Wall Color"
+        },
+        "wall_thickness": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Thinnest wall between neighboring wells, in meters; None when not known.",
+          "title": "Wall Thickness"
+        },
+        "surface_treatments": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The treatments this well geometry is sold with, across the catalog numbers a definition covers, as short plain words; it does not say which catalog number has which. None when not recorded. Suggested values, to reuse where they fit: tissue culture, untreated, ultra-low attachment, cell-repellent, poly-D-lysine, collagen, fibronectin, high binding, non-binding.",
+          "title": "Surface Treatments"
+        }
+      },
+      "required": [
+        "pitch",
+        "rows",
+        "columns",
+        "shape",
+        "diameter",
+        "depth",
+        "bottom_shape"
+      ],
+      "title": "Well Dimensions",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Model describing a complete labware definition including dimensions, wells, and alignment.",
+  "properties": {
+    "$schema": {
+      "const": "https://raw.githubusercontent.com/ramonaoptics/labware/main/labware/labware.v1.schema.json",
+      "default": "https://raw.githubusercontent.com/ramonaoptics/labware/main/labware/labware.v1.schema.json",
+      "description": "URL of the JSON schema version this definition follows",
+      "title": "$Schema",
+      "type": "string"
+    },
+    "name": {
+      "description": "Name of the labware (e.g., 'SBS 384 well')",
+      "title": "Name",
+      "type": "string"
+    },
+    "number_of_wells": {
+      "description": "Total number of wells in the plate",
+      "title": "Number Of Wells",
+      "type": "integer"
+    },
+    "manufacturer": {
+      "description": "Organization that designed the labware",
+      "title": "Manufacturer",
+      "type": "string"
+    },
+    "author": {
+      "description": "Author or organization that wrote the labware specification",
+      "title": "Author",
+      "type": "string"
+    },
+    "last_updated": {
+      "description": "Date and time, in UTC to the second (ISO 8601), when a value in the labware definition last changed; set it to the current time on every change to the definition",
+      "format": "date-time",
+      "title": "Last Updated",
+      "type": "string"
+    },
+    "part_number": {
+      "description": "Part number or identifier for the labware",
+      "title": "Part Number",
+      "type": "string"
+    },
+    "web_reference": {
+      "description": "URL of the vendor's product web page for the labware",
+      "title": "Web Reference",
+      "type": "string"
+    },
+    "drawing_reference": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "URL of the vendor document with the labware's schematic drawing and dimensions.",
+      "title": "Drawing Reference"
+    },
+    "applications": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "What the plate is used for, as short plain words, so the catalog can be searched by experiment: the uses the manufacturer names on its product page, data sheet or application notes, and any our team has found the plate suited to. List every term that applies, the general beside the specific: a plate for cardiac organoids lists '3D culture', 'organoids' and 'cardiac'. A term names a use, not a property of the plate, whose materials and colors are in well_dimensions. Suggested terms, to reuse where they fit: cell culture, suspension culture, primary cells, stem cells, co-culture, cell culture inserts, 3D culture, spheroids, organoids, organ-on-chip, tissue explants; neural, cardiac, liver, tumor, intestinal, vascular; microbiology, zebrafish; imaging, high-content screening, high-throughput screening, fluorescence, luminescence, absorbance, binding assays, barrier transport, cell migration, electrophysiology; PCR, nucleic acids, storage, crystallography. None when not recorded.",
+      "title": "Applications"
+    },
+    "outer_plate_dimensions": {
+      "$ref": "#/$defs/OuterDimensions",
+      "description": "Outer dimensions of the plate"
+    },
+    "well_dimensions": {
+      "$ref": "#/$defs/WellDimensions",
+      "description": "Dimensions and properties of the wells"
+    },
+    "alignment_reference": {
+      "$ref": "#/$defs/AlignmentReference",
+      "description": "Alignment reference points for the plate"
+    },
+    "notes": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Additional notes about the labware definition",
+      "title": "Notes"
+    }
+  },
+  "required": [
+    "name",
+    "number_of_wells",
+    "manufacturer",
+    "author",
+    "last_updated",
+    "part_number",
+    "web_reference",
+    "outer_plate_dimensions",
+    "well_dimensions",
+    "alignment_reference"
+  ],
+  "title": "Labware Definition",
+  "type": "object"
+}
