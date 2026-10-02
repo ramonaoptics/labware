@@ -16,9 +16,3 @@ plates = load_labware()  # {'SBS_96_well_plate': Labware(...), ...}
 ```
 
 Split out of python-owl (`owl/instruments/labware/`) with its git history.
-
-## Requesting a plate
-
-Post the vendor and part number in Slack `#labware-requests`; the labware bot
-opens a pull request here. Every new definition is added to the parametrized
-list in `tests/test_labware.py`.
