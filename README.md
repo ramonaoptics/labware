@@ -14,5 +14,3 @@ from ramona_labware import load_labware
 
 plates = load_labware()  # {'SBS_96_well_plate': Labware(...), ...}
 ```
-
-Split out of python-owl (`owl/instruments/labware/`) with its git history.
