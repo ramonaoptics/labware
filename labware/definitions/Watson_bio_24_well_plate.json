@@ -1,0 +1,36 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ramonaoptics/labware/main/labware/labware.v1.schema.json",
+    "name": "Watson Bio 24 well",
+    "number_of_wells": 24,
+    "manufacturer": "Watson Bio Lab",
+    "author": "Ramona Optics",
+    "last_updated": "2026-07-23T00:00:00Z",
+    "part_number": "197-24CPS",
+    "web_reference": "https://watsonbiolab.com/product/cellculture/cultureplate/",
+
+    "outer_plate_dimensions": {
+        "length": 0.1276,
+        "width": 0.0853,
+        "height": 0.0205
+    },
+
+    "well_dimensions": {
+        "pitch": 0.018,
+        "rows": 4,
+        "columns": 6,
+        "shape": "circle",
+        "diameter": 0.016,
+        "depth": 0.0175,
+
+        "bottom_shape": "flat"
+    },
+
+    "alignment_reference": {
+        "origin_reference": "A1 well center",
+        "offset_from_left_edge": 0.019,
+        "offset_from_top_edge": 0.0158,
+        "z_reference": "top surface of plate"
+    },
+
+    "notes": "Dimensions from the official WATSON Bio Lab microplate dimensions chart (EN_MicroPlate_DimensionTable.pdf), '24 well flat bottom' row (197-24CPS with lid / 196-24FS without lid). Units in meters. Well spacing (pitch) 18 mm. Plate body height 20.5 mm (23.1 mm including lid). Well depth 17.5 mm; well top diameter 15.5 mm (bottom diameter 15.1 mm); flat chimney-well design. A1 well center is 18.5 mm from the left edge and 15.4 mm from the top edge. Use 'pitch' and origin reference to compute all well centers."
+}
