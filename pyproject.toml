@@ -14,14 +14,14 @@ requires-python = ">=3.11"
 dependencies = ["pydantic>=2"]
 
 [project.urls]
-Homepage = "https://github.com/Ramona-OSS/labware"
+Homepage = "https://github.com/ramonaoptics/labware"
 Viewer = "https://docs.ramonaoptics.com/tools/labware_viewer.html"
 
 [tool.setuptools]
 packages = ["ramona_labware"]
 
 [tool.setuptools.package-data]
-ramona_labware = ["definitions/*.json"]
+ramona_labware = ["definitions/*.json", "labware.v1.schema.json"]
 
 [tool.setuptools.dynamic]
 version = { attr = "ramona_labware.__version__" }

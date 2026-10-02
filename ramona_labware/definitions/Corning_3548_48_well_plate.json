@@ -1,4 +1,5 @@
 {
+    "$schema": "https://raw.githubusercontent.com/ramonaoptics/labware/main/ramona_labware/labware.v1.schema.json",
     "name": "Corning Costar 3548 48 well",
     "number_of_wells": 48,
     "manufacturer": "Corning Life Sciences",
@@ -10,17 +11,13 @@
     "applications": [
         "cell culture"
     ],
-    "__owl_settings_type__": "labware",
-    "__owl_version__": "0.19.622",
 
     "outer_plate_dimensions": {
         "length": 0.12776,
         "width": 0.08547,
         "height": 0.02002,
         "height_with_lid": 0.02235,
-        "skirt_height": 0.01346,
-        "__owl_settings_type__": "labware_outer_dimensions",
-        "__owl_version__": "0.19.622"
+        "skirt_height": 0.01346
     },
 
     "well_dimensions": {
@@ -44,18 +41,14 @@
         "wall_color": "clear",
         "surface_treatments": [
             "tissue culture"
-        ],
-        "__owl_settings_type__": "labware_well_dimensions",
-        "__owl_version__": "0.19.622"
+        ]
     },
 
     "alignment_reference": {
         "origin_reference": "A1 well center",
         "offset_from_left_edge": 0.01816,
         "offset_from_top_edge": 0.01008,
-        "z_reference": "top surface of plate",
-        "__owl_settings_type__": "labware_alignment_reference",
-        "__owl_version__": "0.19.622"
+        "z_reference": "top surface of plate"
     },
 
     "notes": "Corning Costar 3548: 48 well clear TC-treated cell culture plate, flat bottom, individually wrapped, sterile, with lid. SOURCES: Corning publishes no customer drawing for its 48 well culture plate (DWG00673, DWG00674 and DWG01261 cover the 6, 12 and 24 well plates; a sweep of DWG00650-DWG00760 and DWG01240-DWG01300, and the Internet Archive index of that directory, found no 48 well sheet). Two documents are used. (1) The per-catalogue Product Description for 3548, Rev 12, 2026-02-23 (https://certs-ecatalog.corning.com/life-sciences/product-descriptions/3548.pdf): public and current, imperial, +/-0.050 in (+/-1.27 mm) on every dimension, with no pitch and no A1 offset. (2) Corning's family sheet 'Microplate Dimensions for Corning Cell Culture Microplates', 1/16/2019, whose 48 well row names 3548 alone (drawing_reference, as hosted by the distributor Scientific Laboratory Supplies; the same file Corning served from its own site, archived at https://web.archive.org/web/20240604221511/https://www.corning.com/catalog/cls/documents/drawings/MD_Microplate_Dimension_Sheets_Multiple_Well.pdf). It is marked 'Corning Restricted' and is no longer on corning.com. The sheet is the ONLY source of the pitch, both A1 offsets, the lid-off height, the skirt height and the floor, and a current drawing or a measured plate should confirm them. PLATE: 127.76 x 85.47 mm (PD 5.030 x 3.365 in; the sheet gives 127.89 x 85.60), 20.02 mm high without the lid (sheet) and 22.35 mm with it (PD 'Height with Lid 0.880 in'). Skirt 13.46 mm high (sheet 'Flange or skirt height'). GRID: pitch 13.08 mm in both axes (sheet 'Well center to well center spacing'); A1 centre 18.16 mm from the left edge ('A1 Column Offset') and 10.08 mm from the top edge ('A1 Row Offset'): Corning's row offset runs from the top and its column offset from the left. With the PD footprint the far margins are 18.04 mm and 9.99 mm, so the grid sits 0.06 mm right and 0.05 mm low of centre. WELL: 11.10 mm across at the opening (diameter_top, PD 'Diameter of Well @ Top 0.437 in') and 10.64 mm at the floor (diameter, PD '@ Bottom 0.419 in'), 17.40 mm deep (PD 0.685 in; sheet), round, flat, opening centred over the floor. The sheet gives 11.56 / 11.05 mm, 0.46 mm larger at both ends and inside the PD's tolerance; the current per-catalogue PD is followed. The published growth area of 0.95 cm2 per well gives 11.0 mm, nearer the sheet's floor than the PD's; a calipered plate would settle it. FLOOR: 1.27 mm of clear polystyrene (sheet 'Well Bottom Thickness'). The sheet's 'Well Bottom Elevation' of 2.87 mm is read, as on Corning's 24 well drawing DWG01261, from the resting plane to the inside of the floor, so it is floor_height, and the underside is 2.87 - 1.27 = 1.60 mm up (bottom_elevation, derived). Depth plus floor height is 20.27 mm, 0.25 mm more than the 20.02 mm plate; the sheet's values are kept as printed. VOLUME: 1.62 mL per well (sheet; its superseded 7/7/2009 revision prints 0.95 in that column, the growth area repeated). Working volume 0.19-0.285 mL is the product page's recommended medium volume; the PD prints 'Working Volume per well 1 mL', recorded here only. Several distributors list the well depth as 11.0 mm, which is the diameter rounded; both Corning documents say 17.4 mm. MATERIAL: virgin polystyrene meeting USP Class VI, clear (PD); tissue culture treated, hydrophilic and negatively charged, 9-17% oxygen (PD). No siblings: the sheet's 48 well row lists 3548 alone. Corning's Falcon 48 well plate 353078 is a different mould and must not use this file."

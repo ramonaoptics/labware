@@ -5,10 +5,17 @@ from typing import Literal, Optional
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 
+# A definition names the schema version it was written against in its
+# ``$schema`` key. A change that old files would not satisfy gets a new
+# version and a new file beside this one.
+SCHEMA_URL = (
+    'https://raw.githubusercontent.com/ramonaoptics/labware/main/'
+    'ramona_labware/labware.v1.schema.json'
+)
+
+
 class _LabwareModel(BaseModel):
-    # Fields carry python-owl's ``__owl_settings_type__`` aliases, so accept
-    # either spelling. Unknown keys such as ``__owl_version__`` are ignored.
-    model_config = ConfigDict(populate_by_name=True)
+    model_config = ConfigDict(populate_by_name=True, extra='forbid')
 
 
 class OuterDimensions(_LabwareModel):
@@ -28,10 +35,6 @@ class OuterDimensions(_LabwareModel):
         title="Outer Dimensions",
     )
 
-    owl_settings_type: Literal["labware_outer_dimensions"] = Field(
-        "labware_outer_dimensions",
-        alias='__owl_settings_type__',
-    )
 
     length: float = Field(
         description="Length of the plate in meters"
@@ -158,10 +161,6 @@ class WellDimensions(_LabwareModel):
         title="Well Dimensions",
     )
 
-    owl_settings_type: Literal["labware_well_dimensions"] = Field(
-        "labware_well_dimensions",
-        alias='__owl_settings_type__',
-    )
 
     pitch: float = Field(
         description="Pitch between wells in meters"
@@ -373,10 +372,6 @@ class AlignmentReference(_LabwareModel):
         title="Alignment Reference",
     )
 
-    owl_settings_type: Literal["labware_alignment_reference"] = Field(
-        "labware_alignment_reference",
-        alias='__owl_settings_type__',
-    )
 
     origin_reference: Literal['A1 well center'] = Field(
         'A1 well center',
@@ -428,10 +423,12 @@ class Labware(_LabwareModel):
         title="Labware Definition",
     )
 
-    owl_settings_type: Literal["labware"] = Field(
-        "labware",
-        alias='__owl_settings_type__',
+    schema_url: Literal[SCHEMA_URL] = Field(
+        SCHEMA_URL,
+        alias='$schema',
+        description="URL of the JSON schema version this definition follows",
     )
+
 
     name: str = Field(
         description="Name of the labware (e.g., 'SBS 384 well')"
@@ -528,3 +525,12 @@ class Labware(_LabwareModel):
                 f"({self.well_dimensions.rows} * {self.well_dimensions.columns} = {expected_wells})"
             )
         return self
+
+
+def json_schema():
+    """Return the JSON schema of a labware definition file."""
+    return {
+        '$schema': 'https://json-schema.org/draft/2020-12/schema',
+        '$id': SCHEMA_URL,
+        **Labware.model_json_schema(by_alias=True),
+    }
