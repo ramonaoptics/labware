@@ -1,0 +1,31 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ramonaoptics/labware/main/labware/labware.v1.schema.json",
+    "name": "Corning Costar 6 well",
+    "number_of_wells": 6,
+    "manufacturer": "Corning Life Sciences (Corning Incorporated)",
+    "author": "CBL (drawn); LEP (checked)",
+    "last_updated": "2018-06-22",
+    "part_number": "144",
+    "web_reference": "https://www.corning.com/catalog/cls/documents/drawings/DWG00673.PDF",
+    "outer_plate_dimensions": {
+        "length": 0.12776,
+        "width": 0.08547,
+        "height": 0.03152
+    },
+    "well_dimensions": {
+        "pitch": 0.03912,
+        "rows": 2,
+        "columns": 3,
+        "shape": "circle",
+        "diameter": 0.03543,
+        "depth": 0.0174,
+        "bottom_shape": "flat"
+    },
+    "alignment_reference": {
+        "origin_reference": "A1 well center",
+        "offset_from_left_edge": 0.02476,
+        "offset_from_top_edge": 0.02316,
+        "z_reference": "top surface of plate"
+    },
+    "notes": "Dimensions are in meters per ANSI/SLAS 1-2004 standard. Use 'well_pitch' and origin reference to compute all well centers."
+}

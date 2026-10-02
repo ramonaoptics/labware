@@ -1,0 +1,35 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ramonaoptics/labware/main/labware/labware.v1.schema.json",
+    "name": "Corning Costar 3527 24 well",
+    "number_of_wells": 24,
+    "manufacturer": "Corning Life Sciences",
+    "author": "Ramona Optics",
+    "last_updated": "2026-08-27T00:00:00Z",
+    "part_number": "3527",
+    "web_reference": "https://www.corning.com/catalog/cls/documents/drawings/DWG01261.PDF",
+
+    "outer_plate_dimensions": {
+        "length": 0.12776,
+        "width": 0.08547,
+        "height": 0.02027
+    },
+
+    "well_dimensions": {
+        "pitch": 0.019304,
+        "rows": 4,
+        "columns": 6,
+        "shape": "circle",
+        "diameter": 0.01626,
+        "depth": 0.01740,
+        "bottom_shape": "flat"
+    },
+
+    "alignment_reference": {
+        "origin_reference": "A1 well center",
+        "offset_from_left_edge": 0.01748,
+        "offset_from_top_edge": 0.01377,
+        "z_reference": "top surface of plate"
+    },
+
+    "notes": "Corning Costar 24-well clear TC-treated multiple well plate, bulk pack, sterile, flat bottom, with lid. Every dimension here is read from the Corning Life Sciences customer drawing DWG01261 Rev B (revised 2018-06-22 per CC-08532; Rev A released 1999-09-13), titled '24 WELL PLATE AND COVER', prod code 144. That drawing carries no catalogue number: it is the mould drawing for the whole Costar 24-well cell culture family. Corning's dimension sheet 'Microplate Dimensions for Corning Cell Culture Microplates' (2019-01-16, https://csmedia2.corning.com/lifesciences/media/equipment_compatibility/MD_Microplate_Dimension_Sheets_Multiple_Well.pdf) lists cat. 3337, 3524, 3526, 3527 and 3473 on one row with one set of dimensions, which is what ties 3527 to this drawing. Sibling part numbers on the same mould: 3524 (individually wrapped, TC-treated), 3526 (non-treated), 3337, 3473 (ultra-low attachment). 3527 differs from 3524 only in packaging (bulk pack), so the geometry is identical to the existing Corning_costar_24_well_plate.json entry; this file exists so the plate is findable by its own catalogue number. Footprint 127.76 x 85.47 mm from the drawing (Corning's assay-plate selection guide CLS-C-DL-MP-014REV9 quotes 85.48 mm width for its ANSI/SBS statement; the 0.01 mm difference is below anything the instrument resolves). Height 20.27 mm is the base WITHOUT the lid, per the drawing's .798 dimension; the drawing's .891 (22.63 mm) is base plus cover and is NOT used here, because z_reference is the top surface of the plate. Pitch 19.304 mm (.760 TYP) in both axes. A1 centre 17.48 mm from the left edge and 13.77 mm from the top edge, both off the drawing; the dimension sheet independently gives 17.46 and 13.78. Note the grid is centred in the short axis (13.77 vs a centred 13.78) but sits 1.86 mm to the right of centre in the long axis (17.48 vs a centred 15.62) - this asymmetry is what both Corning documents say and it is unlike Corning's 6-, 12- and 48-well plates, which are centred in both axes; it is also visible in the drawing's plan view, so it was not read from the wrong datum. Well diameter 16.26 mm is the TOP diameter (drawing, .640 DIA); the bottom diameter is 15.62 mm (dimension sheet), which is the figure Corning's catalogue page quotes as '15.6 mm'. Well depth 17.40 mm (.685). Well bottom elevation above the plate's underside 2.54 mm (.100). BOTTOM THICKNESS 1.27 mm (.050) of clear polystyrene - this is the working-distance number. Total well volume 3.47 mL (dimension sheet) / 3.4 mL (catalogue), working volume 0.38-0.57 mL, growth area 1.93 cm2, flange height 13.74 mm. Clear polystyrene, TC-treated, gamma sterilised, non-pyrogenic, non-reversible lid with condensation rings. Dimensions in metres."
+}
