@@ -1,4 +1,5 @@
 {
+    "$schema": "https://raw.githubusercontent.com/ramonaoptics/labware/main/ramona_labware/labware.v1.schema.json",
     "name": "TPP 92424 24 well",
     "number_of_wells": 24,
     "manufacturer": "Techno Plastic Products AG (TPP)",
@@ -6,15 +7,11 @@
     "last_updated": "2026-08-27T00:00:00Z",
     "part_number": "92424",
     "web_reference": "https://www.tpp.ch/page/downloads/IFU_TechDoc_Statement/TechDoc-Test-Plate-Measurements-EN.pdf",
-    "__owl_settings_type__": "labware",
-    "__owl_version__": "0.19.595",
 
     "outer_plate_dimensions": {
         "length": 0.1278,
         "width": 0.0855,
-        "height": 0.0202,
-        "__owl_settings_type__": "labware_outer_dimensions",
-        "__owl_version__": "0.19.595"
+        "height": 0.0202
     },
 
     "well_dimensions": {
@@ -24,18 +21,14 @@
         "shape": "circle",
         "diameter": 0.0162,
         "depth": 0.0171,
-        "bottom_shape": "flat",
-        "__owl_settings_type__": "labware_well_dimensions",
-        "__owl_version__": "0.19.595"
+        "bottom_shape": "flat"
     },
 
     "alignment_reference": {
         "origin_reference": "A1 well center",
         "offset_from_left_edge": 0.0154,
         "offset_from_top_edge": 0.01485,
-        "z_reference": "top surface of plate",
-        "__owl_settings_type__": "labware_alignment_reference",
-        "__owl_version__": "0.19.595"
+        "z_reference": "top surface of plate"
     },
 
     "notes": "TPP tissue culture test plate, 24 round flat-bottom wells, clear polystyrene, TC-treated growth surface, sterile (SAL 10-3, ISO 11137), non-pyrogenic (endotoxins < 0.06 EU/mL), supplied with a vented lid. Every dimension in this file is read from TPP's controlling datasheet 'TPP Tissue Culture Test Plate - Dimensions and Measurements', document 'TechDoc Test Plates Measurements 04/2026', published at web_reference; page 3 and 4 of that document define the dimension symbols (X1/Y1 are the A1 well center, T is the well depth from the top surface to the inner well floor, G is the bottom thickness) and pages 5-6 carry the per-format tables. PART NUMBER: the requester's plate is catalogue 92424, which TPP's ordering table lists as the 'multi-pack / Mehrfachverpackung' 4-plates-per-bag, 72-per-case presentation of the same 24-well mould as 92024 (1/bag, 126/case) and 92124 (small packaging unit, 1/bag, 42/case); all three rows carry identical growth area 1.863 cm^2, internal diameter 15.40 mm and 128 x 86 x 22 mm dimensions on https://www.tpp.ch/page/produkte/09_zellkultur_testplatte.php. The measurements datasheet tabulates the 24-well column under 92024 only, so the geometry here is that column, applied to 92424 on TPP's own statement that the two differ in packaging alone. Distributors write this number 'TP-92424' or 'TP 92424'. Units in meters. Measured values, in millimeters on the datasheet: footprint L = 127.8, B = 85.5; plate height without lid H = 20.2 (22.4 with the lid on; tolerance +/-0.1; stack height 19.2 without lid, 21.4 with); skirt R = 8.8. Well pitch P = Q = 18.6 in both directions; A1 well center X1 = 15.4 from the left edge, Y1 = 14.85 from the top edge, last-well centers Xn = 108.4 and Yn = 70.65. Well top diameter D = 16.2, recorded in 'diameter' per the top-diameter convention; well ground diameter d = 15.4 (this is the 'internal diameter' TPP quotes in its catalogue and is the number that matches the 1.863 cm^2 growth area); well depth T = 17.1; flat bottom. WORKING DISTANCE: bottom thickness G = 1.35 mm in polystyrene; well floor sits B = 3.1 mm above the plate ground and C = 1.75 mm above the plate support surface. Recommended media volume 0.4-0.9 mL per well, maximum well volume 3.19 mL. NOT CENTERED: the A1 column offset is not the centered value. The grid is exactly centered top-to-bottom ((85.5 - 3 x 18.6) / 2 = 14.85, as tabulated) but X1 = 15.4 is 2.0 mm left of the centered position of 17.4 mm, leaving margins of 15.4 mm on the left and 19.4 mm on the right; TPP's own Xn = 108.4 is consistent with that X1 and pitch, and the same 2.0 mm left shift appears in the datasheet's 6-well column, so it is tabulated deliberately rather than being a single-cell typo. It has not been checked against a plate in hand. Use 'pitch' and origin reference to compute all well centers."

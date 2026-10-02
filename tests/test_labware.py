@@ -1,3 +1,4 @@
+import json
 from datetime import UTC, datetime
 from pathlib import Path
 
@@ -6,6 +7,7 @@ from pydantic import ValidationError
 
 import ramona_labware
 from ramona_labware import AlignmentReference, Labware, OuterDimensions, WellDimensions
+from ramona_labware.schema import SCHEMA_URL, json_schema
 
 parametrize = pytest.mark.parametrize
 
@@ -21,7 +23,6 @@ def test_valid_outer_dimensions():
     assert dims.length == 0.12776
     assert dims.width == 0.08548
     assert dims.height == 0.01435
-    assert dims.owl_settings_type == "labware_outer_dimensions"
 
 
 def test_outer_dimensions_required_fields():
@@ -61,7 +62,6 @@ def test_valid_well_dimensions_384_well():
     assert wells.diameter == 0.0032
     assert wells.depth == 0.0105
     assert wells.bottom_shape == "flat"
-    assert wells.owl_settings_type == "labware_well_dimensions"
 
 
 def test_valid_well_dimensions_96_well():
@@ -164,7 +164,6 @@ def test_valid_alignment_reference():
     assert alignment.offset_from_left_edge == 0.01438
     assert alignment.offset_from_top_edge == 0.01124
     assert alignment.z_reference == "top surface of plate"
-    assert alignment.owl_settings_type == "labware_alignment_reference"
 
 
 def test_labware_creation():
@@ -207,7 +206,6 @@ def test_labware_creation():
     assert labware.well_dimensions.rows == 8
     assert labware.well_dimensions.columns == 12
     assert labware.well_dimensions.bottom_shape == "u"
-    assert labware.owl_settings_type == "labware"
 
 
 def test_valid_384_well_plate():
@@ -661,3 +659,16 @@ def test_plate_definition_files_can_be_loaded(
     assert labware.alignment_reference.offset_from_left_edge >= 0
     assert labware.alignment_reference.offset_from_top_edge >= 0
     assert labware.alignment_reference.z_reference
+
+
+def test_definition_files_name_the_schema_version():
+    definitions = Path(ramona_labware.__file__).parent / "definitions"
+    for plate_file in definitions.glob("*.json"):
+        assert json.loads(plate_file.read_text())["$schema"] == SCHEMA_URL, plate_file.name
+
+
+def test_published_schema_matches_the_model():
+    # Regenerate with:
+    # python -c "import json; from ramona_labware.schema import json_schema; print(json.dumps(json_schema(), indent=2))" > ramona_labware/labware.v1.schema.json
+    published = Path(ramona_labware.__file__).parent / "labware.v1.schema.json"
+    assert json.loads(published.read_text()) == json_schema()

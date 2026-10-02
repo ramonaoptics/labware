@@ -1,4 +1,5 @@
 {
+    "$schema": "https://raw.githubusercontent.com/ramonaoptics/labware/main/ramona_labware/labware.v1.schema.json",
     "name": "Genesee GenClone 25-105 6 well",
     "number_of_wells": 6,
     "manufacturer": "Genesee Scientific",
@@ -6,15 +7,11 @@
     "last_updated": "2026-08-27T00:00:00Z",
     "part_number": "25-105",
     "web_reference": "https://geneseesci.asset.akeneo.cloud/Technical_Documents/media/GenCloneTCPlatesPDS.pdf",
-    "__owl_settings_type__": "labware",
-    "__owl_version__": "0.19.595",
 
     "outer_plate_dimensions": {
         "length": 0.12776,
         "width": 0.08548,
-        "height": 0.0202,
-        "__owl_settings_type__": "labware_outer_dimensions",
-        "__owl_version__": "0.19.595"
+        "height": 0.0202
     },
 
     "well_dimensions": {
@@ -24,18 +21,14 @@
         "shape": "circle",
         "diameter": 0.0353,
         "depth": 0.017,
-        "bottom_shape": "flat",
-        "__owl_settings_type__": "labware_well_dimensions",
-        "__owl_version__": "0.19.595"
+        "bottom_shape": "flat"
     },
 
     "alignment_reference": {
         "origin_reference": "A1 well center",
         "offset_from_left_edge": 0.02471,
         "offset_from_top_edge": 0.02317,
-        "z_reference": "top surface of plate",
-        "__owl_settings_type__": "labware_alignment_reference",
-        "__owl_version__": "0.19.595"
+        "z_reference": "top surface of plate"
     },
 
     "notes": "Genesee Scientific GenClone 6 well tissue culture plate, GPPS (general polystyrene), flat-bottom round wells, sterile (irradiation, SAL 10-6, ISO 11137), not autoclavable, DNase/RNase free and non-pyrogenic, lid with notched corners (lid not modeled here). Cat# 25-105 is the surface-treated item, registered here; 25-100 is the non-treated sibling on the same mould (same drawing, same dimensions) - which of the two is the plate in the requester's lab has still not been confirmed, see the MR. All dimensions are from the 'Product Specification Sheet, 6 Well Tissue Culture Plates' page (page 1 of 6) of the family PDS GenCloneTCPlatesPDS.pdf (PDF created 2026-08-14, downloaded 2026-08-27; the dimensioned drawing is an image with no text layer and was read by rendering the page at 600-1100 dpi). Units in meters. Footprint 127.76 x 85.48 mm +/-0.25 from the 'Plate' view; the 'Lid' view on the same sheet gives 127.0 x 84.8 mm +/-0.25 for the lid, which nests inside the plate rim and is not used here. Plate height without lid is 20.2 mm +/-0.15; assembled plate + lid height is 22.2 mm per the Features list. A1 well center is 24.71 mm from the left edge and 23.17 mm from the top edge; pitch is 39.04 mm in both directions on the 2 x 3 grid; all four values were read directly off the plate top view. The wells are tapered: the section carries Phi 35.3 +/-0.15 mm at one end of the well and Phi 34.5 +/-0.15 mm at the other. 'diameter' is the top (rim) diameter, 35.3 mm, per the top-diameter convention; the well floor diameter is 34.5 mm. Well depth 17.0 mm +/-0.15 runs from the well floor to the rim, and the well floor thickness is 1.5 mm +/-0.2: on the section these are consecutive, additive dimensions stacked from the plate bottom, and 1.5 + 17.0 = 18.5 mm plus the ~1.7 mm peripheral skirt below the well floor makes up the 20.2 mm plate height. This corrects the first version of this file (!10744), which read the section as a narrow 34.5 mm entrance ring at the well mouth spanning the first 1.5 mm of depth. The section was re-measured off a 600 dpi render for the follow-up MR: the 1.5 mm dimension lies between the outer and the inner face of the well floor (so it is the bottom thickness), and the well cavity is 0.8 mm wider at the rim than at the floor, which is also the only direction a moulded well can be drafted. The 1.5 mm GPPS floor is the working-distance number for imaging through the plate bottom. Vendor states max volume 17.0 mL, working volume 1.9-2.9 mL and growth area 9.6 cm^2 per well; 9.6 cm^2 sits between the areas implied by the floor diameter (9.35 cm^2) and the rim diameter (9.79 cm^2) and looks like the nominal industry figure for a 6-well plate rather than a computed one. Use 'pitch' and origin reference to compute all well centers."

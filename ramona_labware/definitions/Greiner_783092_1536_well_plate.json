@@ -1,4 +1,5 @@
 {
+    "$schema": "https://raw.githubusercontent.com/ramonaoptics/labware/main/ramona_labware/labware.v1.schema.json",
     "name": "Greiner CELLSTAR 783092 1536 well",
     "number_of_wells": 1536,
     "manufacturer": "Greiner Bio-One",
@@ -6,15 +7,11 @@
     "last_updated": "2026-08-17T00:00:00Z",
     "part_number": "783092",
     "web_reference": "https://shop.gbo.com/en/usa/files/32529686/783092.pdf",
-    "__owl_settings_type__": "labware",
-    "__owl_version__": "0.19.584",
 
     "outer_plate_dimensions": {
         "length": 0.12776,
         "width": 0.08548,
-        "height": 0.0104,
-        "__owl_settings_type__": "labware_outer_dimensions",
-        "__owl_version__": "0.19.584"
+        "height": 0.0104
     },
 
     "well_dimensions": {
@@ -24,18 +21,14 @@
         "shape": "square",
         "diameter": 0.0017,
         "depth": 0.005,
-        "bottom_shape": "flat",
-        "__owl_settings_type__": "labware_well_dimensions",
-        "__owl_version__": "0.19.584"
+        "bottom_shape": "flat"
     },
 
     "alignment_reference": {
         "origin_reference": "A1 well center",
         "offset_from_left_edge": 0.01101,
         "offset_from_top_edge": 0.00787,
-        "z_reference": "top surface of plate",
-        "__owl_settings_type__": "labware_alignment_reference",
-        "__owl_version__": "0.19.584"
+        "z_reference": "top surface of plate"
     },
 
     "notes": "Greiner Bio-One CELLSTAR 1536 well microplate, PS, LoBase, black plate with clear uClear film F-bottom (flat), rounded-square wells, physical surface treated, sterile (SAL 10-3). Item numbers 783092 (black, sterile, this file), 783093 (black, sterile - drawing/PDS also cover it), 783095 (LUMITRAC 200 medium binding, white, non-sterile), 783096 (FLUOTRAC 200 medium binding, black, non-sterile) share one mould; PDS No. 78309x rev 07 section 1.5 gives colour per item number. Dimensions and A1 offsets are from the Greiner customer drawing 'CUSTOMER DRAWING, 1536 Well Microplate, PS, uClear, LoBase', revision 5, released 2024-02-19, valid for 783092/783093/783095/783096 (https://shop.gbo.com/en/usa/files/32529686/783092.pdf; the requester's Slack attachment 783092.pdf, 843879 bytes, is byte-identical to this hosted copy). Units in meters. Footprint 127.76 x 85.48 mm +/-0.1. Plate height 10.4 mm +/-0.1, no lid (this LoBase item ships sealed with the uClear foil bottom, 75 um +/-10% per PDS 1.2, not a lid). Well opening is a rounded square, 1.7 mm across at the top (recorded in 'diameter' per the square-well convention; corner radius not dimensioned on the drawing) tapering to a 1.53 mm square at the well floor. Well depth (rim to floor) is 5.0 mm per the drawing's '5' dimension; a further 2.0 mm of material sits below the well floor down to the plate's resting plane (skirt height), which has no schema field but matters for working-distance stack-up on the instrument. bottom_shape is 'flat' per PDS 1.1 'clear film F-bottom (flat)'. A1 well center is 11.01 mm from the left edge (column offset) and 7.87 mm from the top edge (row offset), matching ANSI/SLAS 4-2004's 11.005/7.865 mm for 1536-well plates to drawing tolerance. Pitch is not itself labeled on the drawing; 2.25 mm is derived from the footprint and A1 offsets (127.76 = 2x11.01 + 47x pitch => 2.2503 mm; 85.48 = 2x7.87 + 31x pitch => 2.2503 mm), matching the ANSI/SLAS 1536-well standard pitch - both computations self-consistent to the drawing's own numbers, not substituted from the standard. Total volume 12.6 uL (mathematically calculated per PDS), working volume 3-10 uL, growth area 2.3 mm^2 per well. Use 'pitch' and origin reference to compute all well centers."
