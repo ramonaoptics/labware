@@ -1,8 +1,13 @@
+import importlib.metadata
 import importlib.resources
 
 from .schema import AlignmentReference, Labware, OuterDimensions, WellDimensions
 
-__version__ = '0.1.0'
+# The version comes from the git tag, through setuptools-scm, at build time.
+try:
+    __version__ = importlib.metadata.version('labware')
+except importlib.metadata.PackageNotFoundError:
+    __version__ = '0+unknown'
 
 __all__ = [
     'AlignmentReference',

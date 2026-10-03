@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=77"]
+requires = ["setuptools>=77", "setuptools-scm>=8"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -23,8 +23,7 @@ packages = ["labware"]
 [tool.setuptools.package-data]
 labware = ["definitions/*.json", "labware.v1.schema.json", "py.typed"]
 
-[tool.setuptools.dynamic]
-version = { attr = "labware.__version__" }
+[tool.setuptools_scm]
 
 [dependency-groups]
 dev = ["pytest", "ruff", "ty"]
