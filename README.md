@@ -26,3 +26,19 @@ print(plate.well_dimensions.pitch)  # 0.009, in meters
   against.
 - `labware/labware.v1.schema.json` is that model published as a JSON schema.
   Each definition names it in its `$schema` key.
+
+## Releasing
+
+Uploads to PyPI are automatic, and the version comes from the git tag, so
+there is no version number to edit in the source.
+
+To release, create the tag from the GitHub web interface:
+
+1. Open https://github.com/ramonaoptics/labware/releases/new
+2. Under "Choose a tag", type the new version with a leading `v`, for example
+   `v0.1.1`, and pick "Create new tag on publish".
+3. Leave the target as `main`, click "Generate release notes", then
+   "Publish release".
+
+The `pypi` workflow then builds the sdist and wheel and publishes them, and
+`labware.__version__` in the installed package reports that same version.

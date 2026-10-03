@@ -1,14 +1,14 @@
 import importlib.resources
 
+from ._version import __version__
 from .schema import AlignmentReference, Labware, OuterDimensions, WellDimensions
-
-__version__ = '0.1.0'
 
 __all__ = [
     'AlignmentReference',
     'Labware',
     'OuterDimensions',
     'WellDimensions',
+    '__version__',
     'load_labware',
 ]
 
