@@ -1,19 +1,14 @@
-import importlib.metadata
 import importlib.resources
 
+from ._version import __version__
 from .schema import AlignmentReference, Labware, OuterDimensions, WellDimensions
-
-# The version comes from the git tag, through setuptools-scm, at build time.
-try:
-    __version__ = importlib.metadata.version('labware')
-except importlib.metadata.PackageNotFoundError:
-    __version__ = '0+unknown'
 
 __all__ = [
     'AlignmentReference',
     'Labware',
     'OuterDimensions',
     'WellDimensions',
+    '__version__',
     'load_labware',
 ]
 

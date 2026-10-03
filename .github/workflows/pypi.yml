@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          # setuptools-scm reads the version from the tags
+          # the version comes from git describe, which needs the tags
           fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
