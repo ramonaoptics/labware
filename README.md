@@ -26,3 +26,16 @@ print(plate.well_dimensions.pitch)  # 0.009, in meters
   against.
 - `labware/labware.v1.schema.json` is that model published as a JSON schema.
   Each definition names it in its `$schema` key.
+
+## Releasing
+
+Uploads to PyPI are automatic. Bump `__version__` in `labware/__init__.py`,
+merge that to `main`, then tag the commit and push the tag:
+
+```bash
+git tag v0.1.1
+git push origin v0.1.1
+```
+
+The `pypi` workflow builds the sdist and wheel, checks that the tag matches
+`__version__`, and publishes them.
