@@ -1,0 +1,73 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ramonaoptics/labware/main/labware/labware.v1.schema.json",
+    "name": "Greiner CELLSTAR 781091 384 well",
+    "number_of_wells": 384,
+    "manufacturer": "Greiner Bio-One",
+    "author": "Ramona Optics",
+    "last_updated": "2026-10-05T00:00:00Z",
+    "part_number": "781091",
+    "web_reference": "https://shop.gbo.com/en/usa/products/bioscience/microplates/384-well-microplates/781091.html",
+    "drawing_reference": "https://shop.gbo.com/en/usa/files/33089982/781091.pdf",
+
+    "applications": [
+        "cell culture",
+        "imaging",
+        "high-content screening",
+        "high-throughput screening",
+        "fluorescence",
+        "luminescence"
+    ],
+
+    "outer_plate_dimensions": {
+        "length": 0.12776,
+        "width": 0.08548,
+        "height": 0.0144,
+        "skirt_height": 0.0025,
+        "skirt_thickness": 0.00175,
+        "upper_outline": [
+            [0.0019, 0.0078],
+            [0.0078, 0.0019],
+            [0.12586, 0.0019],
+            [0.12586, 0.08358],
+            [0.0078, 0.08358],
+            [0.0019, 0.07768]
+        ]
+    },
+
+    "well_dimensions": {
+        "pitch": 0.0045,
+        "rows": 16,
+        "columns": 24,
+        "shape": "square",
+        "diameter": 0.0033,
+        "top_shape": "square",
+        "diameter_top": 0.0037,
+        "depth": 0.0115,
+        "bottom_shape": "flat",
+        "working_volume_min": 1.5e-05,
+        "working_volume_max": 0.00011,
+        "bottom_color": "clear",
+        "bottom_material": "polystyrene",
+        "bottom_thickness": 0.00019,
+        "bottom_refractive_index": 1.59,
+        "bottom_elevation": 0.00271,
+        "floor_height": 0.0029,
+        "wall_material": "polystyrene",
+        "wall_color": "black",
+        "wall_thickness": 0.0008,
+        "surface_treatments": [
+            "tissue culture",
+            "high binding",
+            "medium binding"
+        ]
+    },
+
+    "alignment_reference": {
+        "origin_reference": "A1 well center",
+        "offset_from_left_edge": 0.01213,
+        "offset_from_top_edge": 0.00899,
+        "z_reference": "top surface of plate"
+    },
+
+    "notes": "Greiner Bio-One CELLSTAR 781091 384 well microplate, PS, uClear F-bottom (flat), rounded-square wells, black plate with clear film bottom, physically surface treated for cell culture, sterile (SAL 10-3), supplied with a clear single-position low-profile lid. Units in meters.\n\nCONTROLLING DOCUMENT: Greiner customer drawing 'CUSTOMER DRAWING, 384 Well Microplate, PS, uClear', Revision 7, released 2020-10-14 (https://shop.gbo.com/en/usa/files/33089982/781091.pdf), valid for item numbers 781090, 781091, 781092, 781093, 781095, 781096, 781097 and 781098 - one mould, differing only in colour, treatment, sterility and lid. Cross-checked against PDS No. 78109x Revision 09, released 2022-01-17 (https://shop.gbo.com/en/usa/files/33088883/781091.pdf), whose section 1.2 defers to that drawing for all dimensions. Per PDS 1.5 the plate is black with a clear bottom for 781090/-091/-092/-096/-097 and white with a clear bottom for 781093/-094/-095/-098; per PDS 1.1 and 1.4 only 781090/-091/-098 ship with a lid. Both documents carry a Greiner CONFIDENTIAL / no-reproduction footer although both are served unauthenticated from the public product page, so neither is reproduced as a figure here; they are linked instead.\n\nPRINTED ON THE DRAWING, transcribed as-is: footprint 127.76 +/-0.15 x 85.48 +/-0.15 mm; plate height 14.4 +/-0.1 mm (lid off); pitch 4.5 mm; A1 well centre 12.13 mm from the left edge and 8.99 mm from the top edge, with the plan view labelled A-P top to bottom and 1-24 left to right, so A1 is the top-left well as this registry expects; well opening a rounded square 3.7 mm across the flats, tapering to 3.3 mm across the flats at the floor; well depth 11.5 mm from the plate's top surface to the floor the sample sits on. The 12.13 / 8.99 / 4.5 values coincide with ANSI/SLAS 4-2004 for 384-well plates but are printed on this drawing and were transcribed from it, not substituted from the standard.\n\nWELL SHAPE: the wells are rounded squares, which the schema has no value for, so 'shape' and 'top_shape' are 'square' and the flat-to-flat widths go in 'diameter' (floor) and 'diameter_top' (opening). The corner radius is not dimensioned. It is approximately 1.0 mm: the PDS's own total volume of 131 uL and growth area of 10 mm^2 are both reproduced by a rounded-square frustum of 3.7 -> 3.3 mm over 11.5 mm depth with a ~1.0 mm corner radius (131.1 uL and 10.03 mm^2 computed), which independently confirms the transcribed 3.7 / 3.3 / 11.5 against two numbers the drawing does not carry.\n\nDERIVED FROM PRINTED DIMENSIONS: floor_height = 14.4 - 11.5 = 2.9 mm, the height of the imaged surface above the plane the plate rests on. bottom_elevation = 2.9 - 0.19 = 2.71 mm.\n\nNOT ON THE DRAWING - bottom_thickness: the uClear film thickness is dimensioned nowhere on the customer drawing and is not given in PDS 78109x. The only Greiner source for it is the vendor's own microplates category page (https://shop.gbo.com/en/usa/products/bioscience/microplates/), which states the uClear film bottom is '190 um +/- 20 um for a 96 and 384 well formats and 75 um +/- 10 um for the 1536 well format'. 0.19 mm is recorded here from that page. This is a catalogue-page value, one rank below the drawing, and it is the working-distance number - worth confirming against a plate in hand before it is trusted to a micron. It was NOT scaled off the drawing: the film is drawn far thicker than scale, as thin features usually are.\n\nSCALED OFF THE DRAWING (plan and section views of Rev 7, assumed to scale - it is a CAD engineering drawing with a title block, orthographic views and dimension lines). Calibration: page rendered at 600 dpi; the plan view's printed footprint gives 23.14 px/mm in x (127.76 mm over 2956 px) and 23.12 px/mm in y (85.48 mm over 1976 px), agreeing to 0.1 %; a second check per axis gives 4.496 mm for the printed 4.5 pitch and 12.10 mm for the printed 12.13 A1 offset. The well section detail is drawn at 2.5x the plan (57.85 px/mm), confirmed by its 2.5 dimension measuring 2.489 mm at that scale.\n  - skirt_height 2.5 mm is PRINTED on the section, not scaled, and is the step where the outer wall moves in above the plate's resting plane. Only one section view is given, so the drawing does not show whether the skirt height differs between the long sides and the ends; 2.5 mm is recorded as a single value for the whole perimeter on that basis.\n  - skirt_outline is deliberately absent: the footprint is a plain rounded rectangle. The two left (column-1) corners are cut at 45 degrees on the BODY only, not on the skirt - confirmed on the plan view (the outermost two contours run round a radius at all four corners while the body's contours turn diagonally at the two column-1 corners) and visible in the vendor's own product photo.\n  - skirt_thickness 1.75 mm is the width of the skirt's top face, from the footprint edge in to the foot of the body wall. Measured as 1.75 mm on the plan view and 1.75 mm on the section independently; uncertainty about +/-0.1 mm (line width ~0.2 mm).\n  - upper_outline is the body above the skirt, inset 1.9 mm from each edge, with 45-degree chamfers at the two column-1 corners. The body wall is drafted: its outer face measures 1.75 mm inset at its foot and about 1.95 mm at the plate's top surface, and the top edge is the one recorded, so 1.9 mm carries roughly +/-0.2 mm. The chamfer line was traced on the plan view at exactly 45 degrees (10 px of x per 10 px of y) and placed by the contour bundle it cuts; its legs are about 7.8 mm along each edge at the 1.9 mm inset. The two column-24 corners are rounded on the drawing and are recorded here as square points, which overstates the body by under a millimetre at those two corners only.\n\nwall_thickness 0.8 mm is pitch minus the opening width (4.5 - 3.7), i.e. the thinnest wall between neighbouring wells, at the rim where the openings are widest; it is not separately dimensioned. bottom_refractive_index 1.59 is the standard value for polystyrene near 589 nm and is NOT a Greiner-published figure; the materials themselves (plate and film both PS, free of heavy metal; lid PS) are from PDS 1.4.\n\nheight_with_lid is deliberately absent. Drawing page 2 dimensions the LID alone - 127.35 +/-0.15 x 84.8 +/-0.15 mm footprint, 6.95 mm overall with a 5.95 mm inner step - but neither page dimensions the lid-on assembly height, and how far the lid drops over the plate rim cannot be read off two separate views without guessing. Do not read page 2's 127.35 x 84.8 as the plate footprint.\n\nFrom PDS 78109x Rev 09: total volume 131 uL per well (mathematically calculated), working volume 15-110 uL, growth area 10 mm^2 per well for the cell-culture items, shelf life 4 years, not autoclavable, application temperature -20 to +60 C. surface_treatments lists the treatments sold on this one mould across its item numbers: physical surface treatment for cell culture (781090/-091/-092/-093/-098, recorded as 'tissue culture'), high binding (781097) and medium binding (781095/-096); 781091 itself is the physically surface-treated, sterile, lidded black item. Use 'pitch' and the alignment reference to compute all well centres."
+}

@@ -661,6 +661,13 @@ def test_physical_constraints_assumptions() -> None:
             32,
             48,
         ),
+        (
+            'Greiner_781091_384_well_plate.json',
+            'Greiner CELLSTAR 781091 384 well',
+            384,
+            16,
+            24,
+        ),
         ('Genesee_25-105_6_well_plate.json', 'Genesee GenClone 25-105 6 well', 6, 2, 3),
         ('Corning_351146_6_well_plate.json', 'Corning Falcon 351146 6 well', 6, 2, 3),
         ('Corning_3527_24_well_plate.json', 'Corning Costar 3527 24 well', 24, 4, 6),
