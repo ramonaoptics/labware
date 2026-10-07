@@ -5,6 +5,18 @@ skirt, material, and the vendor drawing each dimension came from.
 
 Browse them in 3D: https://docs.ramonaoptics.com/tools/labware_viewer.html
 
+## Install
+
+```bash
+pip install labware
+```
+
+or
+
+```bash
+conda install -c conda-forge labware
+```
+
 ## Example
 
 ```python
