@@ -1,0 +1,105 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ramonaoptics/labware/main/labware/labware.v1.schema.json",
+    "name": "Greiner CELLSTAR OneWell 670180 1 well",
+    "number_of_wells": 1,
+    "manufacturer": "Greiner Bio-One",
+    "author": "Ramona Optics",
+    "last_updated": "2026-10-11T00:00:00Z",
+    "part_number": "670180",
+    "web_reference": "https://shop.gbo.com/en/row/products/bioscience/cell-culture-products/cellstar-cell-culture-dishes/standard-cell-culture-dishes/670180.html",
+    "drawing_reference": "https://shop.gbo.com/en/row/files/33155842/670180.pdf",
+    "applications": [
+        "cell culture",
+        "imaging"
+    ],
+    "outer_plate_dimensions": {
+        "length": 0.12776,
+        "width": 0.08548,
+        "height": 0.0144,
+        "skirt_height": 0.0025,
+        "skirt_thickness": 0.0009,
+        "upper_outline": [
+            [
+                0.00834,
+                0.00201
+            ],
+            [
+                0.12429,
+                0.00201
+            ],
+            [
+                0.12504,
+                0.00221
+            ],
+            [
+                0.12559,
+                0.00276
+            ],
+            [
+                0.12579,
+                0.00351
+            ],
+            [
+                0.12579,
+                0.08197
+            ],
+            [
+                0.12559,
+                0.08272
+            ],
+            [
+                0.12504,
+                0.08327
+            ],
+            [
+                0.12429,
+                0.08347
+            ],
+            [
+                0.00834,
+                0.08347
+            ],
+            [
+                0.00197,
+                0.07748
+            ],
+            [
+                0.00197,
+                0.008
+            ]
+        ]
+    },
+    "well_dimensions": {
+        "pitch": 0.08548,
+        "rows": 1,
+        "columns": 1,
+        "shape": "rectangle",
+        "diameter": 0.0788,
+        "width": 0.121,
+        "height": 0.0788,
+        "top_shape": "rectangle",
+        "diameter_top": 0.0798,
+        "width_top": 0.122,
+        "height_top": 0.0798,
+        "depth": 0.0118,
+        "bottom_shape": "flat",
+        "bottom_color": "clear",
+        "bottom_material": "polystyrene",
+        "bottom_thickness": 0.001,
+        "bottom_elevation": 0.0015,
+        "floor_height": 0.0025,
+        "wall_material": "polystyrene",
+        "wall_color": "clear",
+        "wall_thickness": 0.0009,
+        "surface_treatments": [
+            "tissue culture"
+        ]
+    },
+    "alignment_reference": {
+        "origin_reference": "A1 well center",
+        "offset_from_left_edge": 0.06388,
+        "offset_from_top_edge": 0.04274,
+        "z_reference": "top surface of plate"
+    },
+    "notes": "Greiner Bio-One CELLSTAR OneWell Plate, catalogue number 670180: one rectangular flat-bottom chamber filling a standard microplate footprint, clear polystyrene, physically surface treated (tissue culture) and sterile (SAL 10-3), with vents and a lid, 8 per bag and 32 per box. The product data sheet also states it is free of detectable DNase/RNase, human DNA and pyrogens, and non-cytotoxic. CONTROLLING DOCUMENT: Greiner's per-catalogue CUSTOMER DRAWING for the CELLSTAR OneWell Plate, Revision 5, released 2022/11/08 (drawing_reference). It is valid for three catalogue numbers that are therefore one mould differing only in surface and sterility: 670102 (non-treated, non-sterile), 670180 (treated, sterile, the one registered here) and 670190 (non-treated, sterile). The drawing has no text layer and was read from renders; its page 1 is the plate and its page 2 is the LID, whose 127.5 x 85 x 10 mm must not be mistaken for the plate. SECOND DOCUMENT: Product Data Sheet 'PDS No. 6701xx', Revision 05, released 5 October 2022, at https://shop.gbo.com/en/row/files/33154748/670180.pdf, which gives the materials, the treatment, the total volume of 113.7 ml and the growth area of 95.0 cm2 (the latter quoted for 670180 specifically). The PDS itself gives no dimensions, referring to the customer drawing. Units in meters; the drawing is in mm. PRINTED ON THE DRAWING, transcribed directly: footprint 127.76 +/-0.2 mm (length) and 85.48 +/-0.2 mm (width); overall plate height 14.4 +/-0.1 mm (height); chamber depth rim to floor 11.8 mm (depth); and 2.5 mm from the plane the plate rests on up to the chamber floor's top surface, which is also the height at which the outer wall steps out to the flange, hence floor_height 2.5 mm and skirt_height 2.5 mm from the one printed dimension. The drawing also prints a floor flatness tolerance of +0.25/-0.15 mm, which is not a schema field. SCALED OFF THE DRAWING, assumed to scale: the drawing is a Creo Elements/Direct Drafting engineering drawing with a title block, revision, orthographic views and dimension lines, and it is not marked NTS. Its plan view was calibrated independently on both axes of a 1200 dpi render - the printed 127.76 mm spans 5913 px (46.28 px/mm) and the printed 85.48 mm spans 3954 px (46.26 px/mm), agreeing to 0.04 % - and the section view, aligned with the plan in x, calibrates to within 0.2 % against the printed 14.4 and 11.8 mm. Line centres were measured, not line edges. On that basis: the chamber FLOOR is 121.0 x 78.8 mm, the innermost plan outline lying 3.38 mm inside each end and 3.3 mm inside each side (recorded as width 0.1210 along the plate's length and height 0.0788 along its width, with diameter repeating the shorter side 78.8 mm for readers that do not know the rectangle keys); the chamber OPENING is 122.0 x 79.8 mm, the next outline out, 2.90 mm inside each end and 2.82 mm inside each side, confirmed against the wall's inner face at the rim in the section (width_top, height_top, diameter_top). That is a wall draft of about 2.3 degrees over the printed 11.8 mm depth. Floor thickness measures 1.08 mm in the section and is recorded as bottom_thickness 1.0 mm; bottom_elevation 1.5 mm is then the printed 2.5 mm floor height less that thickness, i.e. the floor's underside stands 1.5 mm above the plane the plate rests on, over a recess that the flange surrounds. Uncertainty on each scaled value is about +/-0.2 mm, from the 0.4 mm drawn line width and the spread between views. TWO CROSS-CHECKS CONFIRM THE SCALED GEOMETRY: the scaled floor of 121.0 x 78.8 mm is 95.3 cm2 against the PDS's published growth area of 95.0 cm2, and the rectangle should read slightly high because it ignores the floor's corner radii; and the brim-full volume from the mean of the floor and opening areas times the printed 11.8 mm depth is 113.7 ml, which is exactly the PDS's published total volume. SKIRT AND BODY: the outermost plan outline is a plain rounded rectangle on all four corners, so no skirt_outline is recorded and the standard footprint outline is assumed. The BODY above the flange is not: it is inset 1.97 mm from each end and 2.01 mm from each side, and its two LEFT corners are cut at 45 degrees while its two right corners are plain rounded - that asymmetry is the plate's orientation feature and the lid on page 2 of the drawing carries the same two cuts. upper_outline records that body top edge: the chamfers run from (8.34, 2.01) to (1.97, 8.00) mm and from (1.97, 77.48) to (8.34, 83.47) mm, measured from the left and top edges, and the two right corners are sampled as arcs of a 1.5 mm radius, which is the least certain number in the file (+/-0.5 mm) because the arc's tangent points are short and partly hidden by neighbouring lines. skirt_thickness 0.9 mm and wall_thickness 0.93 mm (the chamber wall at the rim, body outer face to chamber inner face) are likewise scaled, not printed. ALIGNMENT: the chamber's bounding rectangle is centred on the plate within the measurement, so A1 is the plate's centre, 63.88 mm from the left edge and 42.74 mm from the top edge; the chamfered corners shift the chamber's true centroid a little to the right of that, which is not recorded. The opening is centred over the floor, so no top_offset is recorded. pitch is the plate's width: one chamber has no neighbour to be spaced from, and this keeps the lattice's single cell on the plate. NOT PUBLISHED, so left out: height_with_lid - page 2 of the drawing gives the lid as 127.5 x 85 mm, 10 mm tall with a 9 mm inner height, but it does not dimension how far the lid drops over the plate, so the stacked height cannot be computed and was not guessed. Also left out: any recommended working volume, which neither document gives; the PDS's 113.7 ml is a brim-full total, not a working volume, and is recorded here in the notes only. THE REQUEST AGREED WITH THE VENDOR: the requester quoted 127.8 x 85.5 x 14.4 mm and 95 cm2, which are the drawing's and the PDS's own figures rounded."
+}
