@@ -7,9 +7,11 @@ on:
 permissions:
   contents: read
 jobs:
-  # A merge to main that adds, changes or deletes a plate definition is
-  # released as the next patch version. Anything else, such as a change to
-  # the schema or the README, is left for a tag made by hand.
+  # A merge to main that changes the package is released on its own: a
+  # minor version if anything in labware/ other than a JSON file changed,
+  # otherwise a patch version if a JSON file there, such as a plate
+  # definition, was added, changed or deleted. A merge that only touches
+  # files outside the package, such as the README, is not released.
   tag:
     runs-on: ubuntu-latest
     permissions:
@@ -21,13 +23,14 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Pick the next patch version if a definition changed
+      - name: Pick the next version if the package changed
         id: next
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
           last=$(git describe --tags --abbrev=0 --match 'v[0-9]*')
-          if git diff --quiet "$last" HEAD -- labware/definitions/; then
-            echo "No plate definition changed since $last; not tagging."
+          changed=$(git diff --name-only --no-renames "$last" HEAD -- labware/)
+          if [[ -z $changed ]]; then
+            echo "The package has not changed since $last; not tagging."
             exit 0
           fi
           newest=$(git tag --list 'v[0-9]*' --sort=-v:refname | head -n 1)
@@ -35,8 +38,15 @@ jobs:
             echo "::error::Newest tag $newest is not vMAJOR.MINOR.PATCH"
             exit 1
           fi
-          tag="v${BASH_REMATCH[1]}.${BASH_REMATCH[2]}.$((BASH_REMATCH[3] + 1))"
-          echo "Plate definitions changed since $last; releasing $tag."
+          major=${BASH_REMATCH[1]} minor=${BASH_REMATCH[2]} patch=${BASH_REMATCH[3]}
+          if grep -qv '\.json$' <<< "$changed"; then
+            tag="v$major.$((minor + 1)).0"
+          else
+            tag="v$major.$minor.$((patch + 1))"
+          fi
+          echo "Changed since $last:"
+          echo "$changed"
+          echo "Releasing $tag."
           echo "tag=$tag" >> "$GITHUB_OUTPUT"
       - uses: actions/setup-python@v5
         if: steps.next.outputs.tag

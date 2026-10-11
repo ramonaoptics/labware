@@ -44,12 +44,19 @@ print(plate.well_dimensions.pitch)  # 0.009, in meters
 Uploads to PyPI are automatic, and the version comes from the git tag, so
 there is no version number to edit in the source.
 
-A merge to `main` that adds, changes or deletes a file in
-`labware/definitions/` is released on its own as the next patch version: the
+A merge to `main` that changes the package is released on its own: the
 `pypi` workflow runs the tests, creates the tag and a GitHub release, and
-publishes. Nothing else is tagged automatically, so a merge that only touches
-the schema, the code or this README waits for a release made by hand, as does
-any minor or major version.
+publishes.
+
+- If anything in `labware/` other than a JSON file changed, such as the
+  schema model or the loader, the minor version goes up.
+- Otherwise, if a JSON file in `labware/` was added, changed or deleted,
+  which is what a new or corrected plate definition is, the patch version
+  goes up.
+- A merge that only touches files outside `labware/`, such as this README,
+  the tests or the CI, is not released.
+
+A major version is always made by hand.
 
 To release by hand, create the tag from the GitHub web interface:
 
