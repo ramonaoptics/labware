@@ -1,0 +1,58 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ramonaoptics/labware/main/labware/labware.v1.schema.json",
+    "name": "Thermo Nunc OmniTray 165218 1 well",
+    "number_of_wells": 1,
+    "manufacturer": "Thermo Fisher Scientific",
+    "author": "Ramona Optics",
+    "last_updated": "2026-10-11T00:00:00Z",
+    "part_number": "165218",
+    "web_reference": "https://www.thermofisher.com/order/catalog/product/165218",
+    "drawing_reference": "https://assets.fishersci.com/TFS-Assets/LCD/Schematics-&-Diagrams/165218_1015.PDF",
+    "applications": [
+        "cell culture",
+        "microbiology",
+        "tissue explants",
+        "imaging"
+    ],
+    "outer_plate_dimensions": {
+        "length": 0.12776,
+        "width": 0.08547,
+        "height": 0.0145,
+        "height_with_lid": 0.016,
+        "skirt_height": 0.0025,
+        "skirt_thickness": 0.00203,
+        "upper_outline": [
+            [0.00203, 0.00209],
+            [0.12573, 0.00209],
+            [0.12573, 0.08338],
+            [0.00203, 0.08338]
+        ]
+    },
+    "well_dimensions": {
+        "pitch": 0.08547,
+        "rows": 1,
+        "columns": 1,
+        "shape": "rectangle",
+        "diameter": 0.0729,
+        "width": 0.1153,
+        "height": 0.0729,
+        "depth": 0.0117,
+        "bottom_shape": "flat",
+        "working_volume_max": 0.035,
+        "bottom_color": "clear",
+        "bottom_material": "polystyrene",
+        "floor_height": 0.0028,
+        "wall_material": "polystyrene",
+        "wall_color": "clear",
+        "surface_treatments": [
+            "tissue culture"
+        ]
+    },
+    "alignment_reference": {
+        "origin_reference": "A1 well center",
+        "offset_from_left_edge": 0.06388,
+        "offset_from_top_edge": 0.042735,
+        "z_reference": "top surface of plate"
+    },
+    "notes": "Thermo Scientific Nunc OmniTray Single-Well Plate, catalog number 165218: one rectangular flat-bottom compartment filling a standard microplate footprint, clear polystyrene, Nunclon Delta cell-culture treated, sterile, with lid, 10 per pack and 60 per case. CONTROLLING DOCUMENT: Thermo Fisher Product Specification Sheet 'PSS 165218 OMNITRAY', REV. 1015 (SOLIDWORKS, checked 2015-10-21), the drawing_reference. One dimension block on that sheet covers four catalog numbers that are therefore one mould and differ only in surface and packaging: 165218 (Nunclon Delta treated, 10/60), 242811 (non-treated, 10/60), 264728 (non-treated, 10/90) and 465219 (10/60). The earlier revision of the same sheet, REV. 0307, is published as https://assets.fishersci.com/TFS-Assets/LSG/manuals/D03023.pdf with identical values; it mislabels its last two rows, calling 16.0 mm the stacked height and 32.0 mm the assembly height, which rev 1015 corrects to a 16.0 mm single assembly (tray plus lid) and a 32.0 mm stack of two. Units in meters. PRINTED ON THE SHEET, transcribed directly: tray length A 127.76 mm and tray width B 85.47 mm (the footprint, both +/-0.5); tray height F 14.5 mm +/-0.5 (height); single assembly height L 16.0 mm +/-1.3 (height_with_lid); flange height E 2.5 mm +/-0.5 (skirt_height); well depth G 11.7 mm +/-0.5 (depth); suggested working volume 35 mL (working_volume_max; the sheet gives one value, not a range, and separately a 90 mL total volume to the brim, which is not recorded). Thermo states on the product page that all Nunc microplates meet ANSI/SBS 1-2004. DERIVED FROM PRINTED DIMENSIONS: the body above the flange is a plain rectangle 123.7 x 81.3 mm (printed C and D), centered on the footprint, so upper_outline is that rectangle and skirt_thickness is (127.76 - 123.7)/2 = 2.03 mm, which the width axis agrees with at (85.47 - 81.3)/2 = 2.09 mm. floor_height 2.8 mm is F - G, the tray height less the well depth, both printed; the plan and section views show the footprint and the body as plain rounded rectangles, so no skirt_outline is recorded and the ANSI/SLAS corner radius is assumed. THE COMPARTMENT'S INSIDE LENGTH AND WIDTH ARE NOT PUBLISHED and the sheet is stamped NOT TO SCALE, so they were not scaled off it. They are DERIVED from the printed nominal culture area of 84 cm2, taken as a rectangle inset by one uniform margin from the printed 123.7 x 81.3 mm body: (123.7 - 2m)(81.3 - 2m) = 8400 mm2 gives m = 4.21 mm and a floor 115.3 mm along the plate's length (width) by 72.9 mm along its width (height), 84.05 cm2. 'diameter' repeats the shorter side, 72.9 mm, for readers that do not know the rectangle keys. Two independent checks agree with it: the nested rectangles in the sheet's plan view, whose two printed dimensions per axis calibrate to within 0.15 percent of each other, put the compartment floor at about 115.5 x 73.2 mm; and 115.3 x 72.9 x 11.7 mm is 98 mL brim-full against the sheet's 90 mL total volume, which is then a fill 1.0 mm below the rim. The real compartment has rounded corners and about a millimetre of draft per side, which this ignores, and its two corners on one long side are chamfered at roughly 5 mm along each leg: that chamfer is the 'two notched corners' of the catalog description, and it is cut into the compartment and the lid, NOT into the plate's footprint, which stays a rounded rectangle. The compartment is centered on the plate, so A1 is the plate's center. 'pitch' is the plate's width: one well has no neighbor to be spaced from, and this keeps the lattice's single cell on the plate. WELL BOTTOM THICKNESS IS NOT PUBLISHED and is not recorded; it is the working-distance number, so measure it before relying on a focus offset. The section view indicates a floor of roughly 2.5 mm standing about 0.6 mm above the plane the plate rests on, but the sheet is stamped NOT TO SCALE and its section carries only one printed dimension to calibrate against, so those two figures are an indication only and bottom_thickness and bottom_elevation are left out. NOTE ALSO that the catalog page's 'Height (Metric) 32 mm' is the sheet's stacked assembly height M, two trays with lids, not the height of the tray; do not transcribe it."
+}
