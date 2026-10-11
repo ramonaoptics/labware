@@ -1,0 +1,73 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ramonaoptics/labware/main/labware/labware.v1.schema.json",
+    "name": "Cellvis P01-1.5H 1 well",
+    "number_of_wells": 1,
+    "manufacturer": "Cellvis",
+    "author": "Ramona Optics",
+    "last_updated": "2026-10-11T00:00:00Z",
+    "part_number": "P01-1.5H",
+    "web_reference": "https://www.cellvis.com/_single-well-glass-bottom-plate_/product_detail.php?product_id=81",
+    "drawing_reference": "https://www.cellvis.com/images/glass_bottom_plate_single_well_size.png",
+    "applications": [
+        "cell culture",
+        "imaging",
+        "fluorescence"
+    ],
+    "outer_plate_dimensions": {
+        "length": 0.1276,
+        "width": 0.0856,
+        "height": 0.01433,
+        "height_with_lid": 0.0168,
+        "upper_outline": [
+            [
+                0.003,
+                0.008
+            ],
+            [
+                0.008,
+                0.003
+            ],
+            [
+                0.1246,
+                0.003
+            ],
+            [
+                0.1246,
+                0.0826
+            ],
+            [
+                0.008,
+                0.0826
+            ],
+            [
+                0.003,
+                0.0776
+            ]
+        ]
+    },
+    "well_dimensions": {
+        "pitch": 0.0856,
+        "rows": 1,
+        "columns": 1,
+        "shape": "rectangle",
+        "diameter": 0.0693,
+        "width": 0.1053,
+        "height": 0.0693,
+        "depth": 0.01138,
+        "bottom_shape": "flat",
+        "bottom_color": "clear",
+        "bottom_material": "glass",
+        "bottom_thickness": 0.00017,
+        "bottom_elevation": 0.00278,
+        "floor_height": 0.00295,
+        "wall_material": "polystyrene",
+        "wall_color": "black"
+    },
+    "alignment_reference": {
+        "origin_reference": "A1 well center",
+        "offset_from_left_edge": 0.0638,
+        "offset_from_top_edge": 0.0428,
+        "z_reference": "top surface of plate"
+    },
+    "notes": "Cellvis (formerly In Vitro Scientific) single well glass bottom plate, catalogue number P01-1.5H: one rectangular glass-bottom chamber filling a standard microplate footprint, black virgin-polystyrene frame, German #1.5H high-performance cover glass 0.170 +/- 0.005 mm thick bonded with a USP class VI adhesive, with a lid, individually packed, gamma sterilised, moulded in a class 100,000 clean room, 20 per case. Cellvis states the plate conforms to ANSI/SBS 1-2004. It is the ONLY single-well plate Cellvis lists: the 'Single Well glass bottom plates' category has exactly one row, P01-1.5H, so there is no sibling part number for this mould (coated variants are sold under separate numbers). Units in meters; both Cellvis documents are in millimeters.\n\nCONTROLLING DOCUMENT: Cellvis publishes NO engineering drawing for this plate - no title block, no revision, no PDF. The highest-authority document it offers is the DIMENSION DIAGRAM image linked from the 'Dimension diagram' tab of the product page, https://www.cellvis.com/images/glass_bottom_plate_single_well_size.png (drawing_reference), which carries a plan view of the plate, a section through its edge, and two views of the lid. It is undated and unrevisioned; it was retrieved on 2026-10-11. SECOND DOCUMENT: the 'Technical specifications' table on the product page itself (web_reference), which gives frame colour black, coverslip '#1.5 high performance cover glass (0.170+/-0.005mm)', Length 127.6 mm, Width 85.6 mm, Height 14.33 mm, Height with lid 16.8 mm, Stacking height (with lid) 15.5 mm, Bottom height 2.78 mm (bottom of coverslip to plate bottom), and Lid dimension 127 * 85 * 10 mm. The two documents agree everywhere they overlap.\n\nPRINTED, transcribed directly: footprint 127.6 x 85.6 mm (length, width), from both documents; plate height 14.33 mm and height with lid 16.8 mm, from both documents; chamber 105.3 x 69.3 mm, from the diagram's plan view; chamber depth 11.38 mm, from the diagram's section; and bottom_elevation 2.78 mm, from the technical specification table's 'Bottom height ... bottom of coverslip to plate bottom', which is exactly what that key means. bottom_thickness 0.00017 m is the published cover glass thickness. floor_height 2.95 mm is DERIVED as 2.78 + 0.17, and it is confirmed independently by the section: the printed plate height less the printed chamber depth, 14.33 - 11.38, is also 2.95 mm. That agreement is also what fixes the section's three stacked dimensions as being measured from the plane the plate rests on, with 11.38 mm running down from the plate's top face to the top of the cover glass.\n\nWHICH END OF THE WELL 105.3 x 69.3 mm IS - THE ONE CONTRADICTION IN THE DOCUMENT, AND AN OPEN QUESTION: the plan view is to scale, calibrated independently on both axes of the published image - the printed 127.6 mm spans 388.5 px and the printed 85.6 mm spans 260 px, 3.045 and 3.037 px/mm, agreeing to 0.03 % - but the chamber rectangle its arrowheads touch scales to 107.3 x 71.3 mm, 1.0 mm larger per side on BOTH axes than the 105.3 x 69.3 mm printed against it. The printed numbers are recorded, per the rule that a printed dimension beats a scaled one, and they are recorded as the chamber at the BOTTOM (width 0.1053 m along the plate's length, height 0.0693 m along its width, with diameter repeating the shorter side 69.3 mm for readers that do not know the rectangle keys), because the bottom is the glass the sample sits on and is the smaller, conservative reading of a drafted wall. NO top_shape, width_top, height_top or diameter_top is recorded: if the 2 mm really is wall draft then the opening is about 107.3 x 71.3 mm, but the document dimensions only one rectangle and that would be a guess. A plate in hand would settle it with a caliper across the rim and across the glass.\n\nTHE SECTION VIEW IS NOT TO SCALE and NOTHING was scaled off it: its three printed heights calibrate to 8.27, 8.51 and 8.79 px/mm, a 6 % spread, so it is schematic. Consequently skirt_outline, skirt_height and skirt_thickness are NOT recorded and the standard footprint outline is assumed. For what it is worth and deliberately not recorded: the lid is 10 mm tall and its top is at 16.8 mm, which puts its lower rim 6.8 mm above the plane the plate rests on, so the skirt's shoulder is probably at about that height - but that is a derivation from a derivation and no section that can be measured supports it.\n\nSCALED OFF THE PLAN VIEW, assumed to scale, +/- 0.2 mm: the plate's BODY above the skirt (upper_outline). It is inset from the footprint by 2.96 mm at the top, right and bottom edges and 3.12 mm at the left edge - taken as a uniform 3.0 mm - and its two LEFT corners are cut at 45 degrees with legs of about 5.0 mm while its two right corners are plain, which is the plate's orientation feature. The lid in the diagram's lower views carries one matching cut corner and is 127.15 x 85.05 x 10 mm, slightly smaller than the plate's footprint because it drops over this narrower body; the lid's own dimensions are not schema fields and are recorded here only. Line centres were measured, not line edges; the uncertainty is the 0.7 mm drawn line width and the 0.16 mm spread between the two axis calibrations.\n\nALIGNMENT: the chamber is centred on the plate to within 0.2 mm on both axes in the plan view, so A1 is the plate's centre, 63.8 mm from the left edge and 42.8 mm from the top edge. The opening is centred over the floor, so no top_offset is recorded. pitch is the plate's width: one chamber has no neighbour to be spaced from, and this keeps the lattice's single cell on the plate and wider than diameter for readers that fall back to it, following Greiner_670180_1_well_plate.json and CELLTREAT_229101_1_well_plate.json.\n\nNOT PUBLISHED, so left out: bottom_refractive_index - Cellvis names the cover glass only as 'German high quality cover glass of superior optical quality' at 0.170 +/- 0.005 mm and publishes no refractive index or glass type, and the #1.5H designation alone does not fix one; working_volume_min and working_volume_max - no recommended working volume or total volume is published for this plate (the chamber's brim-full volume from the recorded numbers would be about 83 ml); wall_thickness; and surface_treatments - P01-1.5H is plain uncoated glass, and Cellvis sells poly-D-lysine, collagen and laminin coated plates under separate catalogue numbers.\n\nTHE REQUEST AGREED WITH THE VENDOR: the requester quoted 127.6 x 85.6 mm, a #1.5H cover glass and a black frame, and said P01-1.5H is the only one-well plate Cellvis lists. All four are the vendor's own statements. SPELLING: Cellvis spells its name with a lower-case v, which is what manufacturer and name use here; the registry's older CellVis_24_well_plate.json spells it CellVis, and that file is left alone."
+}
