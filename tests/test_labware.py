@@ -99,6 +99,105 @@ def test_well_dimensions_square_wells() -> None:
     assert wells.bottom_shape == "flat"
 
 
+def test_well_dimensions_rectangle_wells() -> None:
+    wells = WellDimensions(
+        pitch=0.12776,
+        rows=1,
+        columns=1,
+        shape="rectangle",
+        diameter=0.0798,
+        width=0.1221,
+        height=0.0798,
+        depth=0.0125,
+        bottom_shape="flat",
+    )
+
+    assert wells.shape == "rectangle"
+    assert wells.width == 0.1221
+    assert wells.height == 0.0798
+    assert wells.diameter == min(wells.width, wells.height)
+    assert wells.width_top is None
+    assert wells.height_top is None
+
+
+def test_well_dimensions_rectangle_opening() -> None:
+    wells = WellDimensions(
+        pitch=0.009,
+        rows=8,
+        columns=12,
+        shape="circle",
+        top_shape="rectangle",
+        diameter=0.003,
+        diameter_top=0.006,
+        width_top=0.008,
+        height_top=0.006,
+        depth=0.0107,
+        bottom_shape="flat",
+    )
+
+    assert wells.width is None
+    assert wells.width_top == 0.008
+    assert wells.height_top == 0.006
+
+
+@parametrize(
+    'changes,expected_message',
+    [
+        ({"height": None}, "rectangle wells need both a width and a height"),
+        ({"width": None}, "rectangle wells need both a width and a height"),
+        ({"shape": "circle"}, "not of circle wells"),
+        ({"width_top": 0.124}, "needs both width_top and height_top"),
+        (
+            {"top_shape": "circle", "width_top": 0.124, "height_top": 0.082},
+            "not of a circle one",
+        ),
+        (
+            {"shape": "square", "width": None, "height": None, "width_top": 0.1},
+            "not of a square one",
+        ),
+        (
+            {
+                "shape": "square",
+                "top_shape": "rectangle",
+                "width": None,
+                "height": None,
+            },
+            "needs both width_top and height_top",
+        ),
+    ],
+)
+def test_well_dimensions_rectangle_sides_are_checked(
+    changes: dict[str, object], expected_message: str
+) -> None:
+    wells = {
+        "pitch": 0.12776,
+        "rows": 1,
+        "columns": 1,
+        "shape": "rectangle",
+        "diameter": 0.0798,
+        "width": 0.1221,
+        "height": 0.0798,
+        "depth": 0.0125,
+        "bottom_shape": "flat",
+    }
+    with pytest.raises(ValidationError, match=expected_message):
+        WellDimensions.model_validate(wells | changes)
+
+
+def test_rectangle_definition_file() -> None:
+    plate = lw.load_labware()["CELLTREAT_229101_1_well_plate"]
+    wells = plate.well_dimensions
+
+    assert plate.name == "CELLTREAT 229101 1 well"
+    assert plate.number_of_wells == 1
+    assert wells.shape == "rectangle"
+    assert wells.width is not None
+    assert wells.height is not None
+    assert wells.diameter == min(wells.width, wells.height)
+    assert wells.width < plate.outer_plate_dimensions.length
+    assert wells.height < plate.outer_plate_dimensions.width
+
+
 def test_well_dimensions_invalid_shape() -> None:
     """Test that invalid well shapes are rejected."""
     with pytest.raises(ValidationError) as exc_info:
