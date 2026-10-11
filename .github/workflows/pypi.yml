@@ -7,11 +7,63 @@ on:
 permissions:
   contents: read
 jobs:
+  # A merge to main that adds, changes or deletes a plate definition is
+  # released as the next patch version. Anything else, such as a change to
+  # the schema or the README, is left for a tag made by hand.
+  tag:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency: auto-tag
+    outputs:
+      tag: ${{ steps.release.outputs.tag }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Pick the next patch version if a definition changed
+        id: next
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          last=$(git describe --tags --abbrev=0 --match 'v[0-9]*')
+          if git diff --quiet "$last" HEAD -- labware/definitions/; then
+            echo "No plate definition changed since $last; not tagging."
+            exit 0
+          fi
+          newest=$(git tag --list 'v[0-9]*' --sort=-v:refname | head -n 1)
+          if [[ ! $newest =~ ^v([0-9]+)\.([0-9]+)\.([0-9]+)$ ]]; then
+            echo "::error::Newest tag $newest is not vMAJOR.MINOR.PATCH"
+            exit 1
+          fi
+          tag="v${BASH_REMATCH[1]}.${BASH_REMATCH[2]}.$((BASH_REMATCH[3] + 1))"
+          echo "Plate definitions changed since $last; releasing $tag."
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+      - uses: actions/setup-python@v5
+        if: steps.next.outputs.tag
+        with:
+          python-version: "3.12"
+      - name: Test before releasing
+        if: steps.next.outputs.tag
+        run: pip install . pytest && pytest
+      # A tag made with GITHUB_TOKEN does not start a new workflow run, so
+      # the jobs below build and publish it in this run.
+      - name: Create the release and its tag
+        id: release
+        if: steps.next.outputs.tag
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.next.outputs.tag }}
+        run: |
+          gh release create "$TAG" --target "$GITHUB_SHA" --generate-notes
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
   build:
+    needs: tag
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
+          # empty unless the tag job just made a tag
+          ref: ${{ needs.tag.outputs.tag }}
           # the version comes from git describe, which needs the tags
           fetch-depth: 0
       - uses: actions/setup-python@v5
@@ -21,15 +73,17 @@ jobs:
       - run: python -m build --sdist --wheel --outdir dist/ .
       - run: twine check --strict dist/*
       - name: Check that the built version matches the tag
-        if: startsWith(github.ref, 'refs/tags/')
-        run: ls "dist/labware-${GITHUB_REF_NAME#v}.tar.gz"
+        if: startsWith(github.ref, 'refs/tags/') || needs.tag.outputs.tag
+        env:
+          TAG: ${{ needs.tag.outputs.tag || github.ref_name }}
+        run: ls "dist/labware-${TAG#v}.tar.gz"
       - uses: actions/upload-artifact@v4
         with:
           name: dist
           path: dist/
   publish:
-    if: startsWith(github.ref, 'refs/tags/')
-    needs: build
+    if: startsWith(github.ref, 'refs/tags/') || needs.tag.outputs.tag
+    needs: [tag, build]
     runs-on: ubuntu-latest
     environment:
       name: pypi
