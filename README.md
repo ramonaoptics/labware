@@ -44,7 +44,21 @@ print(plate.well_dimensions.pitch)  # 0.009, in meters
 Uploads to PyPI are automatic, and the version comes from the git tag, so
 there is no version number to edit in the source.
 
-To release, create the tag from the GitHub web interface:
+A merge to `main` that changes the package is released on its own: the
+`pypi` workflow runs the tests, creates the tag and a GitHub release, and
+publishes.
+
+- If anything in `labware/` other than a JSON file changed, such as the
+  schema model or the loader, the minor version goes up.
+- Otherwise, if a JSON file in `labware/` was added, changed or deleted,
+  which is what a new or corrected plate definition is, the patch version
+  goes up.
+- A merge that only touches files outside `labware/`, such as this README,
+  the tests or the CI, is not released.
+
+A major version is always made by hand.
+
+To release by hand, create the tag from the GitHub web interface:
 
 1. Open https://github.com/ramonaoptics/labware/releases/new
 2. Under "Choose a tag", type the new version with a leading `v`, for example
