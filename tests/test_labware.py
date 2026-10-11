@@ -115,7 +115,7 @@ def test_well_dimensions_rectangle_wells() -> None:
     assert wells.shape == "rectangle"
     assert wells.width == 0.1221
     assert wells.height == 0.0798
-    assert wells.diameter == min(wells.width, wells.height)
+    assert wells.diameter == 0.0798
     assert wells.width_top is None
     assert wells.height_top is None
 
