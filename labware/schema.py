@@ -162,10 +162,11 @@ class WellDimensions(_LabwareModel):
 
     columns: int = Field(description="Number of well columns")
 
-    shape: Literal["circle", "square", "other"] = Field(
+    shape: Literal["circle", "square", "rectangle", "other"] = Field(
         description=(
             "Cross-section of the wells at the bottom, where the sample sits; "
-            "see bottom_shape for the profile of the floor"
+            "see bottom_shape for the profile of the floor. A rectangle has its "
+            "sides parallel to the plate's edges and is sized by width and height."
         ),
     )
 
@@ -175,14 +176,37 @@ class WellDimensions(_LabwareModel):
             "Cross-section of the well opening at the top, in short plain words; None "
             "when it is not recorded. Suggested values, to reuse where they fit: "
             "circle, "
-            "square, other."
+            "square, rectangle, other. A rectangle is sized by width_top and "
+            "height_top."
         ),
     )
 
     diameter: float = Field(
         description=(
             "Diameter of circular wells, or side of square wells, at the well "
-            "bottom, where the sample sits, in meters"
+            "bottom, where the sample sits, in meters. Rectangular wells record "
+            "their sides in width and height, and still fill this in for "
+            "readers that do not know those keys: the shorter of the two is "
+            "suggested, the largest circle that fits in the well."
+        ),
+    )
+
+    width: float | None = Field(
+        None,
+        description=(
+            "Side of rectangular wells along the plate's length, the direction "
+            "the columns count in, at the well bottom, where the sample sits, in "
+            "meters; None for wells that are not rectangles."
+        ),
+    )
+
+    height: float | None = Field(
+        None,
+        description=(
+            "Side of rectangular wells along the plate's width, the direction "
+            "the rows count in, at the well bottom, where the sample sits, in "
+            "meters; None for wells that are not rectangles. It is a side seen "
+            "from above; how deep the well is, is its depth."
         ),
     )
 
@@ -190,7 +214,27 @@ class WellDimensions(_LabwareModel):
         None,
         description=(
             "Diameter of circular wells, or side of square wells, at the well "
-            "opening at the top in meters; None when it is not recorded."
+            "opening at the top in meters; None when it is not recorded. For a "
+            "rectangular opening the shorter of width_top and height_top is "
+            "suggested."
+        ),
+    )
+
+    width_top: float | None = Field(
+        None,
+        description=(
+            "Side of a rectangular well opening at the top along the plate's "
+            "length in meters; None when it is not recorded or the opening is "
+            "not a rectangle."
+        ),
+    )
+
+    height_top: float | None = Field(
+        None,
+        description=(
+            "Side of a rectangular well opening at the top along the plate's "
+            "width in meters; None when it is not recorded or the opening is "
+            "not a rectangle."
         ),
     )
 
@@ -322,6 +366,40 @@ class WellDimensions(_LabwareModel):
             "poly-D-lysine, collagen, fibronectin, high binding, non-binding."
         ),
     )
+
+    @model_validator(mode='after')
+    def validate_rectangle(self) -> 'WellDimensions':
+        sides = (self.width, self.height)
+        if self.shape == 'rectangle':
+            if None in sides:
+                message = "rectangle wells need both a width and a height"
+                raise ValueError(message)
+        elif sides != (None, None):
+            message = (
+                f"width and height are the sides of rectangle wells, not of "
+                f"{self.shape} wells"
+            )
+            raise ValueError(message)
+
+        top_sides = (self.width_top, self.height_top)
+        top_shape = self.shape if self.top_shape is None else self.top_shape
+        if top_shape != 'rectangle':
+            if top_sides != (None, None):
+                message = (
+                    "width_top and height_top are the sides of a rectangle "
+                    f"opening, not of a {top_shape} one"
+                )
+                raise ValueError(message)
+        elif (self.width_top is None) != (self.height_top is None):
+            message = "a rectangle opening needs both width_top and height_top"
+            raise ValueError(message)
+        elif self.shape != 'rectangle' and None in top_sides:
+            message = (
+                "a rectangle opening over wells that are not rectangles needs "
+                "both width_top and height_top"
+            )
+            raise ValueError(message)
+        return self
 
     @model_validator(mode='after')
     def validate_working_volume(self) -> 'WellDimensions':

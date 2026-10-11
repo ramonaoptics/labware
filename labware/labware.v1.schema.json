@@ -208,10 +208,11 @@
           "type": "integer"
         },
         "shape": {
-          "description": "Cross-section of the wells at the bottom, where the sample sits; see bottom_shape for the profile of the floor",
+          "description": "Cross-section of the wells at the bottom, where the sample sits; see bottom_shape for the profile of the floor. A rectangle has its sides parallel to the plate's edges and is sized by width and height.",
           "enum": [
             "circle",
             "square",
+            "rectangle",
             "other"
           ],
           "title": "Shape",
@@ -227,13 +228,39 @@
             }
           ],
           "default": null,
-          "description": "Cross-section of the well opening at the top, in short plain words; None when it is not recorded. Suggested values, to reuse where they fit: circle, square, other.",
+          "description": "Cross-section of the well opening at the top, in short plain words; None when it is not recorded. Suggested values, to reuse where they fit: circle, square, rectangle, other. A rectangle is sized by width_top and height_top.",
           "title": "Top Shape"
         },
         "diameter": {
-          "description": "Diameter of circular wells, or side of square wells, at the well bottom, where the sample sits, in meters",
+          "description": "Diameter of circular wells, or side of square wells, at the well bottom, where the sample sits, in meters. Rectangular wells record their sides in width and height, and still fill this in for readers that do not know those keys: the shorter of the two is suggested, the largest circle that fits in the well.",
           "title": "Diameter",
           "type": "number"
+        },
+        "width": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Side of rectangular wells along the plate's length, the direction the columns count in, at the well bottom, where the sample sits, in meters; None for wells that are not rectangles.",
+          "title": "Width"
+        },
+        "height": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Side of rectangular wells along the plate's width, the direction the rows count in, at the well bottom, where the sample sits, in meters; None for wells that are not rectangles. It is a side seen from above; how deep the well is, is its depth.",
+          "title": "Height"
         },
         "diameter_top": {
           "anyOf": [
@@ -245,8 +272,34 @@
             }
           ],
           "default": null,
-          "description": "Diameter of circular wells, or side of square wells, at the well opening at the top in meters; None when it is not recorded.",
+          "description": "Diameter of circular wells, or side of square wells, at the well opening at the top in meters; None when it is not recorded. For a rectangular opening the shorter of width_top and height_top is suggested.",
           "title": "Diameter Top"
+        },
+        "width_top": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Side of a rectangular well opening at the top along the plate's length in meters; None when it is not recorded or the opening is not a rectangle.",
+          "title": "Width Top"
+        },
+        "height_top": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Side of a rectangular well opening at the top along the plate's width in meters; None when it is not recorded or the opening is not a rectangle.",
+          "title": "Height Top"
         },
         "depth": {
           "description": "Depth of wells in meters",
