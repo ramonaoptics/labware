@@ -704,6 +704,13 @@ def test_physical_constraints_assumptions() -> None:
             12,
         ),
         (
+            'Thermo_nunc_140156_1_well_plate.json',
+            'Thermo Nunc OmniTray 140156 1 well',
+            1,
+            1,
+            1,
+        ),
+        (
             'Thermo_nunc_165305_96_well_plate.json',
             'Thermo Nunc 165305 96 well',
             96,
@@ -1019,7 +1026,7 @@ def test_plate_definition_files_can_be_loaded(
     assert labware.well_dimensions.pitch > 0
     assert labware.well_dimensions.diameter > 0
     assert labware.well_dimensions.depth > 0
-    assert labware.well_dimensions.shape in ["circle", "square"]
+    assert labware.well_dimensions.shape in ["circle", "square", "rectangle", "other"]
     assert labware.well_dimensions.bottom_shape in ["flat", "u", "v"]
 
     assert labware.alignment_reference.origin_reference == "A1 well center"
