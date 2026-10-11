@@ -711,6 +711,13 @@ def test_physical_constraints_assumptions() -> None:
             1,
         ),
         (
+            'Thermo_nunc_140156_1_well_plate.json',
+            'Thermo Nunc OmniTray 140156 1 well',
+            1,
+            1,
+            1,
+        ),
+        (
             'Thermo_nunc_165305_96_well_plate.json',
             'Thermo Nunc 165305 96 well',
             96,
