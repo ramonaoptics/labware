@@ -1010,6 +1010,13 @@ def test_physical_constraints_assumptions() -> None:
             1,
             1,
         ),
+        (
+            'Ramona_full_SBS_plate_scan_1_well_plate.json',
+            'Ramona Full SBS Plate Scan 1 well',
+            1,
+            1,
+            1,
+        ),
     ],
 )
 def test_plate_definition_files_can_be_loaded(
