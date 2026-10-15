@@ -1,0 +1,39 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ramonaoptics/labware/main/labware/labware.v1.schema.json",
+    "name": "Ramona Full SBS Plate Scan 1 well",
+    "number_of_wells": 1,
+    "manufacturer": "Ramona Optics",
+    "author": "Ramona Optics",
+    "last_updated": "2026-10-15T00:00:00Z",
+    "part_number": "Full SBS Plate Scan 72 x 108 mm",
+    "web_reference": "https://www.slas.org/SLAS/assets/File/public/standards/ANSI_SLAS_4-2004_WellPositions.pdf",
+    "drawing_reference": "https://www.slas.org/SLAS/assets/File/public/standards/ANSI_SLAS_1-2004_FootprintDimensions.pdf",
+    "applications": [
+        "imaging"
+    ],
+    "outer_plate_dimensions": {
+        "length": 0.12776,
+        "width": 0.08548,
+        "height": 0.01435
+    },
+    "well_dimensions": {
+        "pitch": 0.108,
+        "rows": 1,
+        "columns": 1,
+        "shape": "rectangle",
+        "diameter": 0.072,
+        "width": 0.108,
+        "height": 0.072,
+        "depth": 0.0107,
+        "bottom_shape": "flat",
+        "bottom_color": "clear",
+        "wall_color": "clear"
+    },
+    "alignment_reference": {
+        "origin_reference": "A1 well center",
+        "offset_from_left_edge": 0.06388,
+        "offset_from_top_edge": 0.04274,
+        "z_reference": "top surface of plate"
+    },
+    "notes": "NOT A CATALOGUE PLATE. This is a Ramona Optics definition of a scan region expressed as labware: one rectangular well, exactly 108.0 mm along the plate's length by 72.0 mm along its width, centred on a standard ANSI/SLAS microplate footprint, so that the whole central area of a standard 96 well plate can be treated as a single well rather than as 96 separate ones. Nothing here was measured off a physical part, because no physical part exists; every number is either requested outright or transcribed from a published ANSI/SLAS standard, as recorded below. WHAT WAS REQUESTED, and is therefore exact by definition rather than sourced: the 72 mm x 108 mm size of the region, its position at the centre of the 96 well standard, a clear bottom (bottom_color) and clear walls (wall_color). AXIS ASSIGNMENT, a judgement call: the request wrote '72mm x 108 mm' without naming the axes. The ANSI/SLAS footprint is 127.76 mm long and 85.48 mm wide, so 108 mm fits only along the length and 72 mm only along the width; the opposite assignment is physically impossible. Hence width 0.108 (along the plate's length, the direction the columns count in) and height 0.072 (along the plate's width, the direction the rows count in). diameter repeats the shorter side, 72 mm, as the schema asks, for readers that do not know the rectangle keys. FOOTPRINT, printed in ANSI/SLAS 1-2004 (R2012) clause 4.1.1.1 and on its Figure 1: length 127.76 mm +/-0.25 mm and width 85.48 mm +/-0.25 mm measured within 12.7 mm of the corners (+/-0.5 mm anywhere along a side). Its clause 4.1.2.1 gives the four outside corner radii as 3.18 mm +/-1.6 mm, which is the schema's assumed default outline, so no skirt_outline is recorded. HEIGHT, printed in ANSI/SLAS 2-2004 (R2012) clause 4.1.1.1: 14.35 mm +/-0.25 mm from the resting plane to the maximum protrusion of the perimeter wells. There is no lid, so no height_with_lid. POSITION, printed in ANSI/SLAS 4-2004 (R2012) clauses 4.1.2.1 and 4.1.3.1 and on its Figure 1: the 96 well grid has its A1 centre 14.38 mm from the left edge and 11.24 mm from the top edge, on a 9.0 mm pitch, 8 rows by 12 columns. Its centre is therefore 14.38 + 11 x 9 / 2 = 63.88 mm from the left edge and 11.24 + 7 x 9 / 2 = 42.74 mm from the top edge; both are printed directly on that same figure as 63.88 (2.5150) and 42.74 (1.6827). Those two values are ALSO exactly half the footprint's 127.76 mm and 85.48 mm, so the centre of the 96 well grid and the centre of the footprint coincide and the request's 'center of the 96 well plate standard' is unambiguous. The single well's centre is recorded there (alignment_reference). GEOMETRIC CHECK that the requested region is the right one: the region spans 9.88 to 117.88 mm in x and 6.74 to 78.74 mm in y. A standard 96 well plate's outermost well edges, taking the registry's SBS_96_well_plate.json well diameter of 6.4 mm, span 11.18 to 116.58 mm in x and 8.04 to 77.44 mm in y. The requested 108 x 72 mm region therefore contains every well of a standard 96 well plate with about 1.3 mm to spare on all four sides, which is consistent with the request's description of it as a full plate scan. TAKEN FROM THE REGISTRY'S OWN SBS_96_well_plate.json, per the request's instruction to 'use all the other dims from the standard SBS plate', not from any ANSI/SLAS clause, because the ANSI/SLAS standards specify footprint, height, flange and well POSITIONS only and publish no well depth or diameter at all: depth 10.7 mm. STRAIGHT WALLS: no taper is recorded, so the opening and the floor are the same rectangle and the opening is exactly 108 x 72 mm as requested; no top_shape, width_top, height_top or diameter_top is recorded, and the opening is centred over the floor, so no top offsets either. DEPARTURE FROM SBS_96_well_plate.json, a judgement call: that file records a u-shaped well bottom, which describes a 6.4 mm round well and cannot describe a 108 x 72 mm rectangular region; bottom_shape is recorded as flat. NOT RECORDED, because no document gives a value and none was guessed: bottom_thickness, bottom_material, bottom_refractive_index, bottom_elevation, floor_height, wall_material and wall_thickness. ANSI/SLAS 2-2004 clause 4.1.3 gives only a MINIMUM clearance of 1 mm from the resting plane to the external bottom surface of the wells, which is a minimum and not a nominal, so it was not written into bottom_elevation. The request named clear for both colours but no materials. SKIRT: ANSI/SLAS 3-2004 (R2012) offers three flange heights, short 2.41 mm, medium 6.10 mm and tall 7.62 mm, all with a minimum 1.27 mm flange width, and does not single one out, so no skirt_height or skirt_thickness is recorded and the schema's documented defaults, which are the standard's medium flange and minimum width, apply. No upper_outline: the body is taken to follow the footprint. VOLUMES: no working volume is recorded, because this is a scan region and not a vessel; for reference only, 108 x 72 x 10.7 mm is about 83 ml brim full. pitch is 0.108 m, the well's long side: a single well has no neighbour to be spaced from, and this follows the Ramona_petri_dish_insert_* definitions in setting pitch to the size of the one well. Use 'pitch' and origin reference to compute all well centers."
+}
