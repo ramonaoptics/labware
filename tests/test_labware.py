@@ -1017,6 +1017,27 @@ def test_physical_constraints_assumptions() -> None:
             1,
             1,
         ),
+        (
+            'Xona_XC-SF150-X4_4_well_plate.json',
+            'Xona XonaChip XC-SF150-X4 4 well',
+            4,
+            4,
+            1,
+        ),
+        (
+            'Ramona_Xona_chip_holder_4_well_plate.json',
+            'Ramona Xona Chip Holder 4 well',
+            4,
+            1,
+            4,
+        ),
+        (
+            'Xona_XC-SF150-X4_in_Ramona_chip_holder_4_well_plate.json',
+            'Xona XC-SF150-X4 in Ramona Chip Holder 4 well',
+            4,
+            1,
+            4,
+        ),
     ],
 )
 def test_plate_definition_files_can_be_loaded(

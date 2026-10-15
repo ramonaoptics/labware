@@ -1,0 +1,37 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ramonaoptics/labware/main/labware/labware.v1.schema.json",
+    "name": "Ramona Xona Chip Holder 4 well",
+    "number_of_wells": 4,
+    "manufacturer": "Ramona Optics",
+    "author": "Ramona Optics",
+    "last_updated": "2026-10-15T00:00:00Z",
+    "part_number": "Xona X4 chip holder, 4 slide, SBS footprint",
+    "web_reference": "https://docs.ramonaoptics.com/hardware/mcam_inserts.html",
+    "applications": [
+        "organ-on-chip",
+        "imaging"
+    ],
+    "outer_plate_dimensions": {
+        "length": 0.12776,
+        "width": 0.08548,
+        "height": 0.01435
+    },
+    "well_dimensions": {
+        "pitch": 0.027,
+        "rows": 1,
+        "columns": 4,
+        "shape": "rectangle",
+        "diameter": 0.0255,
+        "width": 0.0255,
+        "height": 0.0755,
+        "depth": 0.001,
+        "bottom_shape": "flat"
+    },
+    "alignment_reference": {
+        "origin_reference": "A1 well center",
+        "offset_from_left_edge": 0.02338,
+        "offset_from_top_edge": 0.04274,
+        "z_reference": "top surface of plate"
+    },
+    "notes": "The four wells of this definition are the four chip pockets of the holder, empty: A1 is the leftmost pocket. NOT A CATALOGUE PLATE. This is a Ramona Optics fixture: an SBS-footprint holder that carries four Xona XonaChip X4 chips (75.50 x 25.50mm, slide format) so that they can be driven as one plate. Xona themselves describe the arrangement - 'these chips (the size of standard microscope slides) can be combined in a 4-slide plate holder to yield sixteen (16) sample units' - but the holder in this file is Ramona's, not Xona's, and no drawing of it exists yet; the #team_vireo thread the request cites discusses making 'a stand-in stand that we make here'. \n\nREQUESTED, and therefore exact by definition rather than sourced: the 127.76 x 85.48mm ANSI/SLAS footprint with a standard skirt; four rectangular pockets of 25.50 x 75.50mm plus a small clearance, long axis along the plate's width; pocket centres 27mm apart in x at 23.38, 50.38, 77.38 and 104.38mm, which is three times the MCAM's 9mm micro-camera pitch so every chip sits under the same camera column; and the pocket centre line at y = 42.74mm. Those four x values are symmetric about 63.88mm = 127.76 / 2 and 42.74 = 85.48 / 2, so the block of pockets is centred on the plate, as the request says. GEOMETRY CHECK: the pockets span x 10.63-36.13, 37.63-63.13, 64.63-90.13 and 91.63-117.13mm, leaving a 1.50mm rib between neighbouring pockets and 10.63mm of plate at each end, and y 4.99-80.49mm, leaving 4.99mm at each side. Nothing overruns the footprint. \n\nPOCKET CLEARANCE: the request says '25.50 x 75.50 mm plus a small clearance' and does not give the clearance, so the pockets are recorded at the chip's nominal 25.50 x 75.50mm and the clearance is left out rather than invented. A machined holder will be slightly larger; the chip can then sit off centre in its pocket by half the clearance, which is the dominant positioning error of this fixture and is NOT captured by any field in this file. \n\nNOT SPECIFIED BY ANYONE, recorded here as provisional values that must be replaced from the holder's drawing before it is made, and listed as open questions on the request issue: (a) outer_plate_dimensions.height 14.35mm is the ANSI/SLAS 2-2004 microplate height, used because the request says only 'SBS-footprint ... with standard skirt'; (b) the pocket depth, recorded as 1.0mm so that a chip of the inferred 1.0mm thickness sits flush with the holder's top face - it is a consequence of the chip thickness, which Xona does not publish either; (c) the holder's material and colour, left out entirely (no bottom_material, wall_material, bottom_color or wall_color), since the holder may be machined aluminium, 3D printed plastic or acrylic and that decides whether it can be imaged through at all; (d) whether each pocket is a blind pocket or a through-hole, which decides whether the chips can be used on a transmitted-light instrument. The skirt keys are left at the schema's documented defaults, which are the ANSI/SLAS standard skirt the request asked for. The chip that goes in a pocket is Xona_XC-SF150-X4_4_well_plate.json, and the two together are Xona_XC-SF150-X4_in_Ramona_chip_holder_4_well_plate.json, which is the file to use for imaging. Use 'pitch' and origin reference to compute all well centers."
+}

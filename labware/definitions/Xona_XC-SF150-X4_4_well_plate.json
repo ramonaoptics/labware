@@ -1,0 +1,48 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ramonaoptics/labware/main/labware/labware.v1.schema.json",
+    "name": "Xona XonaChip XC-SF150-X4 4 well",
+    "number_of_wells": 4,
+    "manufacturer": "Xona Microfluidics",
+    "author": "Ramona Optics",
+    "last_updated": "2026-10-15T00:00:00Z",
+    "part_number": "XC-SF150-X4",
+    "web_reference": "https://xonamicrofluidics.com/product/xc-sf150-x4/",
+    "drawing_reference": "https://xonamicrofluidics.com/wp-content/uploads/2023/02/XC-SF150-x4-InnerDim.png",
+    "applications": [
+        "organ-on-chip",
+        "neural",
+        "primary cells",
+        "co-culture",
+        "cell migration",
+        "imaging",
+        "fluorescence"
+    ],
+    "outer_plate_dimensions": {
+        "length": 0.0255,
+        "width": 0.0755,
+        "height": 0.001
+    },
+    "well_dimensions": {
+        "pitch": 0.012,
+        "rows": 4,
+        "columns": 1,
+        "shape": "rectangle",
+        "diameter": 0.001,
+        "width": 0.004,
+        "height": 0.001,
+        "depth": 8e-05,
+        "bottom_shape": "flat",
+        "bottom_color": "clear",
+        "bottom_material": "cyclo_olefin",
+        "bottom_thickness": 0.00015,
+        "wall_material": "cyclo_olefin",
+        "wall_color": "clear"
+    },
+    "alignment_reference": {
+        "origin_reference": "A1 well center",
+        "offset_from_left_edge": 0.01275,
+        "offset_from_top_edge": 0.01975,
+        "z_reference": "top surface of plate"
+    },
+    "notes": "The four wells of this definition are the four microgroove barriers, one per culture unit A-D, and NOT the chip's reservoirs: each well is the imaging region at the centre of a unit. CONTROLLING DOCUMENTS, both published by Xona Microfluidics on their XC-SF150-X4 product page. (1) The dimensioned plan drawing 'XC-SF150-x4-InnerDim.png' (drawing_reference), which prints, as callouts: 75.50mm overall length, 25.50mm overall width, 19.75mm from the end of the chip to the centre line of unit A, 12.00mm unit-to-unit pitch, 10.00mm between the centres of the two large wells of a unit, 7.00mm between the centres of the two small ports of a unit, O6.0 for the large wells and O2.0 for the small ports. A companion drawing 'XC-SF150-x4-OuterDim.png' repeats 75.50 x 25.50mm, and 'XC-SF150-x4-UnitView.png' is an undimensioned enlarged plan of one unit. The drawings carry no revision or date; they were uploaded in 2023-02 per their URL. (2) The vendor's specification text, spread over the product page, the XONACHIPS page, the FAQ page and the 'Introducing XonaChips' / 'Introducing the X4 XonaChip' posts: '(4) compartmentalized culture units, each with 150 um wide microgroove barriers'; 'Each unit contains (18) microgrooves connecting the compartments'; 'Each microgroove cross-section for all XonaChips is approximately 7 um x 7 um'; 'Main channel heights are approximately 80 um'; 'a smaller cell loading port approximately 2 mm in diameter'; 'XonaChips are made of cyclic olefin copolymer (COC)'; 'The XonaChip consists of a molded COC top bonded to a thin optically transparent 150 um thick COC film'; 'The outside dimensions of the X4 chip are the same as a standard microscope slide'; 'Size: 75 mm x 25 mm'. Where the catalogue text's rounded '75 mm x 25 mm' and the drawing's 75.50 x 25.50mm disagree, the drawing is followed. \n\nMATERIAL, answering the request's question directly: this chip is NOT PDMS on a glass coverslip. Xona's FAQ separates the two product lines - 'The silicone devices are made of poly(dimethylsiloxane) (PDMS) and XonaChips are made of cyclic olefin copolymer (COC)'. XC-SF150-X4 is a XonaChip, an injection-moulded COC top bonded to a 150 um COC film, so bottom_material and wall_material are cyclo_olefin and bottom_thickness is the published 150 um film. The PDMS part with the same barrier is the separate SF150x2 'Small Footprint Silicone Device', which is a different part and a different size (about 28 x 18 mm). No refractive index is published for the film and none is recorded; COC is typically about 1.53 at 589 nm, which is NOT taken from a Xona document and is mentioned here for orientation only. \n\nTHE IMAGING REGION, and how its size was obtained. The request asks for a well that covers the microgroove barrier between the two compartment channels at the centre of a unit, sized from Xona's published specs. Xona publishes the barrier length (150 um) but publishes NO channel width and NO channel length for the X4 unit. The '1.5 mm x 7 mm x 0.060 mm (W x L x H) main channels' and '0.01 mm x 0.005 mm microgrooves' figures that circulate for XonaChips come from the JoVE protocol 'Use of Pre-Assembled Plastic Microfluidic Chips for Compartmentalizing Primary Murine Neurons' (doi:10.3791/58421), which describes the 2-compartment XC150 / XC450 / XC900 chips, not this small-footprint 4-unit chip, and they also contradict Xona's own site (80 um channel height, 7 x 7 um microgrooves). They were therefore NOT used. \nThe region's size across the barrier is DERIVED from two printed callouts only: the two large wells of a unit are 10.00mm apart and are O6.0, so the open fluidic region between their edges is 10.00 - 6.00 = 4.00mm, centred on the unit's centre. The region's size along the channels is SCALED off the published UnitView drawing, assumed to scale: at 1600 x 1280 px the two O6.0 circles measure 420 px across and their centres 707 px apart, giving 70.0 px/mm and 70.7 px/mm in x, and the two O2.0 port centres measure 494 px apart, giving 70.6 px/mm in y - two independent calibrations per axis agreeing to 1% and the two axes agreeing to 0.2%. On that scale the microgroove bank, drawn as the hatched strip at the unit's centre, spans 71 px = 1.00mm, and the channel neck either side of it spans 71-80 px = 1.00-1.13mm. The well is therefore recorded as 4.00mm across the barrier by 1.00mm along the channels, centred on the unit's centre. Uncertainty on the 1.00mm value is about +/-0.1mm: the drawing's line weight is 4 px (0.06mm) and the two measurements of the neck differ by 0.13mm. It is corroborated by the vendor's own text: 18 microgrooves of 7 um width spread over 1.00mm is a 56 um groove pitch, which matches the drawn hatching. The 150 um barrier itself measures 15 px = 0.21mm on the same calibration, which is the printed 150 um plus two line widths, so the drawing is consistent with its own callout. \n\nNOT PUBLISHED BY XONA, and therefore not written as a vendor number anywhere in this file: overall chip thickness; well and port depths; reservoir working volumes; any tolerance; the chip's corner radius; sterility; surface treatment of the channels (the chips ship with a separate 'XC Pre-Coat' tube, which is a reagent, not a moulded-in treatment).\n\nTHIS FILE'S AXES. The chip is registered in the orientation Xona draws it and the request describes it: the 75.50mm dimension runs top-to-bottom, so the plate's 'length' (x, the direction columns count in) is the chip's 25.50mm dimension and the plate's 'width' (y, the direction rows count in) is its 75.50mm dimension. The four units A-D are therefore 4 rows x 1 column on a 12.00mm pitch, exactly as the request puts it, with A1 = unit A at 19.75mm from the top edge. This also matches how the chip sits in the Ramona holder (long axis along the holder's width), so the three files in this family share one orientation. The A-D block is centred on the chip's length: 19.75 + 3 x 12.00 / 2 = 37.75 = 75.50 / 2. Across the chip the unit centre line is at 25.50 / 2 = 12.75mm, midway between the two O6.0 wells, which the drawing shows centred. \n\nWELL FIELDS. 'width' 4.00mm is along the plate's length, i.e. across the microgroove barrier, between the two O6.0 reservoirs; 'height' 1.00mm is along the plate's width, i.e. along the barrier. 'diameter' repeats the shorter side, 1.00mm, as the schema asks. 'depth' 80 um is Xona's published approximate main channel height - the fluidic channel the sample sits in is a sealed moulded channel, not an open well, so this is a channel height rather than a pipetting depth. The O6.0 reservoirs and O2.0 loading ports are deliberately NOT the wells of this definition, per the request. \n\nCHIP THICKNESS, an inference and an open question. Xona dimensions no overall height. The only statement is that 'the outside dimensions of the X4 chip are the same as a standard microscope slide'; ISO 8037-1 slides are 1.0 to 1.2mm thick, so outer_plate_dimensions.height is recorded as 1.0mm. That number is NOT from a Xona document and should be replaced by a caliper measurement of a chip in hand. No lid, so no height_with_lid. No skirt keys: a flat slide-format chip has no flange, and the schema's standard-skirt default does not describe it either; a reviewer should read the absence as 'not applicable' rather than 'standard'. SIBLING PART NUMBERS in the same family, not registered here: XC-SF450-X4 (same chip, 450 um barrier); the 2-compartment XC150, XC450, XC900; the 3-compartment XC-T500; and the PDMS devices SND150 and SF150x2. Use 'pitch' and origin reference to compute all well centers."
+}
