@@ -156,7 +156,34 @@ class WellDimensions(_LabwareModel):
         title="Well Dimensions",
     )
 
-    pitch: float = Field(description="Pitch between wells in meters")
+    pitch: float = Field(
+        description=(
+            "Pitch between wells in meters, centre to centre, along both the "
+            "rows and the columns. A plate whose rows and columns are spaced "
+            "differently records the two in row_pitch and column_pitch and "
+            "still fills this in for readers that do not know those keys: the "
+            "smaller of the two is suggested, which keeps every well such a "
+            "reader places inside the plate's real grid."
+        ),
+    )
+
+    row_pitch: float | None = Field(
+        None,
+        description=(
+            "Distance between neighbouring rows, centre to centre, along the "
+            "plate's width (A1 to B1), in meters; None when the rows are "
+            "spaced at pitch. Given together with column_pitch."
+        ),
+    )
+
+    column_pitch: float | None = Field(
+        None,
+        description=(
+            "Distance between neighbouring columns, centre to centre, along "
+            "the plate's length (A1 to A2), in meters; None when the columns "
+            "are spaced at pitch. Given together with row_pitch."
+        ),
+    )
 
     rows: int = Field(description="Number of well rows")
 
@@ -398,6 +425,13 @@ class WellDimensions(_LabwareModel):
                 "a rectangle opening over wells that are not rectangles needs "
                 "both width_top and height_top"
             )
+            raise ValueError(message)
+        return self
+
+    @model_validator(mode='after')
+    def validate_row_column_pitch(self) -> 'WellDimensions':
+        if (self.row_pitch is None) != (self.column_pitch is None):
+            message = "row_pitch and column_pitch are given together"
             raise ValueError(message)
         return self
 
