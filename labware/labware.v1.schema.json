@@ -193,9 +193,35 @@
       "description": "Model describing the dimensions and properties of wells in a labware plate.",
       "properties": {
         "pitch": {
-          "description": "Pitch between wells in meters",
+          "description": "Pitch between wells in meters, centre to centre, along both the rows and the columns. A plate whose rows and columns are spaced differently records the two in row_pitch and column_pitch and still fills this in for readers that do not know those keys: the smaller of the two is suggested, which keeps every well such a reader places inside the plate's real grid.",
           "title": "Pitch",
           "type": "number"
+        },
+        "row_pitch": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Distance between neighbouring rows, centre to centre, along the plate's width (A1 to B1), in meters; None when the rows are spaced at pitch. Given together with column_pitch.",
+          "title": "Row Pitch"
+        },
+        "column_pitch": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Distance between neighbouring columns, centre to centre, along the plate's length (A1 to A2), in meters; None when the columns are spaced at pitch. Given together with row_pitch.",
+          "title": "Column Pitch"
         },
         "rows": {
           "description": "Number of well rows",

@@ -184,6 +184,25 @@ def test_well_dimensions_rectangle_sides_are_checked(
         WellDimensions.model_validate(wells | changes)
 
 
+def test_well_dimensions_row_and_column_pitch() -> None:
+    wells = {
+        "pitch": 0.012,
+        "row_pitch": 0.012,
+        "column_pitch": 0.036,
+        "rows": 4,
+        "columns": 3,
+        "shape": "rectangle",
+        "diameter": 0.001,
+        "width": 0.004,
+        "height": 0.001,
+        "depth": 8e-05,
+        "bottom_shape": "flat",
+    }
+    assert WellDimensions.model_validate(wells).column_pitch == 0.036
+    with pytest.raises(ValidationError, match="given together"):
+        WellDimensions.model_validate(wells | {"row_pitch": None})
+
+
 def test_rectangle_definition_file() -> None:
     plate = lw.load_labware()["CELLTREAT_229101_1_well_plate"]
     wells = plate.well_dimensions
