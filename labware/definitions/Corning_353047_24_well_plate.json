@@ -1,0 +1,48 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ramonaoptics/labware/main/labware/labware.v1.schema.json",
+    "name": "Corning Falcon 353047 24 well",
+    "number_of_wells": 24,
+    "manufacturer": "Corning Life Sciences (Corning Incorporated)",
+    "author": "Ramona Optics",
+    "last_updated": "2026-10-20T00:00:00Z",
+    "part_number": "353047",
+    "web_reference": "https://ecatalog.corning.com/life-sciences/b2c/US/en/Cell-Culture/Cell-Culture-Vessels/Multiple-Well-Plates/Falcon%C2%AE-Multiwell-Cell-Culture-Plates/p/353047",
+    "drawing_reference": "https://www.corning.com/catalog/cls/documents/drawings/LSR00003.pdf",
+    "applications": [
+        "cell culture"
+    ],
+    "outer_plate_dimensions": {
+        "length": 0.12776,
+        "width": 0.08547,
+        "height": 0.02019,
+        "height_with_lid": 0.02143
+    },
+    "well_dimensions": {
+        "pitch": 0.0193,
+        "rows": 4,
+        "columns": 6,
+        "shape": "circle",
+        "top_shape": "circle",
+        "diameter": 0.01557,
+        "diameter_top": 0.0163,
+        "depth": 0.01798,
+        "working_volume_min": 0.0008,
+        "working_volume_max": 0.001,
+        "bottom_shape": "flat",
+        "bottom_color": "clear",
+        "bottom_material": "polystyrene",
+        "bottom_thickness": 0.00119,
+        "wall_material": "polystyrene",
+        "wall_color": "clear",
+        "surface_treatments": [
+            "tissue culture"
+        ]
+    },
+    "alignment_reference": {
+        "origin_reference": "A1 well center",
+        "offset_from_left_edge": 0.01563,
+        "offset_from_top_edge": 0.013785,
+        "z_reference": "top surface of plate"
+    },
+    "notes": "Corning Falcon 353047: 24 well clear flat-bottom tissue-culture-treated cell culture plate, crystal-grade virgin polystyrene, with low-evaporation lid, sterile (gamma irradiated), 50/case. The vendor's catalogue title is 'Falcon 24-well Clear Flat Bottom TC-treated Multiwell Cell Culture Plate, with Lid, Sterile, 50/Case'. SOURCE: every printed dimension here comes from one document, Corning Life Sciences 'Customer Technical Data Sheet - Multiwell TC Plates - 24-well', document LSR00003 Rev 8, (c) 2013, 2023 Corning Incorporated, served from https://www.corning.com/catalog/cls/documents/drawings/LSR00003.pdf and cited as drawing_reference; its page 2 carries the catalogue table and the plate block and its page 3 the well block. It is a dimensioned data sheet, not a CAD drawing: Corning publishes no per-catalogue drawing for the Falcon multiwell plates, and no per-catalogue Product Description either (certs-ecatalog.corning.com/life-sciences/product-descriptions/353047.pdf is a 404). WHICH COLUMN: LSR00003 prints two dimension columns, one for the notched plate 353504 and one headed 'All Other Cat. Nos.'. 353047 is in the second, and that is the column recorded here. The notched plate differs in footprint length (127.63 against 127.76 mm), well floor diameter (15.49 against 15.57 mm) and bottom thickness (1.40 against 1.19 mm), so do not reuse this file for 353504. SIBLINGS: LSR00003's 'All Other Cat. Nos.' column is one dimension block for one mould, so the plates sharing this geometry are 353047 (TC surface, 50/cs, the part registered here), 353226 (TC, 36/cs), 353935 (TC, 60/cs), 353847 (Corning Primaria), 351147 (non-treated), the Corning PureCoat numbers 354723 / 356723 / 354775 / 356775, and the Corning BioCoat numbers 354408 / 356408 / 354430 / 354411 / 354412 / 354414 / 356414 / 354619 / 354659 / 354433 / 354605. Any of them can use this definition; the Primaria, PureCoat, BioCoat and non-treated numbers differ from the recorded surface_treatments, and the BioCoat protein coatings add an unquantified layer over the floor. NOT THE COSTAR PLATE: Corning_costar_24_well_plate.json (3524) and Corning_3527_24_well_plate.json in this registry are the Costar 24 well mould and are a different plate - 16.26/15.62 mm wells, 17.40 mm deep, on a 1.27 mm floor, against 16.30/15.57 mm wells, 17.98 mm deep, on a 1.19 mm floor here. The pitch happens to be the same 19.3 mm, so the two are easy to confuse; the floor thickness differs by 0.08 mm, which is a working-distance shift. PLATE: 127.76 x 85.47 mm footprint (sheet D x E), 20.19 mm high without the lid (F) and 21.43 mm with it ('Ht. w/lid on'). The lid itself is 127.25 x 85.14 x 10.08 mm and is not modelled. GRID: 4 rows x 6 columns at 19.30 mm pitch ('Center to center'). The sheet gives one spacing value and it is taken as equal in both axes, as on every other Falcon multiwell sheet; Corning's cell culture dimension sheet gives 19.3 mm for the equivalent Costar 24 well in both axes, which supports that reading. WELL: 16.30 mm across at the opening (diameter_top, 'Top Int. diameter') and 15.57 mm at the floor (diameter, 'Bot. Int. diameter'), 17.98 mm deep ('Depth'), round, flat-bottomed, with the opening centred over the floor. CROSS-CHECK: the sheet's own growth area of 1.90 cm2 per well gives a floor diameter of 2*sqrt(1.90/pi) = 15.55 mm, which agrees with the printed 15.57 mm to 0.02 mm and confirms that 'Bot. Int. diameter' is the imaged surface. The product page quotes the same 1.9 cm2. FLOOR: 1.19 mm of clear polystyrene ('Bottom thickness'). This is the working-distance number. VOLUME: working volume of media 0.8-1.0 mL per well, of trypsin 0.08-0.10 mL (sheet and product page); working_volume_min/max record the media range. DERIVED - A1 POSITION: LSR00003 publishes no A1 offset, as is true of every Falcon multiwell sheet, and Corning's cell culture dimension sheet 'Microplate Dimensions for Corning Cell Culture Microplates' (2019-01-16), which does carry A1 Row and A1 Column Offset columns, lists only Costar catalogue numbers and no Falcon ones. The offsets here therefore centre the 4 x 6 grid on the footprint: offset_from_left_edge = (127.76 - 5 x 19.30) / 2 = 15.63 mm, offset_from_top_edge = (85.47 - 3 x 19.30) / 2 = 13.785 mm. UNRESOLVED: unlike Corning's 6, 12 and 48 well plates, the Costar 24 well is not centred in the long axis - both Corning documents for it print an A1 column offset of 17.46-17.48 mm, 1.85 mm right of the centred 15.63 mm. That printed figure does not close arithmetically (17.48 x 2 + 5 x 19.304 = 131.5 mm against a 127.76 mm plate), which is why centring was preferred here rather than carrying the Costar number across to a different mould, but it does mean the long-axis A1 offset on this file could be wrong by up to about 1.9 mm if the Falcon mould shares the Costar offset grid. The short-axis offset is safe: the Costar sheet's A1 row offset of 13.78 mm matches the centred 13.785 mm here to 0.005 mm. Not checked against a physical Falcon plate. SHEET CONTRADICTS ITSELF: LSR00003 Rev 8 prints the well depth as '17.98 (.708)' in the 'All Other Cat. Nos.' column and '17.98 (.700)' in the notched column, and prints the bottom thickness as '1.19 (.047)' and '1.40 (.047)'. The millimetre figures are taken as controlling throughout, since 17.98 mm = .708 in. and 1.19 mm = .047 in. are the self-consistent pairs while .700 in. = 17.78 mm and .047 in. = 1.19 mm are not. NOT RECORDED: the sheet dimensions no skirt and no well-floor elevation, so skirt_outline, skirt_height, skirt_thickness, bottom_elevation and floor_height are left out and the ANSI/SLAS defaults are assumed. Subtracting the sheet's own numbers, 20.19 - 17.98 - 1.19 = 1.02 mm would be the underside of the well floor above the resting plane, but only if the well rim is flush with the top of the plate, which the sheet neither states nor draws; it is recorded here as arithmetic rather than written into the file. For comparison the Costar 24 well, which does publish it, gives a 2.54 mm bottom elevation and a 13.74 mm flange height. Dimensions in metres, volumes in liters."
+}
