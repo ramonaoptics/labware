@@ -911,6 +911,11 @@ def test_physical_constraints_assumptions() -> None:
             48,
             6,
             8,
+            'Corning_353043_12_well_plate.json',
+            'Corning Falcon 353043 12 well',
+            12,
+            3,
+            4,
         ),
         (
             'InSphero_GRI3D-96IBI_96_well_plate.json',
