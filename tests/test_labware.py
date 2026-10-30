@@ -809,6 +809,13 @@ def test_physical_constraints_assumptions() -> None:
             48,
         ),
         (
+            'Greiner_783892_1536_well_plate.json',
+            'Greiner SensoPlate 783892 1536 well',
+            1536,
+            32,
+            48,
+        ),
+        (
             'Greiner_781090_384_well_plate.json',
             'Greiner CELLSTAR 781090 384 well',
             384,
