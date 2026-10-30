@@ -1,0 +1,74 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ramonaoptics/labware/main/labware/labware.v1.schema.json",
+    "name": "Cellvis P384-1.5H-N 384 well",
+    "number_of_wells": 384,
+    "manufacturer": "Cellvis",
+    "author": "Ramona Optics",
+    "last_updated": "2026-10-30T00:00:00Z",
+    "part_number": "P384-1.5H-N",
+    "web_reference": "https://www.cellvis.com/_384-well-glass-bottom-plate-with-high-performance-number-1.5-cover-glass_/product_detail.php?product_id=53",
+    "drawing_reference": "https://www.cellvis.com/images/glass_bottom_plate_384_well_size.png",
+    "applications": [
+        "cell culture",
+        "imaging",
+        "fluorescence",
+        "confocal"
+    ],
+    "outer_plate_dimensions": {
+        "length": 0.1276,
+        "width": 0.0856,
+        "height": 0.01433,
+        "height_with_lid": 0.0168,
+        "upper_outline": [
+            [
+                0.0029,
+                0.0086
+            ],
+            [
+                0.0086,
+                0.0029
+            ],
+            [
+                0.1247,
+                0.0029
+            ],
+            [
+                0.1247,
+                0.0827
+            ],
+            [
+                0.0086,
+                0.0827
+            ],
+            [
+                0.0029,
+                0.077
+            ]
+        ]
+    },
+    "well_dimensions": {
+        "pitch": 0.0045,
+        "rows": 16,
+        "columns": 24,
+        "shape": "square",
+        "diameter": 0.0033,
+        "top_shape": "square",
+        "diameter_top": 0.0037,
+        "depth": 0.01138,
+        "bottom_shape": "flat",
+        "bottom_color": "clear",
+        "bottom_material": "glass",
+        "bottom_thickness": 0.00017,
+        "bottom_elevation": 0.00278,
+        "floor_height": 0.00295,
+        "wall_material": "polystyrene",
+        "wall_color": "black"
+    },
+    "alignment_reference": {
+        "origin_reference": "A1 well center",
+        "offset_from_left_edge": 0.01205,
+        "offset_from_top_edge": 0.00905,
+        "z_reference": "top surface of plate"
+    },
+    "notes": "Cellvis 384 well glass bottom plate, catalogue number P384-1.5H-N: black virgin-polystyrene frame, German #1.5H high-performance cover glass 0.170 +/- 0.005 mm thick bonded with a USP class VI adhesive, with a lid, individually packed, gamma sterilised, moulded in a class 100,000 clean room, 20 per case. Cellvis states the plate conforms to ANSI/SBS 1-2004. Publications cite the same plate as P384-1.5HN. Coated versions (poly-D-lysine, collagen and others) are sold under separate catalogue numbers on the same frame; Cellvis also sells this frame with other cover glass grades under other numbers, which are not this file. Units in meters; both Cellvis documents are in millimeters.\n\nCONTROLLING DOCUMENT: Cellvis publishes NO engineering drawing for this plate - no title block, no revision, no PDF. The highest-authority document it offers is the DIMENSION DIAGRAM image on the 'Dimension diagram' tab of the product page, https://www.cellvis.com/images/glass_bottom_plate_384_well_size.png (drawing_reference): a plan view, a section through the edge and first well, and two views of the lid. It is undated and unrevisioned; retrieved 2026-10-30. SECOND DOCUMENT: the 'Technical specifications' table on the product page (web_reference): frame colour black; coverslip #1.5 high performance cover glass (0.170+/-0.005mm); Length 127.60 mm; Width 85.60 mm; Height 14.33 mm; Height with lid 16.80 mm; Bottom height 2.78 mm (bottom of coverslip to plate bottom), tolerance +/-50 um over the whole plate; Well to well center distance 4.50 mm; Well bottom area 10.89 mm2; Maximum volume 0.12 ml; temperature range -20 to 50 C. The two documents agree everywhere they overlap.\n\nPRINTED, transcribed directly: footprint 127.6 x 85.6 mm and pitch 4.5 mm, from both documents; plate height 14.33 mm and height with lid 16.8 mm, from both; A1 centre 12.05 mm from the left edge, from the plan view; well depth 11.38 mm, well opening 3.7 mm and well bottom 3.3 mm, from the section; bottom_elevation 2.78 mm from the specification's 'Bottom height'. The square well bottom is confirmed independently by the specification's well bottom area: 3.3 x 3.3 = 10.89 mm2 exactly, so diameter (the side of the square bottom) is 3.3 mm and diameter_top (the side of the square opening) is 3.7 mm, the opening drawn at the top of the section and the bottom at the glass. bottom_thickness 0.00017 m is the published cover glass thickness. floor_height 2.95 mm is DERIVED as 2.78 + 0.17 and confirmed by the section: plate height less well depth, 14.33 - 11.38, is also 2.95 mm.\n\nDERIVED: A1 offset from the top edge, 9.05 mm. The plan view prints 9.05 mm from the BOTTOM edge to the centre of the bottom-left well (P1), not to A1; with 16 rows at 4.5 mm, A1 is 85.6 - 9.05 - 15 x 4.5 = 9.05 mm from the top edge, so the grid is centred on the width. Along the length it is centred too: 12.05 + 23 x 4.5 = 115.55 mm, leaving 12.05 mm to the right edge. (The ANSI/SLAS 384 values, 12.13 and 8.99 mm, are NOT used.)\n\nSCALED OFF THE PLAN VIEW, assumed to scale: the plan view calibrates to 3.264 px/mm on the footprint length and 3.266 px/mm on the A1-to-X1 well centres along it, and 3.265 px/mm on the footprint width and 3.259 px/mm on the A1-to-P1 well centres across it - all four within 0.2 %. The plate's BODY above the skirt (upper_outline) is inset from the footprint by 3.07, 2.92, 2.76 and 2.76 mm at the top, right, bottom and left edges, taken as a uniform 2.9 mm +/- 0.2 mm, and its two LEFT corners (at A1 and P1) are cut at about 45 degrees with legs of 5.7 mm +/- 0.3 mm, while its two right corners are plain: the plate's orientation feature, matched by one cut corner on the lid. Line centres were measured; the uncertainty is the drawn line width (about 1 px, 0.3 mm) and the spread between edges. The lid is drawn as 127.15 x 85.05 x 10 mm; those are not schema fields.\n\nTHE SECTION VIEW IS NOT TO SCALE and nothing was scaled off it: its 3.7 mm and 3.3 mm dimensions are drawn between extension lines the same 22 px apart. Consequently skirt_outline, skirt_height and skirt_thickness are NOT recorded and the standard footprint outline is assumed. The same frame and diagram style as Cellvis_P01-1.5H_1_well_plate.json.\n\nNOT RECORDED: working_volume_min/max - Cellvis publishes only a 'Maximum volume' of 0.12 ml, which is a capacity, not a recommended working range (the brim-full frustum from the recorded numbers is about 0.14 ml); bottom_refractive_index - Cellvis does not publish one for its cover glass; wall_thickness; surface_treatments - P384-1.5H-N is plain uncoated glass; the corner radius of the square wells, which neither document gives.\n\nTHE REQUEST AGREED WITH THE VENDOR: the requester linked the P384-1.5H-N product page and named it by its title."
+}
