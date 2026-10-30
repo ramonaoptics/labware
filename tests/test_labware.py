@@ -946,6 +946,13 @@ def test_physical_constraints_assumptions() -> None:
             24,
         ),
         (
+            'S-Bio_MS-9384U_384_well_plate.json',
+            'S-Bio PrimeSurface MS-9384U 384 well',
+            384,
+            16,
+            24,
+        ),
+        (
             'Thermo_nunc_150628_12_well_plate.json',
             'Thermo Nunc 150628 12 well multidish',
             12,
