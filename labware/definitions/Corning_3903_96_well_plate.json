@@ -1,0 +1,54 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ramonaoptics/labware/main/labware/labware.v1.schema.json",
+    "name": "Corning 3903 96 well",
+    "number_of_wells": 96,
+    "manufacturer": "Corning Life Sciences",
+    "author": "Ramona Optics",
+    "last_updated": "2026-10-30T00:00:00Z",
+    "part_number": "3903",
+    "web_reference": "https://ecatalog.corning.com/life-sciences/b2c/US/en/Microplates/Assay-Microplates/96-Well-Microplates/Corning%C2%AE-96-well-Black-Clear-and-White-Clear-Bottom-Polystyrene-Microplates/p/3903",
+    "drawing_reference": "https://www.corning.com/catalog/cls/documents/drawings/MicroplateDimensions96-384-1536.pdf",
+    "applications": [
+        "cell culture",
+        "imaging",
+        "luminescence",
+        "fluorescence"
+    ],
+    "outer_plate_dimensions": {
+        "length": 0.12776,
+        "width": 0.08548,
+        "height": 0.01422,
+        "height_with_lid": 0.01651,
+        "skirt_height": 0.006096
+    },
+    "well_dimensions": {
+        "pitch": 0.009,
+        "rows": 8,
+        "columns": 12,
+        "shape": "circle",
+        "top_shape": "circle",
+        "diameter": 0.00635,
+        "diameter_top": 0.00686,
+        "depth": 0.01067,
+        "working_volume_min": 7.5e-05,
+        "working_volume_max": 0.0002,
+        "bottom_shape": "flat",
+        "bottom_color": "clear",
+        "bottom_material": "polystyrene",
+        "bottom_thickness": 0.0005,
+        "bottom_elevation": 0.00303,
+        "floor_height": 0.00355,
+        "wall_material": "polystyrene",
+        "wall_color": "white",
+        "surface_treatments": [
+            "tissue culture"
+        ]
+    },
+    "alignment_reference": {
+        "origin_reference": "A1 well center",
+        "offset_from_left_edge": 0.0143,
+        "offset_from_top_edge": 0.0112,
+        "z_reference": "top surface of plate"
+    },
+    "notes": "Corning Costar 96 well, white polystyrene walls with a clear flat polystyrene bottom, tissue-culture treated, with low-evaporation lid, sterile, 20 per bag, 100 per case. Units in meters. Corning publishes no per-catalog drawing for its assay plates, so the controlling document is the family sheet 'Microplate Dimensions 96/384/1536', row '96 well flat bottom' under 'Black/white with clear bottom, polystyrene plates', where 3903 is named explicitly alongside 3603, 3604, 3610, 3631, 3632, 3651, 3666, 3667, 3904, 3601, 3635, 3340 and 3723; no dimension here was measured on a 3903 specifically. From that row: well spacing (pitch) 9 mm; A1 well center 14.3 mm from the left edge (Corning 'A1 column offset') and 11.2 mm from the top edge ('A1 row offset'); well depth 10.67 mm; well diameter 6.86 mm at the top and 6.35 mm at the bottom (Corning does not say in words the well is round; inferred from its 'top/bottom' diameter column, against the '(width)' annotation on its square 384-well rows); flange/skirt height 6.096 mm; stack height 13.12 mm; well bottom thickness 0.5 mm; 'distance to bottom of plate' 3.03 mm, recorded as bottom_elevation (underside of the well bottom above the resting plane); 'well bottom elevation' 3.55 mm, recorded as floor_height. These two do not quite close: 3.03 + 0.5 = 3.53 mm, not 3.55 mm; each is recorded as printed. Well bottom area 0.3165 cm^2, which gives a bottom diameter of 6.35 mm, agreeing with the printed one; total well volume 360 uL. Plate footprint 127.76 x 85.48 mm and height without lid 14.22 mm per the Corning and Falcon Microplates Selection Guide (CLS-C-DL-MP-014REV9), which Corning states meets the ANSI/SBS footprint standard; the family sheet rounds this to 127.8 x 85.5 x 14.2 mm. Cross-checked against the per-catalog Product Description for 3903, Rev 17 (https://certs-ecatalog.corning.com/life-sciences/product-descriptions/3903.pdf): length 5.030 in (127.76 mm), width 3.365 in (85.47 mm), well depth 0.420 in (10.67 mm), well diameter 0.270 in (6.86 mm) at the top and 0.250 in (6.35 mm) at the bottom, 0.36 mL per well, all at +/- 0.010 in, agreeing with the family sheet; height with lid 0.650 in (16.51 mm, lid on) is taken from it, as the family sheet gives none. The Product Description contradicts itself on colour: its materials list says the walls are white ('White concentrate') while its optical paragraph, evidently copied from the black sibling 3904, says 'opaque black polystyrene walls'; the catalog page, the product name and the requester all say white, which is what wall_color records. Working volume 75-200 uL per the catalog page (recommended medium volume 100-200 uL; cell growth area 0.32 cm^2). The bottom is 0.5 mm thick against 1.27 mm on a solid-bottom Corning 96-well plate such as the 3599, so the outside of the well floor sits 3.03 mm above the plate datum instead of 2.26 mm, a 0.77 mm working-distance shift. Geometrically identical, on Corning's documents, to the Corning 3610 and 3601 already in this registry: 3610 is the same white, clear-bottom TC-treated plate, and 3601 the black high-binding one. Use 'pitch' and origin reference to compute all well centers."
+}
