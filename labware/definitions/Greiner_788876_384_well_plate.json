@@ -1,0 +1,78 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ramonaoptics/labware/main/labware/labware.v1.schema.json",
+    "name": "Greiner UV-Star 788876 384 well",
+    "number_of_wells": 384,
+    "manufacturer": "Greiner Bio-One",
+    "author": "Ramona Optics",
+    "last_updated": "2026-10-30T00:00:00Z",
+    "part_number": "788876",
+    "web_reference": "https://shop.gbo.com/en/usa/products/bioscience/microplates/384-well-microplates/384-well-small-volume-lobase-microplates/788876.html",
+    "drawing_reference": "https://shop.gbo.com/en/usa/files/33365810/788876.pdf",
+    "applications": [
+        "absorbance",
+        "UV/VIS spectroscopy",
+        "fluorescence",
+        "high-throughput screening"
+    ],
+    "outer_plate_dimensions": {
+        "length": 0.12776,
+        "width": 0.08548,
+        "height": 0.0075,
+        "skirt_height": 0.002,
+        "skirt_thickness": 0.00184,
+        "upper_outline": [
+            [
+                0.00195,
+                0.0076
+            ],
+            [
+                0.0076,
+                0.00195
+            ],
+            [
+                0.12581,
+                0.00195
+            ],
+            [
+                0.12581,
+                0.08353
+            ],
+            [
+                0.0076,
+                0.08353
+            ],
+            [
+                0.00195,
+                0.07788
+            ]
+        ]
+    },
+    "well_dimensions": {
+        "pitch": 0.0045,
+        "rows": 16,
+        "columns": 24,
+        "shape": "circle",
+        "diameter": 0.00184,
+        "top_shape": "circle",
+        "diameter_top": 0.0033,
+        "depth": 0.0055,
+        "bottom_shape": "flat",
+        "working_volume_min": 4e-09,
+        "working_volume_max": 2.5e-08,
+        "bottom_color": "clear",
+        "bottom_material": "cyclo_olefin",
+        "bottom_thickness": 0.000135,
+        "bottom_refractive_index": 1.53,
+        "floor_height": 0.002,
+        "wall_material": "cyclo_olefin",
+        "wall_color": "black",
+        "wall_thickness": 0.0012
+    },
+    "alignment_reference": {
+        "origin_reference": "A1 well center",
+        "offset_from_left_edge": 0.01213,
+        "offset_from_top_edge": 0.00899,
+        "z_reference": "top surface of plate"
+    },
+    "notes": "Greiner Bio-One UV-Star 788876: 384 well microplate, small volume, LoBase, black cyclo-olefin (COC) frame with a clear cyclo-olefin film F-bottom (flat, uClear), round tapered wells, non-sterile, no lid, 10 per bag, 80 per carton. Greiner's catalogue title is 'UV-STAR MICROPLATE, 384 WELL, COC, SMALL VOLUME, LOBASE, uCLEAR, BLACK, 10 PCS./BAG'. Units in meters.\n\nCONTROLLING DOCUMENT: Greiner customer drawing 'CUSTOMER DRAWING, 384 Well Microplate, UV-Star, uClear, LoBase', Revision 6, released 2021-10-14, valid for item 788876 (https://shop.gbo.com/en/usa/files/33365810/788876.pdf; 1 page, no text layer). Cross-checked against PDS No. 788876 Revision 06 (https://shop.gbo.com/en/usa/files/33364707/788876.pdf), whose section 1.2 defers to the drawing for dimensions. Both carry a Greiner CONFIDENTIAL / no-reproduction footer although both are served unauthenticated from the product page, so they are linked, not reproduced.\n\nPRINTED ON THE DRAWING, transcribed as-is: footprint 127.76 +/-0.15 x 85.48 +/-0.15 mm; plate height 7.5 +/-0.1 mm (no lid; the plate is sold without one); pitch 4.5 mm; A1 well centre 12.13 mm from the left edge and 8.99 mm from the top edge, with the plan view labelled A-H top to bottom and 1-12 left to right (one label per 2 x 2 block of wells), so A1 is the top-left well; well opening diameter 3.3 mm, well floor diameter 1.84 mm (round, tapered); well depth 5.5 mm from the rim; skirt height 2 mm; flatness (curvature) +/-0.15 mm. The A1 offsets are the ANSI/SLAS 384-well values: 12.13 + 23 x 4.5 = 115.63 mm leaves 12.13 mm to the right edge, and 8.99 + 15 x 4.5 = 76.49 mm leaves 8.99 mm to the bottom edge.\n\nWELLS: diameter is the floor (1.84 mm) and diameter_top the opening (3.3 mm), both printed on the section. wall_thickness 1.2 mm is pitch minus the opening (4.5 - 3.3), the thinnest wall at the rim; not separately dimensioned. A frustum of these dimensions holds 29.3 uL against the PDS's 28 uL total volume (the drawn floor fillet accounts for the difference).\n\nFILM BOTTOM: bottom_thickness 135 um (+/-10 um) from PDS 1.2 'Foil: 135 um'. This is the UV-Star film, and is NOT the 190 um that Greiner's microplates category page gives for uClear 96/384 plates in general; the per-part PDS is followed. Material cyclo-olefin per PDS 1.4 ('Plate and foil: Cycloolefine'), plate black and foil clear per PDS 1.5. bottom_refractive_index 1.53 is a typical value for cyclo-olefin copolymer near 589 nm and is NOT a Greiner-published figure.\n\nfloor_height 2.0 mm is derived from printed values: plate height 7.5 mm minus well depth 5.5 mm, the section showing the well rim flush with the plate top; it coincides with the printed 2 mm skirt step, which the section draws on the same line. The drawing draws thin layers under the wells without dimensioning which is the film, so bottom_elevation (the film underside) is deliberately absent; it would be 1.865 mm only if the 5.5 mm depth dimension ends on the film's top face.\n\nSCALED OFF THE DRAWING (Revision 6, assumed to scale: a CAD drawing from Creo Elements/Direct Drafting 20.1 with title block and orthographic views; rendered at 600 dpi).\n  - Section view calibration: the printed 7.5, 5.5 and 2 mm dimensions measure 521, 381 and 140 px, i.e. 69.47, 69.27 and 70.0 px/mm, agreeing within 0.8 %; the drawn 5.5 mm depth ends on the 2 mm skirt-step line, confirming floor_height.\n  - skirt_thickness 1.84 mm (+/-0.07 mm): on the section, the outer skirt face to the foot of the body wall above the skirt step.\n  - upper_outline: the body above the skirt, inset 1.95 mm from each edge at the plate's top surface (the body wall is drafted: 1.84 mm inset at its foot, 1.96 mm at its top on the section; the plan's thick body line sits 1.94 mm inside the footprint edge), with 45-degree chamfers at the two column-1 corners (A1 and H1). Plan-view calibration: footprint 127.76 mm over 2951 px (23.10 px/mm) and 85.48 mm over 1974 px (23.09 px/mm), agreeing to 0.05 %; the printed 12.13 mm A1 offset measures 12.1 mm. The chamfers were traced on the plan view: the top-left one runs along x + y = 9.57 mm, the bottom-left one along y - x = 75.89 mm, giving points 7.6 mm along each edge at the 1.95 mm inset; uncertainty about +/-0.3 mm (the chamfer is drawn as a double line). The two column-24 corners of the body are rounded on the plan and are recorded as square points, which overstates the body by under a millimetre at those two corners only.\n  - skirt_outline is deliberately absent: the footprint is a plain rounded rectangle; the chamfers are on the body only. Only one section is drawn, so a skirt height differing between the long sides and the ends cannot be ruled out; 2 mm is recorded for the whole perimeter.\n\nheight_with_lid is absent: the plate is sold without a lid and the drawing shows none.\n\nFROM PDS 788876 Rev 06: total volume 28 uL (mathematically calculated), working volume 4-25 uL; free of detectable DNase/RNase, human DNA and pyrogens; application temperature -80 to +40 C; not autoclavable; non-sterile; single use. No surface treatment is stated, so surface_treatments is not recorded. UV-Star plates are made for UV/VIS absorbance down into the UV (Greiner application note F073041). Use pitch and the alignment reference to compute all well centres."
+}
