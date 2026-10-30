@@ -1,0 +1,56 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ramonaoptics/labware/main/labware/labware.v1.schema.json",
+    "name": "Corning 4520 96 well spheroid",
+    "number_of_wells": 96,
+    "manufacturer": "Corning Life Sciences",
+    "author": "Ramona Optics",
+    "last_updated": "2026-10-30T00:00:00Z",
+    "part_number": "4520",
+    "web_reference": "https://ecatalog.corning.com/life-sciences/b2c/US/en/Microplates/Assay-Microplates/96-Well-Microplates/Corning%C2%AE-96-well-Black-Clear-Round-Bottom-Ultra-Low-Attachment-Spheroid-Microplate/p/4520",
+    "drawing_reference": "https://www.corning.com/catalog/cls/documents/drawings/MicroplateDimensions96-384-1536.pdf",
+    "applications": [
+        "3D culture",
+        "spheroids"
+    ],
+
+    "outer_plate_dimensions": {
+        "length": 0.12776,
+        "width": 0.08548,
+        "height": 0.0142,
+        "height_with_lid": 0.01651,
+        "skirt_height": 0.006096
+    },
+
+    "well_dimensions": {
+        "pitch": 0.009,
+        "rows": 8,
+        "columns": 12,
+        "shape": "circle",
+        "top_shape": "circle",
+        "diameter": 0.00635,
+        "diameter_top": 0.00685,
+        "depth": 0.01236,
+        "working_volume_min": 0.000075,
+        "working_volume_max": 0.0003,
+        "bottom_shape": "u",
+        "bottom_color": "clear",
+        "bottom_material": "polystyrene",
+        "bottom_thickness": 0.0000875,
+        "bottom_elevation": 0.00186,
+        "floor_height": 0.00203,
+        "wall_material": "polystyrene",
+        "wall_color": "black",
+        "surface_treatments": [
+            "ultra-low attachment"
+        ]
+    },
+
+    "alignment_reference": {
+        "origin_reference": "A1 well center",
+        "offset_from_left_edge": 0.01427,
+        "offset_from_top_edge": 0.0112,
+        "z_reference": "top surface of plate"
+    },
+
+    "notes": "Corning Spheroid Microplate, 96 well, black polystyrene walls with a clear thin polystyrene round (U) bottom, ultra-low attachment surface (a covalently bound, biologically inert hydrogel that inhibits attachment so cells form one spheroid at the well floor), with lid, sterile; 4520 is the bulk-packed 10/bag catalogue number. Units in meters, volumes in liters. PRIMARY SOURCE (drawing_reference): the Corning 'Microplate Dimensions 96/384/1536' family sheet, row '96 well spheroid plate' under '96 well High Content and Spheroid Microplates', which names 4515 and 4520. Corning publishes no per-catalogue DWG drawing for its assay plates (drawings/DWG4520.PDF and drawings/4520.pdf both 404), so this sheet is the controlling document, as it is for Corning_3830_384_well_plate.json (the 384-well spheroid plate). The sheet is footer-stamped 'Corning Restricted' although it is served publicly. CROSS-CHECK: the per-catalogue Corning Product Description for 4520, Revision 4, Feb 9 2026 (certs-ecatalog.corning.com/life-sciences/product-descriptions/4520.pdf), imperial at +/-0.010 in. SIBLING: 4515 (the same plate, not bulk packed) shares the sheet row, and its Product Description Rev 3 carries identical dimensions, so the two are one mould; this file is registered under the requested 4520. GRID: pitch 9 mm, 8 rows x 12 columns. A1 well center 14.27 mm from the left edge (Corning's 'A1 Column Offset') and 11.2 mm from the top edge ('A1 Row Offset'), as printed; 14.27 is 0.11 mm left of the centred 14.38 mm, leaving a 14.49 mm far margin, and is printed only for the spheroid row (the other 96-well rows print 14.3). FOOTPRINT, THE TWO DOCUMENTS DISAGREE: the sheet prints length 127.6 mm for the spheroid rows where every other row prints 127.8; the Product Description gives 5.030 x 3.365 in = 127.76 x 85.47 mm. This file carries 127.76 x 85.48 mm, the ANSI/SLAS 1-2004 footprint, as Corning_3830 does; 127.6 is within the Product Description's own tolerance. Plate height 14.2 mm (lid off) from the sheet; height with lid 16.51 mm is the Product Description's 0.650 in. Flange (skirt) height 6.096 mm and stack height 13.12 mm from the sheet. WELL: the sheet's 'Well Diameter (top/bottom)' is 6.85/6.35 mm; diameter_top 6.85 mm is the opening (Product Description 'Diameter @ top of well' 0.270 in = 6.858 mm, agreeing) and diameter 6.35 mm is the sheet's bottom figure. Well depth 12.36 mm from the sheet; the Product Description prints 0.494 in = 12.55 mm, the same figure it prints for the 384-well 3830 and outside the sheet value by more than its tolerance, so the sheet was followed. BOTTOM SHAPE: round (U) per the product name and catalogue page. bottom_radius is deliberately left out: the Product Description gives 'Well bottom radius 0.100 in' (2.54 mm), but a sphere of 2.54 mm radius cannot span the 6.35 mm bottom diameter (it would need at least 3.175 mm), so that figure is either a corner radius or describes a narrower spherical pocket than the published bottom diameter, and no Corning document resolves which; readers fall back to a hemisphere of the bottom diameter. WELL FLOOR: bottom thickness 0.0875 mm (87.5 um) clear polystyrene from the sheet. This is the working-distance number and it is unusually thin; do not carry it to another definition. It is published by the sheet only and has not been checked against a plate. bottom_elevation 1.86 mm is the sheet's 'Distance to bottom of plate', with the Product Description's 'Well bottom elevation 0.073 in' (1.854 mm) agreeing; floor_height 2.03 mm is the sheet's 'Well Bottom Elevation' column, which on the sheet's other rows is the floor's upper surface (e.g. 96 well flat bottom: 3.55 = 2.26 + 1.27 within 0.02 mm). For this row 1.86 + 0.0875 = 1.95 misses 2.03 by 0.08 mm; both are recorded as printed. Corning's vertical stack does not close either way: 14.2 mm plate height less 12.36 mm depth puts the floor at 1.84 mm. Well volume 300 uL per the sheet; working volume 75-300 uL per the Product Description and catalogue page; well bottom area is N/A on the sheet. Use 'pitch' and origin reference to compute all well centers."
+}
