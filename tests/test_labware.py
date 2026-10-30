@@ -925,6 +925,13 @@ def test_physical_constraints_assumptions() -> None:
             24,
         ),
         (
+            'Corning_4520_96_well_plate.json',
+            'Corning 4520 96 well spheroid',
+            96,
+            8,
+            12,
+        ),
+        (
             'Thermo_nunc_150628_12_well_plate.json',
             'Thermo Nunc 150628 12 well multidish',
             12,
