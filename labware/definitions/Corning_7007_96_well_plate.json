@@ -1,0 +1,55 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ramonaoptics/labware/main/labware/labware.v1.schema.json",
+    "name": "Corning Costar 7007 96 well",
+    "number_of_wells": 96,
+    "manufacturer": "Corning Life Sciences",
+    "author": "Ramona Optics",
+    "last_updated": "2026-10-30T00:00:00Z",
+    "part_number": "7007",
+    "web_reference": "https://ecatalog.corning.com/life-sciences/b2c/US/en/Microplates/Assay-Microplates/96-Well-Microplates/Corning%C2%AE-96-well-Clear-Polystyrene-Microplates/p/7007",
+    "drawing_reference": "https://www.corning.com/catalog/cls/documents/drawings/MicroplateDimensions96-384-1536.pdf",
+    "applications": [
+        "cell culture",
+        "suspension culture",
+        "3D culture",
+        "spheroids",
+        "imaging"
+    ],
+    "outer_plate_dimensions": {
+        "length": 0.12776,
+        "width": 0.08548,
+        "height": 0.0142,
+        "height_with_lid": 0.01651,
+        "skirt_height": 0.006096
+    },
+    "well_dimensions": {
+        "pitch": 0.009,
+        "rows": 8,
+        "columns": 12,
+        "shape": "circle",
+        "top_shape": "circle",
+        "diameter": 0.00635,
+        "diameter_top": 0.00686,
+        "depth": 0.0113,
+        "working_volume_min": 7.5e-05,
+        "working_volume_max": 0.0002,
+        "bottom_shape": "u",
+        "bottom_color": "clear",
+        "bottom_material": "polystyrene",
+        "bottom_thickness": 0.00114,
+        "bottom_elevation": 0.00176,
+        "floor_height": 0.00288,
+        "wall_material": "polystyrene",
+        "wall_color": "clear",
+        "surface_treatments": [
+            "ultra-low attachment"
+        ]
+    },
+    "alignment_reference": {
+        "origin_reference": "A1 well center",
+        "offset_from_left_edge": 0.0143,
+        "offset_from_top_edge": 0.0112,
+        "z_reference": "top surface of plate"
+    },
+    "notes": "Corning Costar 96 well clear polystyrene plate, round (U) clear bottom, Ultra-Low Attachment surface (covalently bound, biologically inert hydrogel), with Low Evaporation lid, individually wrapped, sterile, 1 per pack, 24 per case. Units in meters, volumes in liters. Corning publishes no per-catalogue drawing for its assay plates, so the controlling document (drawing_reference) is the family sheet 'Microplate Dimensions 96/384/1536', row '96 well round bottom' under 'Solid black, white, and clear polystyrene plates'. That row names 3366, 3797, 3360, 3367, 3788, 3795, 3798, 3605, 3789, 3792 and 3799 but NOT 7007; it is assigned to 7007 because the per-catalogue Product Description for 7007 (Rev 9, Feb 9 2026, https://certs-ecatalog.corning.com/life-sciences/product-descriptions/7007.pdf, imperial at +/-0.010 in) agrees with it on every dimension the two share: well depth 0.445 in (11.30 mm; sheet 11.3), well diameter 0.270 in (6.86 mm) at the top and 0.250 in (6.35 mm) at the bottom (sheet 6.86 / 6.35). No dimension here was measured on a 7007. From the sheet row: pitch 9 mm; A1 well center 14.3 mm from the left edge (Corning 'A1 Column Offset') and 11.2 mm from the top edge ('A1 Row Offset'), 0.08 / 0.04 mm short of the ANSI/SLAS 4-2004 centred position, as printed; plate height 14.2 mm without lid; flange/skirt height 6.096 mm; stack height 13.04 mm; well bottom thickness 1.14 mm; 'Distance to bottom of plate' 1.76 mm, recorded as bottom_elevation (underside of the well bottom above the resting plane); 'Well Bottom Elevation' 2.88 mm, recorded as floor_height. 1.76 + 1.14 = 2.90 mm against 2.88 mm printed; each recorded as printed. The vertical stack closes: 2.88 mm floor + 11.3 mm depth = 14.18 mm against the 14.2 mm plate height. Footprint 127.76 x 85.48 mm: the Product Description gives 5.030 x 3.365 in (127.76 x 85.47 mm), the sheet rounds to 127.8 x 85.5 mm; 85.48 is the ANSI/SLAS 1-2004 width, within the Product Description's tolerance. Height with lid 0.650 in (16.51 mm, lid on) from the Product Description; the sheet gives none. WELL: diameter_top 6.86 mm is the opening; diameter 6.35 mm is the sheet's and Product Description's bottom figure, which for this U-bottom well is taken as the diameter where the wall meets the round floor. bottom_radius is left out: no Corning document gives a radius of curvature for this plate, so readers fall back to a hemisphere of the 6.35 mm bottom diameter (3.175 mm radius); the 'Well Bottom Area' column is N/A for this row. The well is round, inferred from Corning's 'top/bottom' diameter column (against its '(width)' annotation on square-well rows) and from 'Diameter of Well' in the Product Description. VOLUMES DISAGREE: total well volume 360 uL per the sheet; the Product Description prints 'Working Volume per well 0.360uL' (evidently 360 uL with a unit slip); the catalogue page gives 'Well Volume 330 uL'. Working volume 75-200 uL and recommended medium volume 100-200 uL per the catalogue page (web_reference). The ULA hydrogel coating is not dimensioned by Corning and is not accounted for in the bottom thickness. Use 'pitch' and origin reference to compute all well centers."
+}
