@@ -1,0 +1,77 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ramonaoptics/labware/main/labware/labware.v1.schema.json",
+    "name": "Greiner SensoPlate 783892 1536 well",
+    "number_of_wells": 1536,
+    "manufacturer": "Greiner Bio-One",
+    "author": "Ramona Optics",
+    "last_updated": "2026-10-30T00:00:00Z",
+    "part_number": "783892",
+    "web_reference": "https://shop.gbo.com/en/usa/products/bioscience/microplates/sensoplate-glass-bottom-plates/1536-well-sensoplate/783892.html",
+    "drawing_reference": "https://shop.gbo.com/en/usa/files/33365787/783892.pdf",
+    "applications": [
+        "imaging",
+        "fluorescence",
+        "high-throughput screening"
+    ],
+    "outer_plate_dimensions": {
+        "length": 0.12776,
+        "width": 0.08545,
+        "height": 0.0104,
+        "skirt_height": 0.002,
+        "skirt_thickness": 0.00182,
+        "upper_outline": [
+            [
+                0.00195,
+                0.0073
+            ],
+            [
+                0.0073,
+                0.00195
+            ],
+            [
+                0.12581,
+                0.00195
+            ],
+            [
+                0.12581,
+                0.0835
+            ],
+            [
+                0.0073,
+                0.0835
+            ],
+            [
+                0.00195,
+                0.07815
+            ]
+        ]
+    },
+    "well_dimensions": {
+        "pitch": 0.00225,
+        "rows": 32,
+        "columns": 48,
+        "shape": "square",
+        "diameter": 0.00153,
+        "top_shape": "square",
+        "diameter_top": 0.0017,
+        "depth": 0.005,
+        "bottom_shape": "flat",
+        "working_volume_min": 3e-09,
+        "working_volume_max": 1e-08,
+        "bottom_color": "clear",
+        "bottom_material": "glass",
+        "bottom_thickness": 0.000175,
+        "bottom_refractive_index": 1.52,
+        "floor_height": 0.0018,
+        "wall_material": "polystyrene",
+        "wall_color": "black",
+        "wall_thickness": 0.00055
+    },
+    "alignment_reference": {
+        "origin_reference": "A1 well center",
+        "offset_from_left_edge": 0.01101,
+        "offset_from_top_edge": 0.00787,
+        "z_reference": "top surface of plate"
+    },
+    "notes": "Greiner Bio-One SensoPlate 783892: 1536 well microplate, PS, LoBase, black polystyrene frame with a clear borosilicate glass F-bottom (flat), rounded-square wells, alphanumeric well coding, sterile (SAL 10-3), supplied with a clear single-position low-profile PS lid, 16 per box. Greiner's catalogue title is 'MICROPLATTE, 1536 WELL, GLASS BOTTOM, F-BOTTOM, SENSOPLATE, LOBASE, LID, BLACK, STERILE'. Units in meters.\n\nCONTROLLING DOCUMENT: Greiner customer drawing 'CUSTOMER DRAWING, 1536 Well, SensoPlate, PS, LoBase, Glass Bottom', Revision 7, released 2024-07-10, valid for item 783892 (https://shop.gbo.com/en/usa/files/33365787/783892.pdf; 2 pages, no text layer: page 1 the plate, page 2 the lid). Cross-checked against PDS No. 783892 Revision 08 (https://shop.gbo.com/en/usa/files/33364687/783892.pdf), whose section 1.2 defers to the drawing for dimensions. Both carry a Greiner CONFIDENTIAL / no-reproduction footer although both are served unauthenticated from the product page, so they are linked, not reproduced.\n\nPRINTED ON THE DRAWING, transcribed as-is: footprint 127.76 +/-0.1 x 85.45 +/-0.1 mm (85.45, not the ANSI/SLAS 85.48 that Greiner's uClear 1536 drawing prints); plate height 10.4 +/-0.1 mm, lid off; pitch 2.25 mm; A1 well centre 11.01 mm from the left edge and 7.87 mm from the top edge, with the plan view's frame labelled A-H top to bottom and 1-12 left to right (one label per 4 x 4 block of wells), so A1 is the top-left well; well opening a rounded square 1.7 mm across the flats tapering to 1.53 mm at the floor; well depth 5 mm from the well rim to the floor; skirt height 2 mm, the step where the outer wall moves in above the resting plane. With 85.45 mm the A1 offset leaves 7.83 mm below the last row against 7.87 mm above the first; the drawing prints it that way and it is transcribed rather than centred.\n\nWELL SHAPE: the wells are rounded squares, which the schema has no value for, so shape and top_shape are 'square' and the flat-to-flat widths go in diameter (floor, 1.53 mm) and diameter_top (opening, 1.7 mm). The corner radius is not dimensioned. wall_thickness 0.55 mm is pitch minus the opening (2.25 - 1.7), the thinnest wall at the rim; not separately dimensioned.\n\nGLASS BOTTOM: bottom_thickness 175 um from PDS 1.2 ('Glass bottom: 175 um +/- 20 um'); the product page says '175 +/- 15 um'. The nominal agrees; the tolerance differs between the two Greiner documents and the PDS is followed. Material clear borosilicate per PDS 1.4/1.5. bottom_refractive_index 1.52 is a typical value for borosilicate cover glass near 589 nm and is NOT a Greiner-published figure.\n\nSCALED OFF THE DRAWING (Revision 7, page 1, assumed to scale: a CAD drawing from Creo Elements/Direct Drafting with title block and orthographic views; rendered at 600 dpi).\n  - Section view calibration: the printed 10.4, 5 and 2 mm dimensions measure 722.5, 347.5 and 139 px, i.e. 69.47, 69.50 and 69.50 px/mm, agreeing to 0.05 %.\n  - floor_height 1.80 mm (+/-0.03 mm, line width): the level the printed 5 mm depth dimension ends on, measured from the resting plane; equivalently the well rim sits 6.80 mm above the resting plane, 3.6 mm below the plate's top edge. The drawing draws a stack of three thin layers (about 0.7 mm in total, far thicker than a 175 um glass at scale) under the wells and does not dimension which is the glass, so bottom_elevation (the glass underside) is deliberately absent rather than guessed; floor_height minus 0.175 mm would be 1.625 mm only if the depth dimension ends on the glass's top face.\n  - skirt_thickness 1.82 mm (+/-0.05 mm): on the section, the outer skirt face to the foot of the body wall above the skirt step.\n  - upper_outline: the body above the skirt, inset 1.95 mm from each edge at the plate's top surface (the body wall is drafted: 1.82 mm inset at its foot, 1.94 mm at its top on the section), with 45-degree chamfers at the two column-1 corners (A1 and the last row's first well). Plan-view calibration: footprint 127.76 mm over 2952 px (23.11 px/mm) and 85.45 mm over 1973 px (23.09 px/mm), agreeing to 0.1 %; the printed 11.01 mm A1 offset measures 11.0 mm. The chamfers were traced on the plan view: the top-left one runs along x + y = 9.25 mm, the bottom-left one along y - x = 76.2 mm, giving points 7.3 mm along each edge at the 1.95 mm inset; uncertainty about +/-0.2 mm. The two column-48 corners of the body are rounded (radius about 2.3 mm on the plan) and are recorded as square points, which overstates the body by under a millimetre at those two corners only.\n  - skirt_outline is deliberately absent: the footprint is a plain rounded rectangle (corner radius about 3.9 mm on the plan); the chamfers are on the body only. Only one section is drawn, so a skirt height differing between the long sides and the ends cannot be ruled out; 2 mm is recorded for the whole perimeter.\n\nheight_with_lid is deliberately absent: drawing page 2 dimensions the lid alone (127.35 +/-0.15 x 84.8 +/-0.15 mm, 6.95 mm overall with a 5.95 mm step) and no lid-on assembly height. Do not read page 2's 127.35 x 84.8 as the plate footprint.\n\nFROM PDS 783892 Rev 08: total volume 12.6 uL (mathematically calculated), working volume 3-10 uL; plate and lid PS, free of heavy metal; adhesive compatible with cell culture media, low autofluorescence; application temperature +4 to +37 C; not autoclavable; shelf life 2 years. No surface treatment is stated, so surface_treatments is not recorded. The product page names fluorescence correlation spectroscopy and confocal microscopy as applications and transmission measurements above 350 nm. Not the same mould as the uClear 1536 plates (783092 etc.): this LoBase SensoPlate is 85.45 mm wide and has a glass bottom. Use pitch and the alignment reference to compute all well centres."
+}
