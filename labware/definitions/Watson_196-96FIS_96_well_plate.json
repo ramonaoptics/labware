@@ -1,0 +1,46 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ramonaoptics/labware/main/labware/labware.v1.schema.json",
+    "name": "Watson Bio Chimney-well 196-96FIS 96 well",
+    "number_of_wells": 96,
+    "manufacturer": "Watson Bio Lab",
+    "author": "Ramona Optics",
+    "last_updated": "2026-11-03T00:00:00Z",
+    "part_number": "196-96FIS",
+    "web_reference": "https://watsonbiolab.com/product/testplate/microtiter-ind/",
+    "drawing_reference": "https://watsonbiolab.com/pdf/manual/EN_MicroPlate_DimensionTable.pdf",
+    "applications": ["cell culture"],
+
+    "outer_plate_dimensions": {
+        "length": 0.1277,
+        "width": 0.0854,
+        "height": 0.0146,
+        "height_with_lid": 0.0175,
+        "skirt_height": 0.0076
+    },
+
+    "well_dimensions": {
+        "pitch": 0.009,
+        "rows": 8,
+        "columns": 12,
+        "shape": "circle",
+        "diameter": 0.007,
+        "depth": 0.0116,
+        "bottom_shape": "flat",
+        "bottom_color": "clear",
+        "bottom_material": "polystyrene",
+        "bottom_thickness": 0.0015,
+        "bottom_elevation": 0.0016,
+        "floor_height": 0.0031,
+        "wall_material": "polystyrene",
+        "wall_color": "clear"
+    },
+
+    "alignment_reference": {
+        "origin_reference": "A1 well center",
+        "offset_from_left_edge": 0.0142,
+        "offset_from_top_edge": 0.0111,
+        "z_reference": "top surface of plate"
+    },
+
+    "notes": "WATSON Bio Lab chimney-well 96 well microplate, flat bottom, individual (free-standing chimney) wells in a moat, polystyrene, clear, with lid, sterile, 50 individually packaged. 196-96FIS; the dimensions chart lists 197-96CIPS (with lid) under the same row. Not the same mould as the flat-top 96 well plates 196-96FS / 195-96F (380 uL, different well diameter and depth). Every dimension is printed in the WATSON 'Dimensions Chart for Microplates' (EN_MicroPlate_DimensionTable.pdf, created 2024-04-11, no revision printed), row '96 well flat bottom, Individual well [capacity of a well: 450 uL]', all in mm: plate length 127.7, width 85.4, height 14.6, lid + plate height 17.5, well depth 11.6, bottom surface height 1.6 (underside of the well bottom above the resting plane: bottom_elevation), A1 centre 11.1 from the top edge and 14.2 from the left edge, well spacing 9.0, well bottom diameter 7.0 and well (top) diameter 7.0 (a straight well, so no diameter_top), flange height 7.6 (skirt_height; the chart's section draws it as the height of the outer step), well bottom thickness 1.5. floor_height 3.1 mm is derived, 1.6 + 1.5. The chart's own numbers disagree by 0.1 mm: plate height minus floor height gives 11.5 mm against the printed well depth of 11.6 mm; the printed depth is used. The product page's well figure gives the same 7.0 mm diameter and 11.6 mm depth and a bottom area of 0.4 cm^2 (d = 7.1 mm). 450 uL is the vendor's capacity per well (pi x 3.5^2 x 11.6 = 446 uL), not a recommended working volume, so no working volume is recorded. The product page gives the size as 127.7 x 85.4 x 17.5 mm with lid. The skirt outline, skirt thickness and the corner shape are not on the chart, which is a generic diagram drawn for a 12 well plate, so they are left to the standard. Units in meters."
+}
