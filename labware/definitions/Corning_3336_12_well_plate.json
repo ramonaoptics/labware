@@ -1,0 +1,99 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ramonaoptics/labware/main/labware/labware.v1.schema.json",
+    "name": "Corning Costar CellBIND 3336 12 well",
+    "number_of_wells": 12,
+    "manufacturer": "Corning Life Sciences (Corning Incorporated)",
+    "author": "Ramona Optics",
+    "last_updated": "2026-11-13T00:00:00Z",
+    "part_number": "3336",
+    "web_reference": "https://ecatalog.corning.com/life-sciences/b2c/US/en/Microplates/Assay-Microplates/96-Well-Microplates/Costar%C2%AE-Multiple-Well-Cell-Culture-Plates/p/3336",
+    "drawing_reference": "https://www.corning.com/catalog/cls/documents/drawings/DWG00674.PDF",
+    "applications": [
+        "cell culture"
+    ],
+    "outer_plate_dimensions": {
+        "length": 0.12789,
+        "width": 0.0856,
+        "height": 0.02002,
+        "height_with_lid": 0.02261,
+        "skirt_height": 0.01372,
+        "upper_outline": [
+            [
+                0.00179,
+                0.00179
+            ],
+            [
+                0.11408,
+                0.00179
+            ],
+            [
+                0.11871,
+                0.00271
+            ],
+            [
+                0.12264,
+                0.00533
+            ],
+            [
+                0.12526,
+                0.00926
+            ],
+            [
+                0.12618,
+                0.01389
+            ],
+            [
+                0.12618,
+                0.07179
+            ],
+            [
+                0.12526,
+                0.07642
+            ],
+            [
+                0.12264,
+                0.08035
+            ],
+            [
+                0.11871,
+                0.08297
+            ],
+            [
+                0.11408,
+                0.08389
+            ],
+            [
+                0.00179,
+                0.08389
+            ]
+        ]
+    },
+    "well_dimensions": {
+        "pitch": 0.02601,
+        "rows": 3,
+        "columns": 4,
+        "shape": "circle",
+        "diameter": 0.02211,
+        "diameter_top": 0.02273,
+        "depth": 0.01753,
+        "bottom_shape": "flat",
+        "working_volume_max": 0.003,
+        "bottom_color": "clear",
+        "bottom_material": "polystyrene",
+        "bottom_thickness": 0.00127,
+        "bottom_elevation": 0.00216,
+        "floor_height": 0.00343,
+        "wall_material": "polystyrene",
+        "wall_color": "clear",
+        "surface_treatments": [
+            "CellBIND"
+        ]
+    },
+    "alignment_reference": {
+        "origin_reference": "A1 well center",
+        "offset_from_left_edge": 0.02494,
+        "offset_from_top_edge": 0.01679,
+        "z_reference": "top surface of plate"
+    },
+    "notes": "Corning Costar 12 well cell culture multiple well plate with CellBIND surface, cat# 3336: clear virgin polystyrene (meets USP Class VI), flat-bottom round wells, sterile, with lid. SAME MOULD: Corning's family sheet 'Microplate Dimensions for Corning Cell Culture Microplates' (dated 1/16/2019, footer 'Corning Restricted', no longer on corning.com; read from the Internet Archive snapshot web.archive.org/web/20240119081431if_/https://www.corning.com/catalog/cls/documents/drawings/MD_Microplate_Dimension_Sheets_Multiple_Well.pdf) lists 3336, 3512 and 3513 on one row with one set of dimensions; 3512 and 3513 are the tissue-culture treated items and are registered as Corning_3512_12_well_plate.json. The surface treatment changes no geometry here. The non-treated 12 well, 3737, was not checked. CONTROLLING DOCUMENT: Corning customer drawing DWG00674 Rev C, 'COSTAR 12 WELL PLATE WITH COVER', drawn CBL 10/03/96, rev C 6/22/18, prod code 144 (rev B note 'WAS 144-3512'). It is vector with no text layer and was read from 100 and 600 dpi renders. Printed on it, in mm: plate length 127.89, width 85.60, height without cover 20.02 (section A-A), height with cover 22.61 (base + cover view); well centre-to-centre 26.01 'Typ.' in both axes (A1-A4 78.03, A1-C1 52.02); well top (opening) inside diameter 22.73 -> diameter_top, well bottom inside diameter 22.11 -> diameter; well depth 17.53; bottom thickness 1.27; underside of the well bottom 2.16 above the resting plane -> bottom_elevation; A1 centre 24.94 from the left edge and 16.79 from the top edge, dimensioned directly on the top view; grid 3 rows (A-C) x 4 columns (1-4), A1 top left. floor_height 3.43 is derived, 2.16 + 1.27. The drawing's vertical numbers do not close: 17.53 + 1.27 + 2.16 = 20.96 against the 20.02 plate height, the same 0.94 mm gap as on the 6 well sheet DWG00673; each value is recorded as printed. Tolerances are 'nominal for reference only'. PRODUCT DESCRIPTION 3336 rev 10 (9 Feb 2026, certs-ecatalog.corning.com/life-sciences/product-descriptions/3336.pdf) agrees within its +/-0.050 in: 5.035 x 3.370 in, well top 0.895 in, bottom 0.870 in, depth 0.690 in, height with lid 0.890 in, working volume 3 mL per well (recorded as working_volume_max; Corning gives one working volume, not a range). The product page gives well volume 6.9 mL and growth area 3.8 cm^2 (d = 22.0 mm, the bottom). SKIRT: skirt_height 13.72 mm is printed on the family sheet ('Flange or skirt height'), not on DWG00674. The skirt outline is the drawing's outer line, a rectangle with small rounded corners at all four, so it is left to the standard; skirt thickness is not drawn. UPPER OUTLINE, scaled off DWG00674 Rev C, assumed to scale: the top view draws a second line inside the footprint, the plate body above the skirt, inset 1.79 mm on the left and top and 1.71 mm on the right and bottom, with small corners at the A1 (left) end and large rounded corners at the right (column 4) end. Measured on a 600 dpi render, line centres, calibrated on the printed length 127.89 and width 85.60 (12.862 px/mm on both axes) and checked against the printed A1-A4 well centre distance 78.03 (12.918 px/mm, 0.4 % apart). The right-hand corners fit an arc of radius 12.1 mm tangent to the body's edges, uncertainty about +/-0.5 mm on the radius and +/-0.3 mm on the insets (drawn line about 1.2 mm wide at this scale); the left corners are recorded as square, their radius being below the line width. Units in meters."
+}
