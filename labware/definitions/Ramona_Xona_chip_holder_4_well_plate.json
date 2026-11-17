@@ -1,0 +1,60 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ramonaoptics/labware/main/labware/labware.v1.schema.json",
+    "name": "Ramona Xona Chip Holder 4 well",
+    "number_of_wells": 4,
+    "manufacturer": "Ramona Optics",
+    "author": "Ramona Optics",
+    "last_updated": "2026-11-17T00:00:00Z",
+    "part_number": "Xona X4 chip holder, 4 slide, 27mm pitch, SBS footprint",
+    "web_reference": "https://docs.ramonaoptics.com/hardware/mcam_inserts.html",
+    "applications": [
+        "organ-on-chip",
+        "imaging"
+    ],
+    "outer_plate_dimensions": {
+        "length": 0.12776,
+        "width": 0.08548,
+        "height": 0.008,
+        "skirt_height": 0.006,
+        "upper_outline": [
+            [
+                0.0061,
+                0.0016
+            ],
+            [
+                0.12616,
+                0.0016
+            ],
+            [
+                0.12616,
+                0.08388
+            ],
+            [
+                0.0016,
+                0.08388
+            ],
+            [
+                0.0016,
+                0.0061
+            ]
+        ]
+    },
+    "well_dimensions": {
+        "pitch": 0.027,
+        "rows": 1,
+        "columns": 4,
+        "shape": "rectangle",
+        "diameter": 0.0258,
+        "width": 0.0258,
+        "height": 0.0758,
+        "depth": 0.0065,
+        "bottom_shape": "flat"
+    },
+    "alignment_reference": {
+        "origin_reference": "A1 well center",
+        "offset_from_left_edge": 0.02338,
+        "offset_from_top_edge": 0.04274,
+        "z_reference": "top surface of plate"
+    },
+    "notes": "The 4 wells of this definition are the 4 chip pockets of the holder, empty: A1 is the leftmost pocket. NOT A CATALOGUE PLATE. This is a Ramona Optics fixture: an SBS-footprint holder that carries 4 Xona XonaChip X4 chips (75.50 x 25.50mm, slide format) with their long axis along the plate's width, so that they can be driven as one plate. Its pockets are 27.00mm apart (3 x 9mm), leaving 1.20mm ribs between neighbours; the four-pocket block is centred on the plate (23.38 + 3 x 27.00 = 104.38 = 127.76 - 23.38). This is the four-chip variant of the 36mm-pitch Ramona_Xona_chip_holder_3_well_plate and shares its footprint, body, pocket size, floor and windows; only the pocket count and pitch differ. 27mm is not a multiple of the 18mm micro-camera pitch, so unlike the 36mm holder the chips do not all sit at the same position under a camera column. Requested 2026-11-17, issue #66. CONTROLLING DOCUMENT: Ramona's own CAD model of the holder, Onshape STEP AP242 export 'Xona Holder 4x27mm.step' (product 'Base Plate', exported 2026-10-29T20:57:00Z, units metre), shared in #labware-requests on 2026-11-17 (https://ramonaoptics.slack.com/archives/C0BT14F1GTF/p1794929488536769). It is internal Ramona CAD, on file at Ramona and not published; the web_reference is Ramona's insert documentation page. Every holder number below is read off the model's B-rep vertex coordinates (all faces are planes and cylinders; the model's origin is the plate centre), so they are the design's nominal values, not measurements of a part. FOOTPRINT AND SKIRT: 127.76 x 85.48mm with 2.00mm corner radii, straight walls from z = 0 to 6.00mm, which is skirt_height. Above that the body is inset 1.60mm on every side (124.56 x 82.28mm, sharp corners) up to the top face at 8.00mm, the plate's height; skirt_thickness is therefore not a separate flange width and is left out. The body has ONE chamfered corner, 4.50 x 4.50mm at 45 degrees, recorded in upper_outline at the top-left (A1) corner; the skirt's outline is the plain rounded rectangle and is not recorded. ORIENTATION IS ASSUMED: the model has no A1 marking. This file takes the model's +y as the plate's top edge (row A) and -x as its left edge, which puts the chamfer at A1. The pockets are symmetric, so only the chamfer's corner and the column numbering depend on that assumption. POCKETS: rectangular, 25.80mm along the plate's length x 75.80mm along its width (the 25.50 x 75.50mm Xona X4 chip plus 0.30mm clearance each way), centred at y = 42.74mm and x = 23.38, 50.38, 77.38 and 104.38mm, 27.0mm apart. Each pocket has a 1.60mm radius relief notch in each end wall near each corner (centred 11.30mm either side of the pocket centre), not recordable in this schema. The pocket floor, the ledge the chip rests on, is at z = 1.50mm, so a pocket is 6.50mm deep from the top face. Through the floor, each pocket has four imaging windows, 17.50 x 9.00mm with 1.00mm corner radii, centred on the pocket's x and at 6.00 and 18.00mm either side of its centre in y - exactly under the four culture units A-D of a centred chip (Xona's 12.00mm unit pitch). Each end of the plate has a finger recess from the outer pocket's end wall outward, 28.00mm along the plate's width with 3.00mm corner radii, floor at z = 1.50mm, also not recordable here. NOT IN THE MODEL, and so not recorded: material, colour, surface finish, tolerances. 'depth' is the pocket depth; the pocket has no closed bottom to image through, so bottom_elevation, bottom_thickness and floor_height are left out. 'diameter' repeats the pocket's shorter side, as for any rectangular well."
+}
