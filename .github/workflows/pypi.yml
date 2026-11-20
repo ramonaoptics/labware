@@ -16,7 +16,10 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    concurrency: auto-tag
+    # Only pushes share the release group; one shared by every pull request
+    # cancels all but the last of them when several are updated at once.
+    concurrency:
+      group: ${{ github.event_name == 'pull_request' && format('auto-tag-{0}', github.ref) || 'auto-tag' }}
     outputs:
       tag: ${{ steps.release.outputs.tag }}
     steps:
