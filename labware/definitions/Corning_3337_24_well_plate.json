@@ -1,0 +1,100 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ramonaoptics/labware/main/labware/labware.v1.schema.json",
+    "name": "Corning Costar CellBIND 3337 24 well",
+    "number_of_wells": 24,
+    "manufacturer": "Corning Life Sciences (Corning Incorporated)",
+    "author": "Ramona Optics",
+    "last_updated": "2026-11-13T00:00:00Z",
+    "part_number": "3337",
+    "web_reference": "https://ecatalog.corning.com/life-sciences/b2c/US/en/Microplates/Assay-Microplates/96-Well-Microplates/Costar%C2%AE-Multiple-Well-Cell-Culture-Plates/p/3337",
+    "drawing_reference": "https://www.corning.com/catalog/cls/documents/drawings/DWG01261.PDF",
+    "applications": [
+        "cell culture"
+    ],
+    "outer_plate_dimensions": {
+        "length": 0.12776,
+        "width": 0.08547,
+        "height": 0.02027,
+        "height_with_lid": 0.02263,
+        "skirt_height": 0.01374,
+        "upper_outline": [
+            [
+                0.00189,
+                0.00184
+            ],
+            [
+                0.11392,
+                0.00184
+            ],
+            [
+                0.11851,
+                0.00275
+            ],
+            [
+                0.12241,
+                0.00535
+            ],
+            [
+                0.12501,
+                0.00925
+            ],
+            [
+                0.12592,
+                0.01384
+            ],
+            [
+                0.12592,
+                0.07163
+            ],
+            [
+                0.12501,
+                0.07622
+            ],
+            [
+                0.12241,
+                0.08012
+            ],
+            [
+                0.11851,
+                0.08272
+            ],
+            [
+                0.11392,
+                0.08363
+            ],
+            [
+                0.00189,
+                0.08363
+            ]
+        ]
+    },
+    "well_dimensions": {
+        "pitch": 0.019304,
+        "rows": 4,
+        "columns": 6,
+        "shape": "circle",
+        "diameter": 0.01562,
+        "diameter_top": 0.01626,
+        "depth": 0.0174,
+        "bottom_shape": "flat",
+        "working_volume_min": 0.00038,
+        "working_volume_max": 0.00057,
+        "bottom_color": "clear",
+        "bottom_material": "polystyrene",
+        "bottom_thickness": 0.00127,
+        "bottom_elevation": 0.00254,
+        "floor_height": 0.00381,
+        "wall_material": "polystyrene",
+        "wall_color": "clear",
+        "surface_treatments": [
+            "CellBIND"
+        ]
+    },
+    "alignment_reference": {
+        "origin_reference": "A1 well center",
+        "offset_from_left_edge": 0.01748,
+        "offset_from_top_edge": 0.01377,
+        "z_reference": "top surface of plate"
+    },
+    "notes": "Corning Costar 24 well cell culture multiple well plate with CellBIND surface, cat# 3337: clear virgin polystyrene (meets USP Class VI), flat-bottom round wells, sterile, with lid. SAME MOULD: Corning's family sheet 'Microplate Dimensions for Corning Cell Culture Microplates' (dated 1/16/2019, footer 'Corning Restricted', no longer on corning.com; read from the Internet Archive snapshot web.archive.org/web/20240119081431if_/https://www.corning.com/catalog/cls/documents/drawings/MD_Microplate_Dimension_Sheets_Multiple_Well.pdf) lists 3337, 3524, 3526, 3527 and 3473 on one row with one set of dimensions; 3524 and 3527 are the tissue-culture treated items and are registered as Corning_costar_24_well_plate.json and Corning_3527_24_well_plate.json, 3526 is non-treated and 3473 ultra-low attachment. The surface treatment changes no geometry here. CONTROLLING DOCUMENT: Corning customer drawing DWG01261 Rev B, '24 WELL PLATE AND COVER', drawn DNB 9/13/99, rev A released 12/3/99 per CO# 7657, rev B revised 6/22/18 per CC-08532, prod code 144. It carries no catalogue number; the family sheet row is what ties 3337 to it. It is vector with no text layer and was read from 100 and 600 dpi renders. Printed on it, in mm: plate length 127.76, width 85.47, height without cover 20.27 (section A-A), height with cover 22.63 (cover + base view); well centre-to-centre 19.304 'TYP.' in both axes (A1-A6 96.52, A1-D1 57.91); well top (opening) diameter 16.26 -> diameter_top; well depth 17.40; bottom thickness 1.27; underside of the well bottom 2.54 above the resting plane -> bottom_elevation; A1 centre 17.48 from the left edge and 13.77 from the top edge, dimensioned on the top view; grid 4 rows (A-D) x 6 columns (1-6), A1 top left. The grid is centred across the plate's width but sits 1.86 mm right of centre along its length (far margin 13.76 mm); the drawing's plan view shows the same, and the family sheet gives 17.46 / 13.78. The bottom diameter, 15.62 mm -> diameter, is not on the drawing: it is printed on the family sheet (16.26/15.62) and on the 3337 Product Description (0.615 in). floor_height 3.81 is derived, 2.54 + 1.27. The drawing's vertical numbers do not close: 17.40 + 1.27 + 2.54 = 21.21 against the 20.27 plate height, the same 0.94 mm gap as on Corning's 6 and 12 well sheets; each value is recorded as printed. Tolerances are 'nominal for reference only'. PRODUCT DESCRIPTION 3337 rev 9 (2 Feb 2026, certs-ecatalog.corning.com/life-sciences/product-descriptions/3337.pdf) agrees with the drawing: 5.030 x 3.365 in, well top 0.640 in, bottom 0.615 in, depth 0.685 in, height with lid 0.891 in; it gives 'working volume per well 2 mL'. WORKING VOLUME: the product page gives 'Recommended Medium Well Volume 0.38 - 0.57 mL', which is recorded as working_volume_min / working_volume_max because the field is the manufacturer's recommended range; the Product Description's single 2 mL is not used. The product page also gives well volume 3.4 mL (family sheet 3.47 mL) and growth area 1.9 cm^2 (family sheet 1.93 cm^2; d = 15.7 mm, the bottom). SKIRT: skirt_height 13.74 mm is printed on the family sheet ('Flange or skirt height'), not on DWG01261; the drawing's side view draws the step lower, about 11.1 mm, but that view's vertical scale does not close against its printed 22.63 mm, so nothing is scaled off it. The skirt outline is the drawing's outer line, a rectangle with corners of about 3 mm radius at all four, so it is left to the standard; skirt thickness is not drawn. UPPER OUTLINE, scaled off DWG01261 Rev B, assumed to scale: the top view draws a line inside the footprint, the plate body above the skirt, inset 1.89 mm on the left and 1.84 mm on the top, right and bottom (the side view gives 1.78 mm at the left end and 1.70 mm at the right, agreeing within 0.15 mm), with square corners at the A1 (left) end and large rounded corners at the right (column 6) end. A third line a further 1.2 mm in follows it and is taken to be the inner face of the body's top rim. Measured on a 600 dpi render, line centres, calibrated on the printed length 127.76 and width 85.47 (17.971 and 17.983 px/mm) and checked against the printed A1-D1 distance 57.91 (0.45 % apart) and the 19.304 pitch (0.3 %). The right-hand corners fit an arc of radius 12.0 mm tangent to the body's edges, traced at ten points per corner, uncertainty about +/-0.5 mm on the radius and +/-0.15 mm on the insets (drawn line about 0.8 mm wide at this scale); the left corners are recorded as square, their radius (about 1 mm) being at the line width. A small rib drawn on the body near the A6 corner is not recorded. Units in meters."
+}
