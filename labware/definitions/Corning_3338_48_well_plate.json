@@ -1,0 +1,55 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ramonaoptics/labware/main/labware/labware.v1.schema.json",
+    "name": "Corning Costar CellBIND 3338 48 well",
+    "number_of_wells": 48,
+    "manufacturer": "Corning Life Sciences",
+    "author": "Ramona Optics",
+    "last_updated": "2026-11-13T00:00:00Z",
+    "part_number": "3338",
+    "web_reference": "https://ecatalog.corning.com/life-sciences/b2c/US/en/p/3338",
+    "drawing_reference": "https://www.scientificlabs.co.uk/handlers/libraryFiles.ashx?filename=Technical_Data_Sheets_3_3335_O.pdf",
+    "applications": [
+        "cell culture"
+    ],
+
+    "outer_plate_dimensions": {
+        "length": 0.12776,
+        "width": 0.08547,
+        "height": 0.02002,
+        "height_with_lid": 0.02235,
+        "skirt_height": 0.01346
+    },
+
+    "well_dimensions": {
+        "pitch": 0.01308,
+        "rows": 6,
+        "columns": 8,
+        "shape": "circle",
+        "top_shape": "circle",
+        "diameter": 0.01064,
+        "diameter_top": 0.0111,
+        "depth": 0.0174,
+        "working_volume_min": 0.00019,
+        "working_volume_max": 0.000285,
+        "bottom_shape": "flat",
+        "bottom_color": "clear",
+        "bottom_material": "polystyrene",
+        "bottom_thickness": 0.00127,
+        "bottom_elevation": 0.0016,
+        "floor_height": 0.00287,
+        "wall_material": "polystyrene",
+        "wall_color": "clear",
+        "surface_treatments": [
+            "CellBIND"
+        ]
+    },
+
+    "alignment_reference": {
+        "origin_reference": "A1 well center",
+        "offset_from_left_edge": 0.01816,
+        "offset_from_top_edge": 0.01008,
+        "z_reference": "top surface of plate"
+    },
+
+    "notes": "Corning Costar 3338: 48 well clear cell culture plate with Corning CellBIND surface, flat bottom, with lid, sterile, 5/pk, 50/cs. SAME MOULD AS 3548 (assumed, not stated by Corning): Corning publishes no customer drawing for its Costar 48 well plate (DWG00673, DWG00674 and DWG01261 cover the 6, 12 and 24 well plates; the 3548 definition records a sweep of DWG00650-DWG00760 and DWG01240-DWG01300 that found none; the 48 well customer TDS LSR00004 Rev 5 on corning.com is the Falcon 353078/353230/351178 plate, a different mould, and is not used). Corning's family sheet 'Microplate Dimensions for Corning Cell Culture Microplates', 1/16/2019 (drawing_reference, distributor-hosted copy at Scientific Laboratory Supplies; archived Corning copy at https://web.archive.org/web/20240119081431if_/https://www.corning.com/catalog/cls/documents/drawings/MD_Microplate_Dimension_Sheets_Multiple_Well.pdf; marked 'Corning Restricted'), names 3548 alone on its 48 well row, NOT 3338. 3338 is taken to be the 3548 mould because the per-catalogue Product Description for 3338, Rev 9, 2026-02-02 (https://certs-ecatalog.corning.com/life-sciences/product-descriptions/3338.pdf) prints exactly the values of the 3548 Product Description on every dimension (5.030 x 3.365 in, well top 0.437 in, well bottom 0.419 in, depth 0.685 in, height with lid 0.880 in, +/-0.050 in), and the 3338 product page gives the same well volume (1.6 mL), growth area (0.95 cm2) and recommended medium volume (0.19-0.285 mL) as 3548's; the 24 well CellBIND item 3337 is listed by the same sheet on the same row as the TC-treated 24 well plates. Every number below except the treatment is the 3548 definition's. FROM THE 3338 PRODUCT DESCRIPTION: plate 127.76 x 85.47 mm (the sheet gives 127.89 x 85.60); height with lid 22.35 mm; well 11.10 mm across at the opening (diameter_top, 0.437 in) and 10.64 mm at the floor (diameter, 0.419 in), 17.40 mm deep (0.685 in, the sheet agrees), round, flat, opening centred over the floor. The sheet gives 11.56 / 11.05 mm, 0.46 mm larger at both ends and inside the PD tolerance; the current per-catalogue PD is followed. The growth area of 0.95 cm2 gives 11.0 mm, nearer the sheet's floor than the PD's; a calipered plate would settle it. The PD's 'Working Volume per well 1 mL' is recorded here only; working_volume_min/max are the product page's recommended medium volume 0.19-0.285 mL. FROM THE FAMILY SHEET'S 3548 ROW ONLY (a current drawing or a measured 3338 plate should confirm them): plate height without lid 20.02 mm; skirt height 13.46 mm ('Flange or skirt height'); pitch 13.08 mm in both axes; A1 centre 18.16 mm from the left edge ('A1 Column Offset') and 10.08 mm from the top edge ('A1 Row Offset'; Corning's row offset runs from the top, its column offset from the left). With the PD footprint the far margins are 18.04 mm and 9.99 mm, so the grid sits 0.06 mm right and 0.05 mm low of centre. Floor: 1.27 mm of clear polystyrene ('Well Bottom Thickness'); the sheet's 'Well Bottom Elevation' 2.87 mm is read, as on Corning's 24 well drawing DWG01261, from the resting plane to the inside of the floor, so it is floor_height, and the underside is 2.87 - 1.27 = 1.60 mm up (bottom_elevation, derived). Depth plus floor height is 20.27 mm, 0.25 mm more than the 20.02 mm plate; the sheet's values are kept as printed. Well volume 1.62 mL (sheet). Skirt outline, upper outline and skirt thickness are not published and no drawing exists to scale them from, so they are left to the standard. MATERIAL: virgin polystyrene meeting USP Class VI and USP <87> (PD), clear plate (product page). SURFACE: Corning CellBIND, a microwave plasma treatment of the polystyrene; it changes no geometry. Siblings with this geometry: 3548 (TC-treated, Corning_3548_48_well_plate.json). Corning's Falcon 48 well plate 353078 is a different mould and must not use this file. Units in meters."
+}
