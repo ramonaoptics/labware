@@ -1,0 +1,54 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ramonaoptics/labware/main/labware/labware.v1.schema.json",
+    "name": "S-Bio PrimeSurface MS-9384U 384 well",
+    "number_of_wells": 384,
+    "manufacturer": "Sumitomo Bakelite (S-Bio)",
+    "author": "Ramona Optics",
+    "last_updated": "2026-10-30T00:00:00Z",
+    "part_number": "MS-9384U",
+    "web_reference": "https://s-bio.com/product/primesurface/",
+    "drawing_reference": "https://s-bio.com/wp-content/uploads/S-BIO_PrimeSurface_ULA-Dimensions.pdf",
+    "applications": [
+        "3D culture",
+        "spheroids",
+        "high-throughput screening",
+        "imaging"
+    ],
+
+    "outer_plate_dimensions": {
+        "length": 0.12776,
+        "width": 0.08548,
+        "height": 0.0144,
+        "skirt_height": 0.0025
+    },
+
+    "well_dimensions": {
+        "pitch": 0.0045,
+        "rows": 16,
+        "columns": 24,
+        "shape": "circle",
+        "diameter": 0.00292,
+        "top_shape": "square",
+        "diameter_top": 0.0033,
+        "depth": 0.012,
+        "bottom_shape": "u",
+        "working_volume_max": 0.0001,
+        "bottom_color": "clear",
+        "bottom_thickness": 0.0008,
+        "bottom_elevation": 0.0016,
+        "floor_height": 0.0024,
+        "wall_color": "clear",
+        "surface_treatments": [
+            "ultra-low attachment"
+        ]
+    },
+
+    "alignment_reference": {
+        "origin_reference": "A1 well center",
+        "offset_from_left_edge": 0.01213,
+        "offset_from_top_edge": 0.00899,
+        "z_reference": "top surface of plate"
+    },
+
+    "notes": "S-Bio (Sumitomo Bakelite) PrimeSurface 384U plate, 384 wells, clear, U (round) bottom, ultra-low attachment coating (an ultra-hydrophilic polymer covalently bound to the plastic), radiation sterilized, individually packed, 20 plates per case. Units in meters. PRIMARY SOURCE: S-BIO's 'PrimeSurface dimensions to support instrument setup' table (drawing_reference; PDF created 2017-08-22, modified 2018-04-30, no revision number), row '384 well, MS-9384UZ'. S-Bio publishes no dimensioned drawing for this plate; that table is the controlling document. PART NUMBER: the request named MS-9384U; FUJIFILM Wako lists MS-9384U (Europe/Asia, 'PrimeSurface 384U Plate') and MS-9384UZ (US, 'PrimeSurface 384U PLATE', U bottom, 0.1 mL) as the same product, and S-Bio's own documents list only MS-9384UZ. This file takes them to be one mould and uses the MS-9384UZ row for both. SIBLING: MS-9384WZ (PrimeSurface 384W, white) is listed beside it with the same maximum volume and round bottom; it is not registered here, and its dimensions are not in the table. FROM THE TABLE (mm on the sheet): footprint 127.76 x 85.48, plate height 14.4, well depth 12, pitch 4.5, A1 row offset 8.99 (offset_from_top_edge) and A1 column offset 12.13 (offset_from_left_edge), which are the ANSI/SLAS 384-well positions and close symmetrically against the footprint; flange/skirt height 2.5; stack height 13; well volume 100 uL (working_volume_max; the PrimeSurface brochure gives a maximum well volume of 106 uL). WELL DIAMETER top/bottom 3.3/2.92: diameter is the bottom value, 2.92 mm, the round U floor; diameter_top is 3.3 mm. TOP SHAPE IS A JUDGEMENT CALL: the table calls it a diameter, but S-Bio's product photo (s-bio.com/wp-content/uploads/Primesurface-plates-scaled.jpg) shows the 384-well PrimeSurface plates with square, round-cornered openings, and the volume agrees with a square: a 3.3 mm square tapering to a 2.92 mm circle over 12 mm holds about 106 uL, the brochure's maximum, where a 3.3 mm circle would hold about 91 uL. So top_shape is square with 3.3 mm as its side. bottom_radius is not published and is left out (the bottom is taken as a hemisphere). WELL BOTTOM: the table gives 'Well Bottom Elevation' 2.4 mm, 'Well Bottom Thickness' 0.8 mm and 'Distance to Bottom of Plate' 1.6 mm; 2.4 = 1.6 + 0.8 and 14.4 - 12 = 2.4, so S-Bio's 'elevation' is the top of the floor (floor_height 2.4 mm) and 'distance to bottom of plate' the underside (bottom_elevation 1.6 mm). The 0.8 mm bottom thickness is the working-distance number. NOT PUBLISHED: plastic (no S-Bio document read names it, so bottom_material and wall_material are left out), lid and height with lid, wall thickness, skirt outline and flange width, bottom radius, minimum working volume."
+}
