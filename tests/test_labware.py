@@ -722,6 +722,7 @@ def test_physical_constraints_assumptions() -> None:
         ('Corning_3599_96_well_plate.json', 'Corning 3599 96 well', 96, 8, 12),
         ('Corning_3474_96_well_plate.json', 'Corning 3474 96 well ULA', 96, 8, 12),
         ('Corning_3610_96_well_plate.json', 'Corning 3610 96 well', 96, 8, 12),
+        ('Corning_7007_96_well_plate.json', 'Corning Costar 7007 96 well', 96, 8, 12),
         ('Corning_3601_96_well_plate.json', 'Corning 3601 96 well', 96, 8, 12),
         ('Corning_3903_96_well_plate.json', 'Corning 3903 96 well', 96, 8, 12),
         (
